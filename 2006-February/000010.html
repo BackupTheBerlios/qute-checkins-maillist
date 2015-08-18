@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r39 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r39%20-%20trunk&In-Reply-To=%3C200602020335.k123ZApA014711%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000009.html">
+   <LINK REL="Next"  HREF="000011.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r39 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r39%20-%20trunk&In-Reply-To=%3C200602020335.k123ZApA014711%40sheep.berlios.de%3E"
+       TITLE="[qute] r39 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Thu Feb  2 04:35:10 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000009.html">[qute] r38 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000011.html">[qute] r40 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-02-02 04:35:01 +0100 (Thu, 02 Feb 2006)
+New Revision: 39
+
+Modified:
+   trunk/bugz.rb
+Log:
+Make BugData have a Hash instead of inheriting from Hash.  This is purely
+because it's easier to debug this way (pp gives more output) and could be
+changed back whenever we want.
+
+Buff up BugDataParser to handle description and comments.
+
+Make bug reading a little less raw, though it's still rudimentary.
+
+
+
+Modified: trunk/bugz.rb
+===================================================================
+--- trunk/bugz.rb	2006-02-02 03:30:04 UTC (rev 38)
++++ trunk/bugz.rb	2006-02-02 03:35:01 UTC (rev 39)
+@@ -79,8 +79,20 @@
+   end
+ end
+ 
+-class BugData &lt; Hash
++class BugData
+   attr_accessor :sourceurl, :cookie
++  attr_accessor :description, :comments
++  attr_accessor :data
++
++  def initialize
++    super
++    @comments = []
++    @data = {}
++  end
++
++  def method_missing(method, *args, &amp;block)
++    @data.send(method, *args, &amp;block)
++  end
+ end
+ 
+ class BugDataList &lt; Array
+@@ -101,6 +113,7 @@
+   end
+ end
+ 
++# Parser for the output of show_bug.cgi?format=multiple
+ class BugDataParser &lt; Qute::SGMLParser
+   include Qute::DataObjGen
+ 
+@@ -108,6 +121,7 @@
+     super
+     @bugdatalist = @dataobj = BugDataList.new
+     @bugdata = BugData.new
++    @comment = nil
+   end
+ 
+   def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
+@@ -117,8 +131,58 @@
+     # check for colon-delimited data
+     @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
+   end
++
++  def start_span(token)
++    if token['class'] == 'bz_comment'
++      @comment = BugComment.new
++      startcapture
++    end
++  end
++
++  def end_span(token)
++    return unless @comment      # class != bz_comment
++    return if @comment.author   # must be a span tag inside comment text
++    return unless endcapture =~ /
++      (\d+) \s+                 # bug number
++      From \s+ (.*?) \s+        # author
++      (\d\d\d\d-\d{1,2}-\d{1,2} # date, time, timezone
++      \s+ \d{1,2}:\d\d\s+\S+)
++      /x
++    @comment.num, @comment.author, @comment.date = $1, $2, $3
++  end
++
++  def a_tag(token)
++    return unless @comment              # not capturing a comment
++    return if @comment.author_email     # already have the email
++    return unless token['href'] =~ /^mailto:(.+)/
++    @comment.author_email = $1
++  end
++
++  def start_pre(token)
++    startcapture(true)
++  end
++
++  def end_pre(token)
++    if @comment
++      @comment.text = endcapture
++      @bugdata.comments &lt;&lt; @comment
++      @comment = nil
++    else
++      desc = endcapture
++      @bugdata.description ||= desc
++    end
++  end
+ end
+ 
++class BugComment
++  attr_accessor :num, :author, :author_email, :date, :text
++
++  def to_s
++    &quot;------- Comment %s From %s %s -------\n\n%s&quot; % 
++    [ @num, @author, @date, @text ]
++  end
++end
++
+ class BugzCommands
+   def directory( cmdobj )
+     cmdobj.syngrid = BugGrid.new( cmdobj )
+@@ -147,14 +211,31 @@
+     else
+       ids = cmdobj.ids
+     end
+-    url = '<A HREF="http://bugs.gentoo.org/long_list.cgi?buglist=">http://bugs.gentoo.org/long_list.cgi?buglist=</A>' + ids.join(',')
++    url = '<A HREF="http://bugs.gentoo.org/show_bug.cgi?format=multiple&amp;id=">http://bugs.gentoo.org/show_bug.cgi?format=multiple&amp;id=</A>' + ids.join('&amp;id=')
+     bugs = Qute::Form.new( url ).post( BugDataParser.new )
+ 
+     QuteCmd.pkgoutput( cmdobj ) do
++      first = true
+       bugs.each do |bugdata|
+-        longkey = 0
+-        # really need something better than pp ;-)
+-        pp bugdata
++        if not first
++          puts
++          puts &quot;========================================================&quot;
++          puts
++        else
++          first = false
++        end
++        bugdata.each do |k,v|
++          puts &quot;%14s : %s&quot; % [ k, v ]
++        end
++        puts
++        puts &quot;------- Description -------&quot;
++        puts
++        puts bugdata.description
++        puts
++        bugdata.comments.each do |bc|
++          puts bc
++          puts
++        end
+       end
+       puts
+     end
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000009.html">[qute] r38 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000011.html">[qute] r40 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#10">[ date ]</a>
+              <a href="thread.html#10">[ thread ]</a>
+              <a href="subject.html#10">[ subject ]</a>
+              <a href="author.html#10">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r41 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r41%20-%20trunk&In-Reply-To=%3C200602040126.k141QmFI020607%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000011.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r41 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r41%20-%20trunk&In-Reply-To=%3C200602040126.k141QmFI020607%40sheep.berlios.de%3E"
+       TITLE="[qute] r41 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Sat Feb  4 02:26:48 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000011.html">[qute] r40 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[qute] r42 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-02-04 02:26:25 +0100 (Sat, 04 Feb 2006)
+New Revision: 41
+
+Modified:
+   trunk/qutecmd.rb
+Log:
+Add QuteCmd::hr and buff up QuteCmd::gettermsize to use `stty size` when ioctl
+doesn't work
+
+
+Modified: trunk/qutecmd.rb
+===================================================================
+--- trunk/qutecmd.rb	2006-02-04 01:24:26 UTC (rev 40)
++++ trunk/qutecmd.rb	2006-02-04 01:26:25 UTC (rev 41)
+@@ -63,17 +63,24 @@
+         $TIOCGWINSZ = 0x40000000 | ((8 &amp; 0x1fff) &lt;&lt; 16) | (116 &lt;&lt; 8) | 104
+       when /^Linux alpha/
+         $TIOCGWINSZ = 0x40087468
+-      when /^Linux/ # hopefully x86
++      when /^Linux (?:i.|x)86/  # x86 or x86_64
+         $TIOCGWINSZ = 0x5413
+       else
+         $TIOCGWINSZ = nil # don't know this OS
+     end
+ 
+     # Allocate space for the return data prior to calling ioctl.
+-    str = [ 0, 0, 0, 0 ].pack('S4')
+-    if $TIOCGWINSZ &amp;&amp; $stdout.ioctl($TIOCGWINSZ, str) &gt;= 0 then
+-      rows, cols, xpixels, ypixels = str.unpack('S4')
+-      #debug &quot;Calculated terminal size: #{rows}, #{cols}&quot;
++    if $TIOCGWINSZ 
++      str = [ 0, 0, 0, 0 ].pack('S4')
++      if $stdout.ioctl($TIOCGWINSZ, str) &gt;= 0 then
++        rows, cols, xpixels, ypixels = str.unpack('S4')
++        #debug &quot;Calculated terminal size: #{rows}, #{cols}&quot;
++      end
++    else
++      str = `stty size`
++      if $? == 0 and str =~ /(\d+) (\d+)/
++        rows, cols = $1.to_i, $2.to_i
++      end
+     end
+   end
+ 
+@@ -82,6 +89,11 @@
+   return $termsize
+ end
+ 
++def QuteCmd::hr(s = '-', label = nil)
++  label = label ? &quot; #{label} &quot; : ''
++  label.center(QuteCmd::gettermsize[1]-1, s)
++end
++
+ # Mixin to String to wrap text that looks wrappable
+ module String
+   def rewrap(cols = nil)
+@@ -233,6 +245,8 @@
+   end
+ end
+ 
++require 'qute'  # otherwise we can't add to the Qute:: namespace
++
+ def Qute::getline(prompt)
+   if defined? Readline
+     # We have the Readline module.  Use it.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000011.html">[qute] r40 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[qute] r42 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#12">[ date ]</a>
+              <a href="thread.html#12">[ thread ]</a>
+              <a href="subject.html#12">[ subject ]</a>
+              <a href="author.html#12">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

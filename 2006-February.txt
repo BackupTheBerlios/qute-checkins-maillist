@@ -1,0 +1,1002 @@
+From agriffis at berlios.de  Wed Feb  1 00:54:40 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Wed, 1 Feb 2006 00:54:40 +0100
+Subject: [qute] r35 - trunk
+Message-ID: <200601312354.k0VNseU2028716@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-01 00:54:38 +0100 (Wed, 01 Feb 2006)
+New Revision: 35
+
+Modified:
+   trunk/qutecmd.rb
+Log:
+Change OptsFormFields#fieldalias to an instance variable with a private
+accessor, purely so it's not instantiating a new hash every time it's called
+
+
+Modified: trunk/qutecmd.rb
+===================================================================
+--- trunk/qutecmd.rb	2006-01-31 17:36:24 UTC (rev 34)
++++ trunk/qutecmd.rb	2006-01-31 23:54:38 UTC (rev 35)
+@@ -709,14 +709,14 @@
+ # including the Not, Match (aka exact), and Case checkboxes, as well as simple
+ # aliases.
+ class OptsFormFields
++  attr_accessor :fieldalias
++  private :fieldalias
++
+   def initialize(queryform)
++    @fieldalias = {}
+     @queryform = queryform
+   end
+ 
+-  def fieldalias
+-    { }
+-  end
+-
+   def validopts(cmdobj)
+     opts = @queryform.map { |field| 
+       if field.choices.length > 0 and not field.multiple
+@@ -785,7 +785,7 @@
+   # usually the first argument, such as "read", "query", "update", etc.
+   attr_reader :command
+   
+-  # hash of option/argument pairs from the cmdline
++  # hash of option/argument pairs from the cmdline, see OptsSettings
+   attr_reader :settings
+ 
+   # default arguments for when none are given, if wanted should be set by the
+@@ -883,6 +883,8 @@
+         when ArgNone;     param = nil
+         when ArgRequired; @args[i+=1]
+         when ArgOptional; @args[i+1] =~ %r(^[/-]) ? nil : @args[i+=1]
++          # XXX What is this else really catching?  It appears that ArgOptional is
++          # implemented above...
+         else
+           p optstr, optobj, argreq
+           raise %Q(Optional parameters are not yet implemented)
+
+
+
+From agriffis at berlios.de  Wed Feb  1 01:00:35 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Wed, 1 Feb 2006 01:00:35 +0100
+Subject: [qute] r36 - trunk
+Message-ID: <200602010000.k1100ZTw029379@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-01 01:00:30 +0100 (Wed, 01 Feb 2006)
+New Revision: 36
+
+Modified:
+   trunk/qute.rb
+Log:
+HTTPResponse#header is deprecated, switch to HTTPResponse#get_fields
+
+In Qute::getnonambiguous, use item.to_s.downcase because item might be a Fixnum
+
+
+Modified: trunk/qute.rb
+===================================================================
+--- trunk/qute.rb	2006-01-31 23:54:38 UTC (rev 35)
++++ trunk/qute.rb	2006-02-01 00:00:30 UTC (rev 36)
+@@ -499,8 +499,9 @@
+ #     puts resp.body
+ #     puts "--------------------\nEnd Response\n--------------------\n"
+ 
+-      if resp.header['location']
+-        @targeturl = @targeturl.merge( resp.header['location'] )
++      location = resp.get_fields('location')
++      if location
++        @targeturl = @targeturl.merge( location[0] )
+       else
+         break
+       end
+@@ -1029,7 +1030,7 @@
+   cmplist = if ptn =~ /[A-Z]/
+     cmplist = olist   # case sensitive
+   else
+-    cmplist = olist.map { |item| item.downcase }  # case insensitive
++    cmplist = olist.map { |item| item.to_s.downcase }  # case insensitive
+   end
+ 
+   # First stage -- exact match
+
+
+
+From agriffis at berlios.de  Wed Feb  1 01:44:31 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Wed, 1 Feb 2006 01:44:31 +0100
+Subject: [qute] r37 - trunk
+Message-ID: <200602010044.k110iVCR010250@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-01 01:44:26 +0100 (Wed, 01 Feb 2006)
+New Revision: 37
+
+Modified:
+   trunk/bugz.rb
+Log:
+Add BugList, BugDataList, BugDataParser and OptsBugId
+
+BugDataParser doesn't deal with parsing bug comments yet.  The current
+implementation of BugzCommands#read is only a skeleton that generates debugging
+output.
+
+
+
+Modified: trunk/bugz.rb
+===================================================================
+--- trunk/bugz.rb	2006-02-01 00:00:30 UTC (rev 36)
++++ trunk/bugz.rb	2006-02-01 00:44:26 UTC (rev 37)
+@@ -6,6 +6,7 @@
+ 
+ require 'qute'
+ require 'qutecmd'
++require 'pp'
+ 
+ $ZERO = 'bugz'
+ $QUTEDEBUG = true
+@@ -48,6 +49,8 @@
+ end
+ 
+ class BugList
++  include Enumerable
++
+   def initialize( queryform )
+     @bugtable = queryform.post( Qute::TableParser.new )
+   end
+@@ -76,19 +79,46 @@
+   end
+ end
+ 
+-class BugText
+-  def initialize( queryform )
+-    table = Qute::TableParser.new
+-    form  = Qute::FormParser.new
+-    @bugtext = queryform.post( MultiParser.new( table, form ) )
++class BugData < Hash
++  attr_accessor :sourceurl, :cookie
++end
+ 
+-    p form.dataobj
+-    p table.dataobj
++class BugDataList < Array
++  attr_reader :sourceurl, :cookie
++
++  def sourceurl=(url)
++    @sourceurl = url
++    self.each do |form|
++      form.sourceurl = url
++    end
+   end
+ 
+-  # XXX this definitely isn't complete
++  def cookie=(c)
++    @cookie = c
++    self.each do |form|
++      form.cookie = c
++    end
++  end
+ end
+ 
++class BugDataParser < Qute::SGMLParser
++  include Qute::DataObjGen
++
++  def initialize
++    super
++    @bugdatalist = @dataobj = BugDataList.new
++    @bugdata = BugData.new
++  end
++
++  def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
++
++  def start_td(token) startcapture; end
++  def end_td(token)
++    # check for colon-delimited data
++    @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
++  end
++end
++
+ class BugzCommands
+   def directory( cmdobj )
+     cmdobj.syngrid = BugGrid.new( cmdobj )
+@@ -110,10 +140,24 @@
+   end
+ 
+   def read( cmdobj )
+-    # XXX need a new grid probably
+     cmdobj.parseargs!
+-    bugtext = BugText.new( cmdobj.queryform )
+-    # XXX need to finish BugText then can do something with it here
++    if cmdobj.queryform
++      buglist = BugList.new( cmdobj.queryform )
++      ids = buglist.map { |i| i['ID'].strip }
++    else
++      ids = cmdobj.ids
++    end
++    url = 'http://bugs.gentoo.org/long_list.cgi?buglist=' + ids.join(',')
++    bugs = Qute::Form.new( url ).post( BugDataParser.new )
++
++    QuteCmd.pkgoutput( cmdobj ) do
++      bugs.each do |bugdata|
++        longkey = 0
++        # really need something better than pp ;-)
++        pp bugdata
++      end
++      puts
++    end
+   end
+ 
+   def version( cmdobj )
+@@ -121,16 +165,49 @@
+   end
+ end
+ 
++# Simple options class to use when avoiding query.cgi, only handles bug_id
++class OptsBugId
++  def validopts(cmdobj)
++    return [ 'bug_id', QuteCmd::ArgRequired ]
++  end
++
++  def applyopts(cmdobj)
++    cmdobj.each(self) do |opt, arg, flags|
++      case opt
++      when 'bug_id'
++        cmdobj.ids << arg
++      end
++    end
++  end
++end
++
++# BugzCmdObj subclasses QuteCmdObj to handle specifics of bugzilla
+ class BugzCmdObj < QuteCmd::QuteCmdObj
++  # when query.cgi is required, holds the parsed form for use in OptsFormFields
+   attr_reader :queryform
+ 
++  # when query.cgi is bypassed, contains the list of bug ids, appended to by
++  # OptsBugId#applyopts
++  attr_accessor :ids
++
++  def initialize(*args)
++    @ids = []
++    super(*args)
++  end
++
+   def numberOptStr
+     'bug_id'
+   end
+ 
+   def parseargs!
+-    @queryform = getmainform
+-    @optobjlist << QuteCmd::OptsFormFields.new( @queryform )
++    # If this general heuristic isn't good enough, fetching the query form could
++    # be moved to the individual methods of BugzCommands
++    if @args.detect { |a| a=~/\D/ }
++      @queryform = getmainform
++      @optobjlist << QuteCmd::OptsFormFields.new( @queryform )
++    else
++      @optobjlist << OptsBugId.new
++    end
+     super
+   end
+ end
+
+
+
+From agriffis at berlios.de  Thu Feb  2 04:30:22 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Thu, 2 Feb 2006 04:30:22 +0100
+Subject: [qute] r38 - trunk
+Message-ID: <200602020330.k123UMlw013380@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-02 04:30:04 +0100 (Thu, 02 Feb 2006)
+New Revision: 38
+
+Modified:
+   trunk/qute.rb
+Log:
+When matching entities, enforce the trailing semicolon so that entities can't be
+split between parser invocations by Net::HTTP#get or post.  This bug was
+resulting in spurious &gt; appearing in the output because &g would be at the
+end of one parsed block and t; would be at the start of the next.
+
+Add default no-op SGMLParser#do_token so that method_missing isn't called
+looking for it.
+
+Treat entities as text when capturing.
+
+Explicitly unescape &nbsp; since CGI.unescapeHTML doesn't handle it.
+
+
+
+Modified: trunk/qute.rb
+===================================================================
+--- trunk/qute.rb	2006-02-01 00:44:26 UTC (rev 37)
++++ trunk/qute.rb	2006-02-02 03:30:04 UTC (rev 38)
+@@ -35,6 +35,8 @@
+ require 'uri'
+ require 'tempfile'
+ 
++$KCODE = 'u'    # instruct CGI to convert from HTML Unicode to internal UTF-8
++
+ module Qute
+ VERSIONMSG = "qute version #{%Q$Rev$.gsub(/(^.*: | $)/, '')}"
+ 
+@@ -49,11 +51,31 @@
+   OPTVALRE = %r{ (?:=\s*"([^"]*)" | =\s*'([^']*)' | =\s*([^\s>]*)) }x
+   OPTSRE = %r{ (?:([^\s>=]+) #{OPTVALRE.source}? | #{OPTVALRE.source}) }x
+ 
++  # MatchData = [
++  #     0       complete match,
++  #     1       text
++  #     2       broken text
++  #     3       entity
++  #     4       comment
++  #     5       close tag
++  #     6       declaration tag
++  #     7       (open) tag
++  #         8   leading question mark
++  #         9   tag name
++  #        10   attribute name
++  #        11   attribute value (double-quoted)
++  #        12   attribute value (single-quoted)
++  #        13   attribute value (unquoted)
++  #        14   bogus attribute value (double-quoted)
++  #        15   bogus attribute value (single-quoted)
++  #        16   bogus attribute value (unquoted)
++  #        17   trailing question mark or slash
++  # ]
+   SGMLRE = %r{
+     (\A[^&<]+) |                                # text
+    # this next line breaks ruby on Tru64:
+     (\A<\W*[^<>=]*(?=<)) |                      # broken text
+-    (\A&\#?\w*(?=\W);?) |                       # entity
++    (\A&\#?\w+;) |                              # entity
+     (\A<!--(?:.|\s)*?-->) |                     # comment
+     (\A</[-:\w]+>) |                            # close tag
+     (\A<!\w+ (?:\s*(?:[^\s>]*|"[^"]*"))*\s*>) | # declaration tag
+@@ -92,7 +114,7 @@
+         elsif @matchdata[i+=1] then ['text', '']
+         elsif @matchdata[i+=1] then ['entity', '']
+         elsif @matchdata[i+=1] then ['comment', '']
+-        elsif @matchdata[i+=1] then ['end',%r{\A</(.*)>\Z}.match(to_s)[1].downcase]
++        elsif @matchdata[i+=1] then ['end',%r{\A</(.*)>\Z}.match(self.to_s)[1].downcase]
+         elsif @matchdata[i+=1] then ['other', '']
+         elsif @matchdata[i+=1] then ['start', @matchdata[i+2].downcase]
+         else raise "Parse failure:\n(%s)" % matchdata
+@@ -103,16 +125,18 @@
+       return @s if @s
+ 
+       # if pre is false, collapse whitespace and unescape entities
+-      @s = if pre then
+-        @matchdata.to_s
++      if pre and @object != 'entity'
++        @s = @matchdata.to_s
+       else
+         # XXX: by not stripping this string, we could see multiple
+         # spaces in a row, but I think this is better than the
+         # possibility of completely eliminating spaces under other
+         # circumstances.  Perhaps the collapsing should be done by
+         # CaptureObj instead of the Token?
+-        CGI.unescapeHTML(@matchdata.to_s.tr_s(" \t\n", ' '))
++        @s = CGI.unescapeHTML(@matchdata.to_s).gsub('&nbsp;', ' ')
++        @s.tr_s!(" \t\n", ' ')
+       end
++
+       @s
+     end
+ 
+@@ -164,6 +188,10 @@
+     return tmp
+   end
+ 
++  # default general token handler does nothing
++  def do_token(token)
++  end
++
+   # catch calls to start_foo, end_foo, and foo_tag methods that are made from
+   # << and not defined by any sub-class
+   def method_missing(mid, *args)
+@@ -222,7 +250,7 @@
+ 
+       if @capture
+         case token.object
+-        when 'text'
++        when 'text', 'entity'
+           # text tokens are thrown away unless capture is true, in which
+           # case we append the text to our capture buffer
+           #XXX: add support for entities
+@@ -977,6 +1005,8 @@
+       @text.gsub!(/setTimeout\(.*?\);/m, '')
+ 
+       @text.gsub!(/(.{0,70})(\s|$)/, "\\1\n")  # wrap text at 70 chars
++    elsif token.object == 'entity' then
++      @text << token.to_s
+     end
+   end
+ 
+
+
+
+From agriffis at berlios.de  Thu Feb  2 04:35:10 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Thu, 2 Feb 2006 04:35:10 +0100
+Subject: [qute] r39 - trunk
+Message-ID: <200602020335.k123ZApA014711@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-02 04:35:01 +0100 (Thu, 02 Feb 2006)
+New Revision: 39
+
+Modified:
+   trunk/bugz.rb
+Log:
+Make BugData have a Hash instead of inheriting from Hash.  This is purely
+because it's easier to debug this way (pp gives more output) and could be
+changed back whenever we want.
+
+Buff up BugDataParser to handle description and comments.
+
+Make bug reading a little less raw, though it's still rudimentary.
+
+
+
+Modified: trunk/bugz.rb
+===================================================================
+--- trunk/bugz.rb	2006-02-02 03:30:04 UTC (rev 38)
++++ trunk/bugz.rb	2006-02-02 03:35:01 UTC (rev 39)
+@@ -79,8 +79,20 @@
+   end
+ end
+ 
+-class BugData < Hash
++class BugData
+   attr_accessor :sourceurl, :cookie
++  attr_accessor :description, :comments
++  attr_accessor :data
++
++  def initialize
++    super
++    @comments = []
++    @data = {}
++  end
++
++  def method_missing(method, *args, &block)
++    @data.send(method, *args, &block)
++  end
+ end
+ 
+ class BugDataList < Array
+@@ -101,6 +113,7 @@
+   end
+ end
+ 
++# Parser for the output of show_bug.cgi?format=multiple
+ class BugDataParser < Qute::SGMLParser
+   include Qute::DataObjGen
+ 
+@@ -108,6 +121,7 @@
+     super
+     @bugdatalist = @dataobj = BugDataList.new
+     @bugdata = BugData.new
++    @comment = nil
+   end
+ 
+   def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
+@@ -117,8 +131,58 @@
+     # check for colon-delimited data
+     @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
+   end
++
++  def start_span(token)
++    if token['class'] == 'bz_comment'
++      @comment = BugComment.new
++      startcapture
++    end
++  end
++
++  def end_span(token)
++    return unless @comment      # class != bz_comment
++    return if @comment.author   # must be a span tag inside comment text
++    return unless endcapture =~ /
++      (\d+) \s+                 # bug number
++      From \s+ (.*?) \s+        # author
++      (\d\d\d\d-\d{1,2}-\d{1,2} # date, time, timezone
++      \s+ \d{1,2}:\d\d\s+\S+)
++      /x
++    @comment.num, @comment.author, @comment.date = $1, $2, $3
++  end
++
++  def a_tag(token)
++    return unless @comment              # not capturing a comment
++    return if @comment.author_email     # already have the email
++    return unless token['href'] =~ /^mailto:(.+)/
++    @comment.author_email = $1
++  end
++
++  def start_pre(token)
++    startcapture(true)
++  end
++
++  def end_pre(token)
++    if @comment
++      @comment.text = endcapture
++      @bugdata.comments << @comment
++      @comment = nil
++    else
++      desc = endcapture
++      @bugdata.description ||= desc
++    end
++  end
+ end
+ 
++class BugComment
++  attr_accessor :num, :author, :author_email, :date, :text
++
++  def to_s
++    "------- Comment %s From %s %s -------\n\n%s" % 
++    [ @num, @author, @date, @text ]
++  end
++end
++
+ class BugzCommands
+   def directory( cmdobj )
+     cmdobj.syngrid = BugGrid.new( cmdobj )
+@@ -147,14 +211,31 @@
+     else
+       ids = cmdobj.ids
+     end
+-    url = 'http://bugs.gentoo.org/long_list.cgi?buglist=' + ids.join(',')
++    url = 'http://bugs.gentoo.org/show_bug.cgi?format=multiple&id=' + ids.join('&id=')
+     bugs = Qute::Form.new( url ).post( BugDataParser.new )
+ 
+     QuteCmd.pkgoutput( cmdobj ) do
++      first = true
+       bugs.each do |bugdata|
+-        longkey = 0
+-        # really need something better than pp ;-)
+-        pp bugdata
++        if not first
++          puts
++          puts "========================================================"
++          puts
++        else
++          first = false
++        end
++        bugdata.each do |k,v|
++          puts "%14s : %s" % [ k, v ]
++        end
++        puts
++        puts "------- Description -------"
++        puts
++        puts bugdata.description
++        puts
++        bugdata.comments.each do |bc|
++          puts bc
++          puts
++        end
+       end
+       puts
+     end
+
+
+
+From agriffis at berlios.de  Sat Feb  4 02:24:32 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Sat, 4 Feb 2006 02:24:32 +0100
+Subject: [qute] r40 - trunk
+Message-ID: <200602040124.k141OWFq020053@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-04 02:24:26 +0100 (Sat, 04 Feb 2006)
+New Revision: 40
+
+Modified:
+   trunk/qute.rb
+Log:
+Instead of parsing entire comments in SGMLRE, just parse <!-- and handle it
+specially, as is done with <xmp>.  This helps to prevent mistaking <!-- as
+broken text.  There may still be a hole if <! are the last two characters in
+the parse buffer, which suggests that the broken text RE needs to be buffed up
+or scrapped...  It would be good if we could know in the parser if there will be
+any more content on the next call, or if this is all we'll get.)
+
+Use \A instead of ^ in regexes wherever possible since it's faster and usually
+what we intend.
+
+
+Modified: trunk/qute.rb
+===================================================================
+--- trunk/qute.rb	2006-02-02 03:35:01 UTC (rev 39)
++++ trunk/qute.rb	2006-02-04 01:24:26 UTC (rev 40)
+@@ -56,7 +56,7 @@
+   #     1       text
+   #     2       broken text
+   #     3       entity
+-  #     4       comment
++  #     4       start comment
+   #     5       close tag
+   #     6       declaration tag
+   #     7       (open) tag
+@@ -73,10 +73,9 @@
+   # ]
+   SGMLRE = %r{
+     (\A[^&<]+) |                                # text
+-   # this next line breaks ruby on Tru64:
+-    (\A<\W*[^<>=]*(?=<)) |                      # broken text
++    (\A<!--) |                                  # start comment
++    (\A<(?=\W*[^<>=]*<)) |                      # broken text, only snip the leading <
+     (\A&\#?\w+;) |                              # entity
+-    (\A<!--(?:.|\s)*?-->) |                     # comment
+     (\A</[-:\w]+>) |                            # close tag
+     (\A<!\w+ (?:\s*(?:[^\s>]*|"[^"]*"))*\s*>) | # declaration tag
+     (\A                                         # open tag
+@@ -85,7 +84,7 @@
+       (?:\s+ #{OPTSRE.source} )*
+       \s* ([?/]?) \s*>
+     )
+-  }x
++  }xm
+ 
+   # This object is a string, but also can contain a list of link urls
+   class CaptureObj < String
+@@ -97,8 +96,8 @@
+   end
+ 
+   # This object provides an interface to a single token's-worth of SGML-stream
+-  # text.  A token is a start or end tag, an SGML comment, a piece of plain
+-  # text, or an entity.
++  # text.  A token is a start or end tag, the start of an SGML comment, a piece
++  # of plain text, or an entity.
+   class Token
+     attr_reader :object, :tag
+ 
+@@ -111,9 +110,9 @@
+       # calculate object and tag
+       i = 0
+       @object, @tag = if @matchdata[i+=1] then ['text', '']
++        elsif @matchdata[i+=1] then ['comment', '']
+         elsif @matchdata[i+=1] then ['text', '']
+         elsif @matchdata[i+=1] then ['entity', '']
+-        elsif @matchdata[i+=1] then ['comment', '']
+         elsif @matchdata[i+=1] then ['end',%r{\A</(.*)>\Z}.match(self.to_s)[1].downcase]
+         elsif @matchdata[i+=1] then ['other', '']
+         elsif @matchdata[i+=1] then ['start', @matchdata[i+2].downcase]
+@@ -181,7 +180,7 @@
+     @capobj = CaptureObj.new
+   end
+ 
+-  # stop capturing text and return the current contents of our capture buffer
++  # stop capturing text and return the current content of our capture buffer
+   def endcapture
+     @capture = false
+     tmp, @capobj = @capobj, CaptureObj.new
+@@ -220,20 +219,32 @@
+       # process xmp tags specially
+       if token.object == 'start' and token.tag == 'xmp' then
+         texttoken = nil
+-        @parsebuf.sub! %r{^(.*?)</xmp>}mi do
++        @parsebuf.sub! %r{\A(.*?)</xmp>}mi do
+           texttoken = TextToken.new($1)
+           ''
+         end
+         if not texttoken then
+           # since we failed to find matching open and close xmp tags, push the
+-          # xmp-open tag back on the front of the parse buffer and go around
+-          # again.  XXX: this should be handled more cleanly
++          # xmp-open tag back on the front of the parse buffer and wait to be
++          # called back with more content in the parse buffer.
+           @parsebuf = token.to_s + @parsebuf
+           break
+         end
+         token = texttoken
+       end
+ 
++      # process comments specially
++      if token.object == 'comment'
++        # if we can find the end of the comment, then snip out this aborrent
++        # text and loop
++        next if @parsebuf.sub! %r{\A.*?-->}m, ''
++        # couldn't find the end of the comment, push the comment start back on
++        # the front of the parse buffer and wait to be called back with more
++        # content.
++        @parsebuf = token.to_s + @parsebuf
++        break
++      end
++
+       # call general token handler, if it's defined
+       # print token.object, token.to_s, "\n"
+       do_token token
+@@ -539,7 +550,7 @@
+     # return value depends on if a parser was passed in
+     if parser then
+       # set the data object generator's cookie
+-      parser.cookie = $1 if resp['set-cookie'] =~ /^([^;]*)/
++      parser.cookie = $1 if resp['set-cookie'] =~ /\A([^;]*)/
+ 
+       # return the data object created by the parser instance
+       parser.verify
+@@ -691,7 +702,7 @@
+     if recordcol then
+       # if two parameters were passed in, us them as the recordrow and recordcol
+       rowoffset = @headers[0].rownum + pattern
+-    elsif pattern.is_a? String and pattern =~ /^(\d*),(\d*)$/ then
++    elsif pattern.is_a? String and pattern =~ /\A(\d*),(\d*)$/ then
+       # two parameters passed as a string
+       rowoffset = @headers[0].rownum + $1.to_i
+       recordcol = $2.to_i
+
+
+
+From agriffis at berlios.de  Sat Feb  4 02:26:48 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Sat, 4 Feb 2006 02:26:48 +0100
+Subject: [qute] r41 - trunk
+Message-ID: <200602040126.k141QmFI020607@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-04 02:26:25 +0100 (Sat, 04 Feb 2006)
+New Revision: 41
+
+Modified:
+   trunk/qutecmd.rb
+Log:
+Add QuteCmd::hr and buff up QuteCmd::gettermsize to use `stty size` when ioctl
+doesn't work
+
+
+Modified: trunk/qutecmd.rb
+===================================================================
+--- trunk/qutecmd.rb	2006-02-04 01:24:26 UTC (rev 40)
++++ trunk/qutecmd.rb	2006-02-04 01:26:25 UTC (rev 41)
+@@ -63,17 +63,24 @@
+         $TIOCGWINSZ = 0x40000000 | ((8 & 0x1fff) << 16) | (116 << 8) | 104
+       when /^Linux alpha/
+         $TIOCGWINSZ = 0x40087468
+-      when /^Linux/ # hopefully x86
++      when /^Linux (?:i.|x)86/  # x86 or x86_64
+         $TIOCGWINSZ = 0x5413
+       else
+         $TIOCGWINSZ = nil # don't know this OS
+     end
+ 
+     # Allocate space for the return data prior to calling ioctl.
+-    str = [ 0, 0, 0, 0 ].pack('S4')
+-    if $TIOCGWINSZ && $stdout.ioctl($TIOCGWINSZ, str) >= 0 then
+-      rows, cols, xpixels, ypixels = str.unpack('S4')
+-      #debug "Calculated terminal size: #{rows}, #{cols}"
++    if $TIOCGWINSZ 
++      str = [ 0, 0, 0, 0 ].pack('S4')
++      if $stdout.ioctl($TIOCGWINSZ, str) >= 0 then
++        rows, cols, xpixels, ypixels = str.unpack('S4')
++        #debug "Calculated terminal size: #{rows}, #{cols}"
++      end
++    else
++      str = `stty size`
++      if $? == 0 and str =~ /(\d+) (\d+)/
++        rows, cols = $1.to_i, $2.to_i
++      end
+     end
+   end
+ 
+@@ -82,6 +89,11 @@
+   return $termsize
+ end
+ 
++def QuteCmd::hr(s = '-', label = nil)
++  label = label ? " #{label} " : ''
++  label.center(QuteCmd::gettermsize[1]-1, s)
++end
++
+ # Mixin to String to wrap text that looks wrappable
+ module String
+   def rewrap(cols = nil)
+@@ -233,6 +245,8 @@
+   end
+ end
+ 
++require 'qute'  # otherwise we can't add to the Qute:: namespace
++
+ def Qute::getline(prompt)
+   if defined? Readline
+     # We have the Readline module.  Use it.
+
+
+
+From agriffis at berlios.de  Sat Feb  4 02:28:28 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Sat, 4 Feb 2006 02:28:28 +0100
+Subject: [qute] r42 - trunk
+Message-ID: <200602040128.k141SS4l021521@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-02-04 02:28:17 +0100 (Sat, 04 Feb 2006)
+New Revision: 42
+
+Modified:
+   trunk/bugz.rb
+Log:
+Start along the path of using show_bug.cgi instead of
+show_bug.cgi?format=multiple since the former includes more information.
+However ultimately it's probable that we'll want to use MultiParser along with
+a custom parser to get all the data, or even subclass FormParser to handle the
+bugzilla oddities.
+
+
+Modified: trunk/bugz.rb
+===================================================================
+--- trunk/bugz.rb	2006-02-04 01:26:25 UTC (rev 41)
++++ trunk/bugz.rb	2006-02-04 01:28:17 UTC (rev 42)
+@@ -113,8 +113,9 @@
+   end
+ end
+ 
+-# Parser for the output of show_bug.cgi?format=multiple
+-class BugDataParser < Qute::SGMLParser
++# Abstract parser for the output of show_bug.cgi or show_bug.cgi?format=multiple
++# (aka long_list.cgi), subclassed by BugDataParser and BugDataParserMulti
++class BugDataParserA < Qute::SGMLParser
+   include Qute::DataObjGen
+ 
+   def initialize
+@@ -124,14 +125,8 @@
+     @comment = nil
+   end
+ 
+-  def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
++  def end_html(token) @bugdatalist.push(@bugdata); end
+ 
+-  def start_td(token) startcapture; end
+-  def end_td(token)
+-    # check for colon-delimited data
+-    @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
+-  end
+-
+   def start_span(token)
+     if token['class'] == 'bz_comment'
+       @comment = BugComment.new
+@@ -174,6 +169,74 @@
+   end
+ end
+ 
++# Parser for the output of show_bug.cgi?format=multiple (aka long_list.cgi)
++class BugDataParserMulti < BugDataParserA
++  def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
++
++  def start_td(token) startcapture; end
++  def end_td(token)
++    # check for colon-delimited data
++    @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
++  end
++end
++
++# Parser for the output of show_bug.cgi?format=multiple (aka long_list.cgi)
++class BugDataParser < BugDataParserA
++  
++  class SelectList < Array
++    attr_reader :multi
++    def initialize(multi) 
++      @multi = !!multi
++      super()
++    end
++    def to_s
++      self.join(', ')
++    end
++  end
++
++  def initialize
++    @label = nil
++    @select = nil
++    super
++  end
++
++  def start_td(token) startcapture; end
++  def end_td(token)
++    if @label
++      s = endcapture.strip
++      # handle some labels specially
++      case @label
++      when 'Bug#'
++        s.sub!(/\s.*/, '')
++      end
++      @bugdata[@label] = s
++      @label = nil
++    else
++      @label = $1 if endcapture =~ /(\S.*?):/
++    end
++  end
++
++  def start_select(token)
++    return unless @label
++    @select = SelectList.new(token['multiple'])
++    endcapture  # don't start until <option> tag
++  end
++  def start_option(token)
++    return unless @select
++    startcapture if @select.multi or token['selected']
++  end
++  def end_option(token)
++    return unless @select and @capture
++    @select << endcapture.strip
++  end
++  def end_select(token)
++    return unless @select
++    @bugdata[@label] = @select.multi ? @select : @select[0]
++    @select = nil
++    @label = nil
++  end
++end
++
+ class BugComment
+   attr_accessor :num, :author, :author_email, :date, :text
+ 
+@@ -205,29 +268,40 @@
+ 
+   def read( cmdobj )
+     cmdobj.parseargs!
++
++    # We can get our ids from query results or direct from the cmdline
+     if cmdobj.queryform
+       buglist = BugList.new( cmdobj.queryform )
+       ids = buglist.map { |i| i['ID'].strip }
+     else
+       ids = cmdobj.ids
+     end
+-    url = 'http://bugs.gentoo.org/show_bug.cgi?format=multiple&id=' + ids.join('&id=')
+-    bugs = Qute::Form.new( url ).post( BugDataParser.new )
+ 
+-    QuteCmd.pkgoutput( cmdobj ) do
++    # show_bug.cgi without format=multiple requires multiple calls to get all
++    # the bug data, but format=multiple unfortunately doesn't provide all the
++    # data :-(
++    bugs = []
++    ids.each do |id|
++      url = 'http://bugs.gentoo.org/show_bug.cgi?id=' + id
++      bugs += Qute::Form.new( url ).post( BugDataParser.new )
++    end
++
++    QuteCmd.pkgoutput( cmdobj, true ) do
+       first = true
+       bugs.each do |bugdata|
+-        if not first
+-          puts
+-          puts "========================================================"
+-          puts
+-        else
+-          first = false
+-        end
+-        bugdata.each do |k,v|
+-          puts "%14s : %s" % [ k, v ]
+-        end
+-        puts
++        puts '', QuteCmd::hr('='), '' unless first
++        first = false
++#       puts "%14s : %s" % [ "Bug# #{bugdata['Bug#']}", bugdata['Summary'] ], ''
++#       column1 = %w( Assigned\ To Reporter Status Resolution Status\ Whiteboard Keywords URL )
++#       column2 = %w( Product Component Hardware OS Version Priority Severity )
++#       column3 = %w( CC )
++#       column1.each_index do |x|
++#         # XXX
++#         puts "%14s : %s" % [ k, bugdata[k] ]
++#         end
++#         puts
++#       end
++        pp bugdata
+         puts "------- Description -------"
+         puts
+         puts bugdata.description
+@@ -273,7 +347,7 @@
+ 
+   def initialize(*args)
+     @ids = []
+-    super(*args)
++    super
+   end
+ 
+   def numberOptStr
+
+
+

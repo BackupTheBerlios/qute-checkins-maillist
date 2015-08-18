@@ -1,0 +1,4795 @@
+From agriffis at berlios.de  Sun Jan 29 02:26:06 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Sun, 29 Jan 2006 02:26:06 +0100
+Subject: [qute] r29 - in trunk: . examples examples/gentoo
+Message-ID: <200601290126.k0T1Q67o010703@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-01-29 02:26:00 +0100 (Sun, 29 Jan 2006)
+New Revision: 29
+
+Added:
+   trunk/examples/
+   trunk/examples/gentoo/
+   trunk/examples/gentoo/buglist.cgi.htm
+   trunk/examples/gentoo/long_list.cgi.htm
+   trunk/examples/gentoo/query.cgi.htm
+   trunk/examples/gentoo/show_activity.cgi.htm
+   trunk/examples/gentoo/show_bug.cgi.htm
+Log:
+Add example pages from Gentoo
+
+Added: trunk/examples/gentoo/buglist.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/buglist.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/buglist.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,100 @@
++This is Bugzilla
++
++Home | Docs | Forums | Lists | Bugs | Planet | Store | GWN | Get Gentoo!
++
++Bug List
++
++                                                     Sat Jan 28 2006 17:22:46 PST
++??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
++37 bugs found.
++
++ID       Sev  Pri  Plt  Assignee                 Status   Resolution   Summary
++
++47618    nor  P2   x86  agriffis at gentoo.org      NEW                   several "depscan.sh to fix this" during boot
++
++48950    min  P2   All  agriffis at gentoo.org      NEW                   econf should include || die in ebuilds
++
++52681    maj  P2   All  agriffis at gentoo.org      NEW                   media-sound/lilypond-2.x can't build its documentation
++
++66774    nor  P2   All  agriffis at gentoo.org      NEW                   rdist noexec option broken-- looks for a.out, not ELF bin...
++
++73494    enh  P2   All  agriffis at gentoo.org      NEW                   feature request: epm -qf to handle symbolic links
++
++75893    nor  P2   All  agriffis at gentoo.org      NEW                   lilypond-2.4.2 error: can't find `feta20.afm'
++
++81549    enh  P2   x86  agriffis at gentoo.org      NEW                   Lilypond ebuild for 2.5.2 works for me!
++
++82467    min  P2   All  agriffis at gentoo.org      NEW                   Late handling of SIGTERM in app-shells/psh
++
++84453    nor  P2   Alp  alpha at gentoo.org         NEW                   2005.0 (pre) 2.6 kernel panics on marvel (gs1280)
++
++84454    nor  P2   Alp  alpha at gentoo.org         NEW                   2005.0 (pre) 2.4 kernel doesn't contain gs1280 console su...
++
++85666    nor  P2   All  text-markup at gentoo.org   NEW                   jadetex-3.12 failure on amd64
++
++86125    min  P2   x86  agriffis at gentoo.org      NEW                   lilypond depends via mftrace on xorg
++
++87075    nor  P2   x86  agriffis at gentoo.org      NEW                   gpa unable to sign keys - gpgme error
++
++87986    maj  P2   x86  agriffis at gentoo.org      NEW                   rcp and very large files (>2 GB)
++
++88291    nor  P2   x86  agriffis at gentoo.org      NEW                   ec-fonts-mftraced-1.0.8 doesn't compile (unknown error)
++
++90334    nor  P2   x86  agriffis at gentoo.org      NEW                   lilypond-2.5.2 fails to emerge due to metafont problem
++
++92558    nor  P2   x86  agriffis at gentoo.org      NEW                   epm --query --{requires | whatrequires} not working ?
++
++93843    nor  P2   All  agriffis at gentoo.org      NEW                   epm -qf issues
++
++95341    nor  P2   x86  agriffis at gentoo.org      NEW                   logrotate cvs unknown option endscript
++
++96119    nor  P2   x86  agriffis at gentoo.org      NEW                   gbuffy-0.2.6 (unstable) does not compile
++
++97324    nor  P2   All  dev-portage at gentoo.org   NEW                   rewrite of fowners and fperms
++
++97574    enh  P2   All  agriffis at gentoo.org      NEW                   new ebuild for lilypond 2.6
++
++99745    nor  P2   All  agriffis at gentoo.org      NEW                   x11-misc/xcut installs in to /usr/local
++
++102885   nor  P2   All  agriffis at gentoo.org      NEW                   linuxtrade-3.65 missing DEPEND on curl
++
++102945   min  P2   All  agriffis at gentoo.org      NEW                   mail-client/muttng misses system config files (in FILESDIR)
++
++104430   enh  P2   All  agriffis at gentoo.org      NEW                   mutt flag_safe behaviour request
++
++105434   enh  P2   All  agriffis at gentoo.org      NEW                   muttng-20050909 (updated ebuild)
++
++106266   enh  P2   All  agriffis at gentoo.org      NEW                   mercurial ebuild has no bash-completion support
++
++107888   nor  P2   All  agriffis at gentoo.org      NEW                   dev-util/mercurial-0.7 fails installing because of xsl error
++
++112471   nor  P2   All  agriffis at gentoo.org      NEW                   file collision: app-text/cooledit-3.17.7 with /usr/share/...
++
++113849   nor  P2   All  agriffis at gentoo.org      NEW                   please s/pgp.mit.edu/subkeys.pgp.net/
++
++116117   min  P2   All  common-lisp at gentoo.org   NEW                   gcl installs files to /usr/share/doc
++
++116197   enh  P2   All  gnome at gentoo.org         NEW                   gnome-extra/hardware-monitor bump
++
++116878   nor  P1   All  agriffis at gentoo.org      NEW                   linuxtrade in portage is obsolete and should be removed, ...
++
++117256   nor  P2   All  agriffis at gentoo.org      NEW                   cdk has incorrect PIC handling
++
++118698   nor  P4   AMD  agriffis at gentoo.org      NEW                   media-sound/lilypond-2.5.2 emerge failure in ../../script...
++
++120061   nor  P2   All  agriffis at gentoo.org      NEW                   echangelog tries to update copyright year on files that w...
++
++37 bugs found.
++
++[  Long Format ]                  CSV | RSS | iCalendar | Change Columns |                   Edit Search   [Remember search] as 
++                                  Change Several Bugs at Once | Send Mail to Bug Assignees |               [                    ]
++
++Bugzilla Version 2.20+
++Logged in as: agriffis at gentoo.org | Log out
++Actions:
++Home | New | Search | bug # [      ] [Find] | Reports | My Requests
++Edit:
++Prefs | Users | Whining
++Saved Searches:
++My Bugs | Bug Wranglers | All my bugs | alpha | Baselayout | Baselayout InCVS | Blockers | ia64 | Interesting | Monthly | mozilla |
++mozilla?launcher | Weekly
+
+Added: trunk/examples/gentoo/long_list.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/long_list.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/long_list.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,407 @@
++<!-- 1.0 at bugzilla.org -->
++
++<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
++
++<html>
++    <head>
++
++    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
++    <link REL="shortcut icon" HREF="/images/favicon.ico" TYPE="image/x-icon">
++    <link title="new" rel="stylesheet" href="/css/main.css" type="text/css">
++    <title>Full Text Bug Listing</title>
++    
++
++<link rel="Top" href="http://bugs.gentoo.org/">
++    
++    
++    <script type="text/javascript">
++  <!--
++  
++  function initHelp() {}
++  // -->
++  </script>        
++
++    
++        <link href="css/show_multiple.css" rel="stylesheet" type="text/css">
++  
++  </head>
++  
++
++
++  <body bgcolor="#ffffff" onload="">
++
++
++<a href="/"><img border="0" src="images/bugzilla.png" alt="Gentoo Linux Bugzilla"></a>
++
++<p class="menu">
++<a class="menulink" href="http://www.gentoo.org/index.xml">Home</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/about.xml"> About </a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/contract.xml"> Social Contract</a> |
++<a class="menulink" href="http://www.gentoo.org/doc/en/index.xml">Docs</a> |
++<a class="menulink" href="http://forums.gentoo.org">Forums</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/lists.xml"> Lists</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/shots.xml">ScreenShots</a> |
++<a class="highlight" href="/">Bugs</a> |
++<a class="menulink" href="http://store.gentoo.org">Store</a> |
++<a class="menulink" href="http://www.gentoo.org/news/en/gwn/gwn.xml"> GWN</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/where.xml"> Get Gentoo!</a>
++</p><!-- 1.0 at bugzilla.org --><img alt="" src="1x1.gif" width="1" height="80" align="left">
++  <div align="center">
++    <b>
++      <font ="+3">Bug 77777 - groff fails to build during &quot;bootstrap.sh&quot;</font>
++    </b>
++  </div>
++
++  <table width="100%">
++    <tr>
++      <td>
++        <b>Bug#:</b>
++        <a href="show_bug.cgi?id=77777">77777</a>
++      </td><td>
++    <b>Product:</b>&nbsp;Gentoo Linux
++  </td><td>
++    <b>Version:</b>&nbsp;unspecified
++  </td><td>
++    <b>Platform:</b>&nbsp;x86
++  </td>
++    </tr>
++    
++    <tr><td>
++    <b>OS/Version:</b>&nbsp;Linux
++  </td><td>
++    <b>Status:</b>&nbsp;RESOLVED
++  </td><td>
++    <b>Severity:</b>&nbsp;blocker
++  </td><td>
++    <b>Priority:</b>&nbsp;P2
++  </td>
++    </tr>
++    
++    <tr><td>
++    <b>Resolution:</b>&nbsp;DUPLICATE
++  </td><td>
++    <b>Assigned To:</b>&nbsp;bug-wranglers&#64;gentoo.org
++  </td><td>
++    <b>Reported By:</b>&nbsp;stanbehrens&#64;msn.com
++  </td>
++    </tr>
++    
++    <tr>
++      <td colspan="2">
++        <b>Component:</b>&nbsp;Applications
++      </td>
++    
++      <td colspan="2">
++      </td>
++    </tr>
++    
++    <tr>
++      <td colspan="4">
++        <b>URL:</b>&nbsp;
++        <a href=""></a> 
++    </tr>
++    
++    <tr>
++      <td colspan="4">
++        <b>Summary:</b>&nbsp;groff fails to build during &quot;bootstrap.sh&quot;
++      </td>
++    </tr>
++     
++      <tr>
++        <td colspan="4">
++          <b>Keywords: </b>&nbsp;
++        </td>
++      </tr>
++
++      <tr>
++        <td colspan="4">
++          <b>Status Whiteboard:</b>&nbsp;
++        </td>
++      </tr>
++
++
++    <tr>
++      <td colspan="4">
++        <b>Opened:</b>&nbsp;2005-01-12 21:54 PST
++      </td>
++    </tr>
++    <tr>
++      <td colspan="4">
++        <b>Description:</b>
++      </td>
++    </tr>
++  </table>
++<!-- 1.0 at bugzilla.org -->
++
++<div >
++        
++
++<pre># cd /usr/portage; ./scripts/bootstrap.sh
++ [...]
++&gt;&gt;&gt; sys-devel/m4-1.4.1 merged.
++&gt;&gt;&gt; emerge (2 of 18) sys-apps/groff-1.19.1-r2 to /
++&gt;&gt;&gt; md5 src_uri ;-) groff-1.19.1.tar.gz
++&gt;&gt;&gt; Unpacking source...
++&gt;&gt;&gt; Unpacking groff-1.19.1.tar.gz to /var/tmp/portage/groff-1.19.1-r2/work
++ * Applying groff-1.18-infoext.patch ...                                  [ ok ]
++ * Applying groff-1.18-no-netpbm-depend.patch ...                         [ ok ]
++ * Applying groff-man-UTF-8.diff ...                                      [ ok ]
++ * Applying groff-1.19.1-stack.patch ...                                  [ ok ]
++ * Applying groff-1.19.1-tmpfile.patch ...                                [ ok ]
++ * Applying groff-1.19.1-parallel-make.patch ...                          [ ok ]
++&gt;&gt;&gt; Source unpacked.
++gcc
++g++
++configure: WARNING: If you wanted to set the --build type, don't use --host.
++    If a cross compiler is detected then cross compile mode will be used.
++checking for i686-pc-linux-gnu-gcc... gcc
++checking for C compiler default output file name... a.out
++checking whether the C compiler works... yes
++checking whether we are cross compiling... no
++checking for suffix of executables... 
++checking for suffix of object files... o
++checking whether we are using the GNU C compiler... yes
++checking whether gcc accepts -g... yes
++checking for gcc option to accept ANSI C... none needed
++checking for i686-pc-linux-gnu-g++... g++
++checking whether we are using the GNU C++ compiler... no
++checking whether g++ accepts -g... no
++checking that C++ compiler can compile simple program... no
++configure: error: a working C++ compiler is required
++
++!!! ERROR: sys-apps/groff-1.19.1-r2 failed.
++!!! Function src_compile, Line 85, Exitcode 1
++!!! (no error message)
++!!! If you need support, post the topmost build error, NOT this status message.
++
++=======================
++make.conf:
++-----------------------
++# grep -v ^# /etc/make.conf
++USE=&quot;-* x86&quot;
++CHOST=&quot;i686-pc-linux-gnu&quot;
++CFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++CXXFLAGS=&quot;${CFLAGS}&quot;
++ACCEPT_KEYWORDS=&quot;x86&quot;
++GENTOO_MIRRORS=&quot;<a href="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</a>&quot;
++SYNC=&quot;rsync://rsync.de.gentoo.org/gentoo-portage&quot;
++MAKEOPTS=&quot;-j2&quot;
++PORTAGE_NICENESS=3
++
++=======================
++config.log:
++-----------------------
++ [...]
++configure:2243: checking for i686-pc-linux-gnu-g++
++configure:2269: result: g++
++configure:2327: checking for C++ compiler version
++configure:2330: g++ --version &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2333: $? = 127
++configure:2335: g++ -v &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2338: $? = 127
++configure:2340: g++ -V &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2343: $? = 127
++configure:2346: checking whether we are using the GNU C++ compiler
++configure:2370: g++ -c -march=pentium4 -O3 -fomit-frame-pointer -pipe  conftest.cc &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2376: $? = 127
++configure: failed program was:
++| /* confdefs.h.  */
++| 
++| #define PACKAGE_NAME &quot;&quot;
++| #define PACKAGE_TARNAME &quot;&quot;
++| #define PACKAGE_VERSION &quot;&quot;
++| #define PACKAGE_STRING &quot;&quot;
++| #define PACKAGE_BUGREPORT &quot;&quot;
++| /* end confdefs.h.  */
++| 
++| int
++| main ()
++| {
++| #ifndef __GNUC__
++|        choke me
++| #endif
++| 
++|   ;
++|   return 0;
++| }
++configure:2402: result: no
++ [...]
++
++=======================
++environment:
++-----------------------
++# printenv 
++INFODIR=/usr/share/info
++MANPATH=/usr/share/man:/usr/local/share/man:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/man
++HOSTNAME=rescue
++SHELL=/bin/bash
++TERM=xterm
++SSH_CLIENT=212.202.12.236 56408 22
++SSH_TTY=/dev/pts/0
++USER=root
++PAGER=/usr/bin/less
++CONFIG_PROTECT_MASK=/etc/terminfo
++PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/opt/bin:/usr/i386-pc-linux-gnu/gcc-bin/3.3
++MAIL=/var/mail/root
++GLIBC_SSP_CHECKED=1
++PWD=/usr/portage
++INPUTRC=/etc/inputrc
++EDITOR=/bin/nano
++PS1=\[\033[01;31m\]\h \[\033[01;34m\]\W \$ \[\033[00m\]
++CXX=g++
++HOME=/root
++SHLVL=2
++LOGNAME=root
++LESS=-R
++CVS_RSH=ssh
++SSH_CONNECTION=212.202.12.236 56408 82.96.68.77 22
++LESSOPEN=|lesspipe.sh %s
++INFOPATH=/usr/share/info:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/info
++CC=gcc
++_=/bin/printenv
++OLDPWD=/
++
++=======================
++emerge --info:
++-----------------------
++# emerge --info
++Portage 2.0.51-r3 (default-linux/x86/2004.3, gcc-3.3.4, unavailable, 2.6.9-gentoo-r13 i686)
++=================================================================
++System uname: 2.6.9-gentoo-r13 i686 Intel(R) Pentium(R) 4 CPU 2.40GHz
++Gentoo Base System version 1.4.16
++Autoconf: 
++Automake: 
++Binutils: sys-devel/binutils-2.14.90.0.8-r1
++Headers:  
++Libtools: 
++ACCEPT_KEYWORDS=&quot;x86&quot;
++AUTOCLEAN=&quot;yes&quot;
++CFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++CHOST=&quot;i686-pc-linux-gnu&quot;
++COMPILER=&quot;&quot;
++CONFIG_PROTECT=&quot;/etc /usr/kde/2/share/config /usr/kde/3/share/config /usr/share/config /var/qmail/control&quot;
++CONFIG_PROTECT_MASK=&quot;/etc/gconf /etc/terminfo /etc/env.d&quot;
++CXXFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++DISTDIR=&quot;/usr/portage/distfiles&quot;
++FEATURES=&quot;autoaddcvs autoconfig ccache distlocks sandbox sfperms&quot;
++GENTOO_MIRRORS=&quot;<a href="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</a>&quot;
++MAKEOPTS=&quot;-j2&quot;
++PKGDIR=&quot;/usr/portage/packages&quot;
++PORTAGE_TMPDIR=&quot;/var/tmp&quot;
++PORTDIR=&quot;/usr/portage&quot;
++PORTDIR_OVERLAY=&quot;&quot;
++SYNC=&quot;rsync://rsync.de.gentoo.org/gentoo-portage&quot;
++USE=&quot;x86&quot;
++
++
++Reproducible: Always
++Steps to Reproduce:
++1. follow <a href="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml">http://www.gentoo.org/doc/en/handbook/handbook-x86.xml</a></pre>
++</div>
++  <div >
++        <br>
++        <i>------- Additional Comment
++        <a name="c1" href="#c1">#1</a> From 
++        <a href="mailto:douglas.hoffman&#64;gmail.com">Douglas R. Hoffman</a>
++        2005-01-13 11:42 PST 
++        -------
++        </i>
++        
++
++<pre>
++I believe this a duplicate of :
++<a href="http://bugs.gentoo.org/show_bug.cgi?id=77718">http://bugs.gentoo.org/show_bug.cgi?id=77718</a></pre>
++</div>
++  <div >
++        <br>
++        <i>------- Additional Comment
++        <a name="c2" href="#c2">#2</a> From 
++        <a href="mailto:bss03&#64;volumehost.com">Boyd Stephen Smith Jr.</a>
++        2005-01-13 11:55 PST 
++        -------
++        </i>
++        
++
++<pre>I agree, looks very much like 77718.</pre>
++</div>
++  <div >
++        <br>
++        <i>------- Additional Comment
++        <a name="c3" href="#c3">#3</a> From 
++        <a href="mailto:swift&#64;gentoo.org">Sven Vermeulen</a>
++        2005-01-13 12:15 PST 
++        -------
++        </i>
++        
++
++<pre>
++
++*** This bug has been marked as a duplicate of <span class="bz_closed"><a href="show_bug.cgi?id=77718" title="RESOLVED FIXED - Missing g++ program when bootstraping">77718</a></span> ***</pre>
++</div>
++  
++<!-- 1.0 at bugzilla.org -->
++  
++  <hr>
++
++<table border="0">
++  <tr>
++    <td bgcolor="#000000" valign="top">
++      <table border="0" cellpadding="10" cellspacing="0" width="100%"
++             bgcolor="dddaec">
++        <tr>
++          <td>
++          
++
++
++	<p class="version"><a href="http://www.bugzilla.org/">Bugzilla</a> Version 2.18rc2</p>
++
++	<p>For more information on Gentoo Linux, please visit our 
++	<a href="http://www.gentoo.org">homepage</a>.
++	</p>
++
++
++<form method="get" action="show_bug.cgi">
++  <table width="100%">
++    <tr>
++      <td>
++        Actions:
++      </td>
++      
++      <td valign="middle" nowrap="nowrap">
++        <a href="enter_bug.cgi?format=guided">New</a> |
++        <a href="enter_bug.cgi">New-Expert</a> | 
++        <a href="query.cgi">Query</a> |
++        
++        <input type="submit" value="Find"> bug # 
++        <input name="id" size="6"> | 
++        
++        <a href="report.cgi">Reports</a> 
++        
++          | <a href="request.cgi">Requests</a>
++              
++      </td>
++
++      <td>&nbsp;</td>
++          
++      <td valign="middle" align="right">
++          <a href="createaccount.cgi">New&nbsp;Account</a> | 
++        <a href="query.cgi?GoAheadAndLogIn=1">Log&nbsp;In</a>
++      </td>
++    </tr>
++    
++  </table>                
++</form>
++
++          </td>
++        </tr>
++      </table>
++    </td>
++  </tr>
++</table>
++
++</body>
++</html>
+\ No newline at end of file
+
+Added: trunk/examples/gentoo/query.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/query.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/query.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,1270 @@
++<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
++
++<html>
++    <head>
++
++    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
++    <link REL="shortcut icon" HREF="/images/favicon.ico" TYPE="image/x-icon">
++    <link title="new" rel="stylesheet" href="/css/main.css" type="text/css">
++    <title>Search for bugs</title>
++    
++
++<link rel="Top" href="http://bugs.gentoo.org/">
++    
++    
++    <script type="text/javascript">
++  <!--
++  
++  function initHelp() {}
++  // -->
++  </script>        
++
++      <style type="text/css">td.selected_tab {
++                 border-width: 2px 2px 0px;
++                 border-style: solid; 
++               }
++               td.unselected_tab, td.spacer {
++                 border-width: 0px 0px 2px 0px;
++                 border-style: solid; 
++               }
++               dl.bug_changes dt {
++                 margin-top: 15px;
++               }
++      </style>
++    
++  
++  </head>
++  
++
++
++  <body bgcolor="#ffffff" onload="selectProduct(document.forms['queryform']);initHelp();">
++
++
++<a href="/"><img border="0" src="images/bugzilla.png" alt="Gentoo Linux Bugzilla"></a>
++
++<p class="menu">
++<a class="menulink" href="http://www.gentoo.org/index.xml">Home</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/about.xml"> About </a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/contract.xml"> Social Contract</a> |
++<a class="menulink" href="http://www.gentoo.org/doc/en/index.xml">Docs</a> |
++<a class="menulink" href="http://forums.gentoo.org">Forums</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/lists.xml"> Lists</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/shots.xml">ScreenShots</a> |
++<a class="highlight" href="/">Bugs</a> |
++<a class="menulink" href="http://store.gentoo.org">Store</a> |
++<a class="menulink" href="http://www.gentoo.org/news/en/gwn/gwn.xml"> GWN</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/where.xml"> Get Gentoo!</a>
++</p>
++<center>
++  <table cellspacing="0" cellpadding="10" border="0" width="100%">
++    <tr>
++      <td class="spacer">&nbsp;</td>
++ 
++          <td align="center" bgcolor="#BBBBEE" class="unselected_tab">
++            <a href="query.cgi?format=specific" >Find a Specific Bug 
++            </a>
++          </td>
++          <td align="center" bgcolor="lightblue" class="selected_tab">Advanced Search
++          </td>
++ 
++       <td class="spacer">&nbsp;</td>
++     </tr>
++   </table>
++</center>
++
++
++
++      <p><a href="queryhelp.cgi">Give me help</a> with this form.</p>
++<form method="get" action="buglist.cgi" name="queryform">
++<!-- 1.0 at bugzilla.org -->
++
++  
++  
++
++<script language="JavaScript" type="text/javascript"> <!--
++
++var first_load = true;         
++var last_sel = new Array();    
++
++var cpts = new Array();
++var vers = new Array();
++
++
++
++  cpts[0] = [ 'CVS', 'Mailinglists' ];
++  vers[0] = [ 'unspecified' ];
++  cpts[1] = [ 'Default' ];
++  vers[1] = [ 'unspecified' ];
++  cpts[2] = [ 'Contributing ebuilds', 'CVS tutorial', 'Developers HOWTO', 'Documentation Developer Policy', 'Documentation Guide', 'Eclass HOWTO', 'Gentoo Linux Developer\'s Policy', 'Guide XML', 'Other', 'Portage Documentation', 'Submit New Documentation', 'User-Mode Linux Guide' ];
++  vers[2] = [ 'n\/a' ];
++  cpts[3] = [ 'Alsa Configuration Guide', 'ATI FAQ', 'Desktop Configuration Guide', 'env.d HOWTO', 'Gentoo Alternative Installation Guide', 'Gentoo Java Guide', 'Gentoo Linux FAQ', 'Gentoo Linux PPC FAQ', 'Gentoo Linux PPC Installation Guide', 'Gentoo Linux rc-script Guide', 'Gentoo Linux Sparc Installation Guide', 'Gentoo Linux x86 Installation Guide', 'Gentoo Security Guide', 'Gentoolkit HOWTO', 'GNUpg User Guide', 'Handbook', 'Localisation Guide', 'LVM HOWTO', 'Nano Basics Guide', 'nVIDIA Trouble Shooting Guide', 'OpenAFS Guide', 'Other', 'Portage Manual', 'Portage User Guide', 'PPC QuickStart', 'Prelink HOWTO', 'Printing HOWTO', 'Quick Start Guide', 'Submit New', 'Translated Documentation', 'USE Variable HOWTO', 'Vi HOWTO', 'Virtual-mail HOWTO' ];
++  vers[3] = [ 'n\/a' ];
++  cpts[4] = [ 'Code', 'Documentation', 'Feature Requests', 'Install', 'Unittests' ];
++  vers[4] = [ '2.0' ];
++  cpts[5] = [ 'Core System' ];
++  vers[5] = [ 'unspecified' ];
++  cpts[6] = [ 'General Bugs' ];
++  vers[6] = [ '2.15', '2.17.3', '2.17.6', '2.18rc2', 'unspecified' ];
++  cpts[7] = [ 'Bugs', 'Keywords', 'New Ebuilds' ];
++  vers[7] = [ 'unspecified' ];
++  cpts[8] = [ 'Catalyst', 'genkernel', 'Keychain', 'Tenshi' ];
++  vers[8] = [ 'unspecified' ];
++  cpts[9] = [ 'CVS', 'Dev box issues', 'Developer account issues', 'Mailing Lists', 'Other', 'Other web server issues', 'packages.gentoo.org', 'Web Node Issues' ];
++  vers[9] = [ 'unspecified' ];
++  cpts[10] = [ 'Applications', 'baselayout', 'Core system', 'Development', 'Ebuilds', 'Eclasses and Profiles', 'Games', 'GCC Porting', 'GLI', 'GNOME', 'Hardened', 'KDE', 'Library', 'Printing', 'Security', 'Server', 'Unspecified' ];
++  vers[10] = [ '1.0', '1.0 RC6 r14', '1.1a', '1.2', '1.3', '1.4', '1.4_rc1', '1.4_rc2', '1.4_rc3', '1.4_rc4', '2004.0', '2004.1', '2004.2', '2004.3', '2005.0', 'unspecified' ];
++  cpts[11] = [ 'BootX Installer', 'bug', 'keyword', 'new ebuild' ];
++  vers[11] = [ 'unspecified' ];
++  cpts[12] = [ 'General Bugs', 'New Ebuilds' ];
++  vers[12] = [ 'unspecified' ];
++  cpts[13] = [ 'Everything' ];
++  vers[13] = [ '2004.3', '2005.0', 'unspecified' ];
++  cpts[14] = [ 'Auditing', 'Default Configs', 'GLSA Errors', 'Kernel', 'Vulnerabilities' ];
++  vers[14] = [ 'unspecified' ];
++  cpts[15] = [ 'GRP bug' ];
++  vers[15] = [ 'unspecified' ];
++  cpts[16] = [ 'Feature Request', 'New Server', 'Server Problem' ];
++  vers[16] = [ 'n\/a' ];
++  cpts[17] = [ 'Conceptual\/Abstract Ideas', 'Core', 'Core - Configuration', 'Core - Dependencies', 'Core - Ebuild Support', 'Core - External Interaction', 'Core - Interface (emerge)', 'Documentation', 'Enhancement\/Feature Requests', 'Repoman', 'Sandbox', 'Third-Party Tools', 'Tools', 'Unclassified', 'Unclassified (old)' ];
++  vers[17] = [ '2.0 (stable)', '2.5 (transition)', '2.9 (3.0 dev)', 'CVS HEAD', 'unspecified' ];
++  cpts[18] = [ 'New Developers' ];
++  vers[18] = [ 'All' ];
++  cpts[19] = [ 'About Gentoo Linux', 'Articles', 'Bugs', 'Changelog', 'CVS repository', 'Documentation', 'Forums', 'Graphics', 'News', 'Other', 'Packages', 'Projects', 'Screenshots', 'Social Contract' ];
++  vers[19] = [ 'n\/a' ];
++
++
++
++function updateSelect(array, sel, target, merging) {
++        
++    var i, item;
++
++    
++    if (array.length < 1) {
++        target.options.length = 0;
++        return false;
++    }
++
++    if (merging) {
++        
++        
++        item = merge_arrays(array[sel[0]], target.options, 1);
++
++        
++        for (i = 1 ; i < sel.length ; i++) {
++            item = merge_arrays(array[sel[i]], item, 0);
++        }
++    } else if ( sel.length > 1 ) {
++        
++        item = merge_arrays(array[sel[0]],array[sel[1]], 0);
++
++        
++        for (i = 2; i < sel.length; i++) {
++            item = merge_arrays(item, array[sel[i]], 0);
++        }
++    } else { 
++        item = array[sel[0]];
++    }
++
++    
++    target.options.length = 0;
++
++    
++    for (i = 0; i < item.length; i++) {
++        target.options[i] = new Option(item[i], item[i]);
++    }
++    return true;
++}
++
++
++function fake_diff_array(a, b) {
++    var newsel = new Array();
++    var found = false;
++
++    
++    for (var ia in a) {
++        for (var ib in b) {
++            if (a[ia] == b[ib]) {
++                found = true;
++            }
++        }
++        if (!found) {
++            newsel[newsel.length] = a[ia];
++        }
++        found = false;
++    }
++    return newsel;
++}
++
++
++function merge_arrays(a, b, b_is_select) {
++    var pos_a = 0;
++    var pos_b = 0;
++    var ret = new Array();
++    var bitem, aitem;
++
++    
++    while ((pos_a < a.length) && (pos_b < b.length)) {
++        if (b_is_select) {
++            bitem = b[pos_b].value;
++        } else {
++            bitem = b[pos_b];
++        }
++        aitem = a[pos_a];
++
++        
++        if (aitem.toLowerCase() < bitem.toLowerCase()) {
++            ret[ret.length] = aitem;
++            pos_a++;
++        } else {
++            
++            if (aitem.toLowerCase() > bitem.toLowerCase()) {
++                ret[ret.length] = bitem;
++                pos_b++;
++            } else {
++                
++                ret[ret.length] = aitem;
++                pos_a++;
++                pos_b++;
++            }
++        }
++    }
++
++    
++    if (pos_a < a.length) {
++        for (; pos_a < a.length ; pos_a++) {
++            ret[ret.length] = a[pos_a];
++        }
++    }
++
++    if (pos_b < b.length) {
++        for (; pos_b < b.length; pos_b++) {
++            if (b_is_select) {
++                bitem = b[pos_b].value;
++            } else {
++                bitem = b[pos_b];
++            }
++            ret[ret.length] = bitem;
++        }
++    }
++    return ret;
++}
++
++
++function get_selection(control, findall, want_values) {
++    var ret = new Array();
++
++    if ((!findall) && (control.selectedIndex == -1)) {
++        return ret;
++    }
++
++    for (var i=0; i<control.length; i++) {
++        if (findall || control.options[i].selected) {
++            ret[ret.length] = want_values ? control.options[i].value : i;
++        }
++    }
++    return ret;
++}
++
++
++function restoreSelection(control, selnames) {
++    
++    for (var j=0; j < selnames.length; j++) {
++        for (var i=0; i < control.options.length; i++) {
++            if (control.options[i].value == selnames[j]) {
++                control.options[i].selected = true;
++            }
++        }
++    }
++}
++
++
++function selectProduct(f) {
++    
++    if ((!f) || (!f.product)) {
++        return;
++    }
++
++    
++    if ((first_load) && (f.product.selectedIndex == -1)) {
++        first_load = false;
++        return;
++    }
++    
++    
++    first_load = false;
++
++    
++    var merging = false;
++    var sel = Array();
++
++    
++    var findall = f.product.selectedIndex == -1;
++    sel = get_selection(f.product, findall, false);
++    if (!findall) {
++        
++        var tmp = sel;
++    
++        
++        if ((last_sel.length > 0) && (last_sel.length < sel.length)) {
++            sel = fake_diff_array(sel, last_sel);
++            merging = true;
++        }
++        last_sel = tmp;
++    }
++    
++    var saved_cpts = get_selection(f.component, false, true);
++    var saved_vers = get_selection(f.version, false, true);
++
++    
++    updateSelect(cpts, sel, f.component, merging);
++    restoreSelection(f.component, saved_cpts);
++    updateSelect(vers, sel, f.version, merging);
++    restoreSelection(f.version, saved_vers);
++}
++
++// -->
++</script>
++
++
++
++
++<input type="hidden" name="query_format" value="advanced">
++
++
++
++<table>
++  <tr>
++    <th align="right"><u>S</u>ummary:</th>
++    <td>
++      <select name="short_desc_type">
++        <option value="allwordssubstr">contains all of the words/strings</option>
++        <option value="anywordssubstr">contains any of the words/strings</option>
++        <option value="substring">contains the string</option>
++        <option value="casesubstring">contains the string (exact case)</option>
++        <option value="allwords">contains all of the words</option>
++        <option value="anywords">contains any of the words</option>
++        <option value="regexp">matches the regexp</option>
++        <option value="notregexp">doesn't match the regexp</option>              
++      </select>
++    </td>
++    <td>
++      <input name="short_desc" size="40" accesskey="s"
++             value="">
++    </td>
++    <td>
++      <input type="submit" value="Search">
++    </td>
++  </tr>  
++
++
++
++  <tr>
++    <td colspan="4">
++      <table>
++        <tr>
++          <td valign="top">
++            <table>
++              <tr valign="bottom">
++                <th align="left"><u>P</u>roduct:</th>
++              </tr>
++              <tr valign="top">
++                
++                <td align="left">
++                  <label for="product" accesskey="p">
++                    <select name="product" multiple="multiple" size="5" id="product"
++                            onchange="selectProduct(this.form);">
++                      <option value="Admin">Admin</option>
++                      <option value="Developer Relations">Developer Relations</option>
++                      <option value="Docs-developer">Docs-developer</option>
++                      <option value="Docs-user">Docs-user</option>
++                      <option value="Future Portage Development">Future Portage Development</option>
++                      <option value="Gentoo BSD">Gentoo BSD</option>
++                      <option value="Gentoo Bugzilla">Gentoo Bugzilla</option>
++                      <option value="Gentoo for Mac OS X">Gentoo for Mac OS X</option>
++                      <option value="Gentoo Hosted Projects">Gentoo Hosted Projects</option>
++                      <option value="Gentoo Infrastructure">Gentoo Infrastructure</option>
++                      <option value="Gentoo Linux">Gentoo Linux</option>
++                      <option value="Gentoo Linux/PPC">Gentoo Linux/PPC</option>
++                      <option value="Gentoo Linux/SPARC">Gentoo Linux/SPARC</option>
++                      <option value="Gentoo LiveCD (all flavors)">Gentoo LiveCD (all flavors)</option>
++                      <option value="Gentoo Security">Gentoo Security</option>
++                      <option value="GRP">GRP</option>
++                      <option value="Mirrors">Mirrors</option>
++                      <option value="Portage Development">Portage Development</option>
++                      <option value="Recruitment">Recruitment</option>
++                      <option value="Web-www.gentoo.org">Web-www.gentoo.org</option>
++                    </select>
++                  </label>
++                </td>
++              </tr>
++            </table>
++          </td>
++          <td valign="top">
++            <table>
++              <tr valign="bottom">
++                <th align="left">
++                  <a href="describecomponents.cgi">Co<u>m</u>ponent</a>:
++                </th>
++              </tr>
++              <tr valign="top">
++                
++                <td align="left">
++                  <label for="component" accesskey="m">
++                    <select name="component" id="component" 
++                            multiple="multiple" size="5">
++                      <option value="About Gentoo Linux">About Gentoo Linux</option>
++                      <option value="Alsa Configuration Guide">Alsa Configuration Guide</option>
++                      <option value="Applications">Applications</option>
++                      <option value="Articles">Articles</option>
++                      <option value="ATI FAQ">ATI FAQ</option>
++                      <option value="Auditing">Auditing</option>
++                      <option value="baselayout">baselayout</option>
++                      <option value="BootX Installer">BootX Installer</option>
++                      <option value="bug">bug</option>
++                      <option value="Bugs">Bugs</option>
++                      <option value="Catalyst">Catalyst</option>
++                      <option value="Changelog">Changelog</option>
++                      <option value="Code">Code</option>
++                      <option value="Conceptual/Abstract Ideas">Conceptual/Abstract Ideas</option>
++                      <option value="Contributing ebuilds">Contributing ebuilds</option>
++                      <option value="Core">Core</option>
++                      <option value="Core - Configuration">Core - Configuration</option>
++                      <option value="Core - Dependencies">Core - Dependencies</option>
++                      <option value="Core - Ebuild Support">Core - Ebuild Support</option>
++                      <option value="Core - External Interaction">Core - External Interaction</option>
++                      <option value="Core - Interface (emerge)">Core - Interface (emerge)</option>
++                      <option value="Core System">Core System</option>
++                      <option value="Core system">Core system</option>
++                      <option value="CVS">CVS</option>
++                      <option value="CVS repository">CVS repository</option>
++                      <option value="CVS tutorial">CVS tutorial</option>
++                      <option value="Default">Default</option>
++                      <option value="Default Configs">Default Configs</option>
++                      <option value="Desktop Configuration Guide">Desktop Configuration Guide</option>
++                      <option value="Dev box issues">Dev box issues</option>
++                      <option value="Developer account issues">Developer account issues</option>
++                      <option value="Developers HOWTO">Developers HOWTO</option>
++                      <option value="Development">Development</option>
++                      <option value="Documentation">Documentation</option>
++                      <option value="Documentation Developer Policy">Documentation Developer Policy</option>
++                      <option value="Documentation Guide">Documentation Guide</option>
++                      <option value="Ebuilds">Ebuilds</option>
++                      <option value="Eclass HOWTO">Eclass HOWTO</option>
++                      <option value="Eclasses and Profiles">Eclasses and Profiles</option>
++                      <option value="Enhancement/Feature Requests">Enhancement/Feature Requests</option>
++                      <option value="env.d HOWTO">env.d HOWTO</option>
++                      <option value="Everything">Everything</option>
++                      <option value="Feature Request">Feature Request</option>
++                      <option value="Feature Requests">Feature Requests</option>
++                      <option value="Forums">Forums</option>
++                      <option value="Games">Games</option>
++                      <option value="GCC Porting">GCC Porting</option>
++                      <option value="General Bugs">General Bugs</option>
++                      <option value="genkernel">genkernel</option>
++                      <option value="Gentoo Alternative Installation Guide">Gentoo Alternative Installation Guide</option>
++                      <option value="Gentoo Java Guide">Gentoo Java Guide</option>
++                      <option value="Gentoo Linux Developer's Policy">Gentoo Linux Developer's Policy</option>
++                      <option value="Gentoo Linux FAQ">Gentoo Linux FAQ</option>
++                      <option value="Gentoo Linux PPC FAQ">Gentoo Linux PPC FAQ</option>
++                      <option value="Gentoo Linux PPC Installation Guide">Gentoo Linux PPC Installation Guide</option>
++                      <option value="Gentoo Linux rc-script Guide">Gentoo Linux rc-script Guide</option>
++                      <option value="Gentoo Linux Sparc Installation Guide">Gentoo Linux Sparc Installation Guide</option>
++                      <option value="Gentoo Linux x86 Installation Guide">Gentoo Linux x86 Installation Guide</option>
++                      <option value="Gentoo Security Guide">Gentoo Security Guide</option>
++                      <option value="Gentoolkit HOWTO">Gentoolkit HOWTO</option>
++                      <option value="GLI">GLI</option>
++                      <option value="GLSA Errors">GLSA Errors</option>
++                      <option value="GNOME">GNOME</option>
++                      <option value="GNUpg User Guide">GNUpg User Guide</option>
++                      <option value="Graphics">Graphics</option>
++                      <option value="GRP bug">GRP bug</option>
++                      <option value="Guide XML">Guide XML</option>
++                      <option value="Handbook">Handbook</option>
++                      <option value="Hardened">Hardened</option>
++                      <option value="Install">Install</option>
++                      <option value="KDE">KDE</option>
++                      <option value="Kernel">Kernel</option>
++                      <option value="Keychain">Keychain</option>
++                      <option value="keyword">keyword</option>
++                      <option value="Keywords">Keywords</option>
++                      <option value="Library">Library</option>
++                      <option value="Localisation Guide">Localisation Guide</option>
++                      <option value="LVM HOWTO">LVM HOWTO</option>
++                      <option value="Mailing Lists">Mailing Lists</option>
++                      <option value="Mailinglists">Mailinglists</option>
++                      <option value="Nano Basics Guide">Nano Basics Guide</option>
++                      <option value="New Developers">New Developers</option>
++                      <option value="new ebuild">new ebuild</option>
++                      <option value="New Ebuilds">New Ebuilds</option>
++                      <option value="New Server">New Server</option>
++                      <option value="News">News</option>
++                      <option value="nVIDIA Trouble Shooting Guide">nVIDIA Trouble Shooting Guide</option>
++                      <option value="OpenAFS Guide">OpenAFS Guide</option>
++                      <option value="Other">Other</option>
++                      <option value="Other web server issues">Other web server issues</option>
++                      <option value="Packages">Packages</option>
++                      <option value="packages.gentoo.org">packages.gentoo.org</option>
++                      <option value="Portage Documentation">Portage Documentation</option>
++                      <option value="Portage Manual">Portage Manual</option>
++                      <option value="Portage User Guide">Portage User Guide</option>
++                      <option value="PPC QuickStart">PPC QuickStart</option>
++                      <option value="Prelink HOWTO">Prelink HOWTO</option>
++                      <option value="Printing">Printing</option>
++                      <option value="Printing HOWTO">Printing HOWTO</option>
++                      <option value="Projects">Projects</option>
++                      <option value="Quick Start Guide">Quick Start Guide</option>
++                      <option value="Repoman">Repoman</option>
++                      <option value="Sandbox">Sandbox</option>
++                      <option value="Screenshots">Screenshots</option>
++                      <option value="Security">Security</option>
++                      <option value="Server">Server</option>
++                      <option value="Server Problem">Server Problem</option>
++                      <option value="Social Contract">Social Contract</option>
++                      <option value="Submit New">Submit New</option>
++                      <option value="Submit New Documentation">Submit New Documentation</option>
++                      <option value="Tenshi">Tenshi</option>
++                      <option value="Third-Party Tools">Third-Party Tools</option>
++                      <option value="Tools">Tools</option>
++                      <option value="Translated Documentation">Translated Documentation</option>
++                      <option value="Unclassified">Unclassified</option>
++                      <option value="Unclassified (old)">Unclassified (old)</option>
++                      <option value="Unittests">Unittests</option>
++                      <option value="Unspecified">Unspecified</option>
++                      <option value="USE Variable HOWTO">USE Variable HOWTO</option>
++                      <option value="User-Mode Linux Guide">User-Mode Linux Guide</option>
++                      <option value="Vi HOWTO">Vi HOWTO</option>
++                      <option value="Virtual-mail HOWTO">Virtual-mail HOWTO</option>
++                      <option value="Vulnerabilities">Vulnerabilities</option>
++                      <option value="Web Node Issues">Web Node Issues</option>
++                    </select>
++                  </label>
++                </td>
++              </tr>
++            </table>
++          </td>
++          <td valign="top">
++            <table>
++              <tr valign="bottom">
++                <th align="left"><u>V</u>ersion:</th>
++              </tr>
++              <tr valign="top"><td align="left">
++    <label for="version" accesskey="v">
++      <select name="version" id="version"
++              multiple="multiple" size="5">
++        <option value="1.0">1.0</option>
++        <option value="1.0 RC6 r14">1.0 RC6 r14</option>
++        <option value="1.1a">1.1a</option>
++        <option value="1.2">1.2</option>
++        <option value="1.3">1.3</option>
++        <option value="1.4">1.4</option>
++        <option value="1.4_rc1">1.4_rc1</option>
++        <option value="1.4_rc2">1.4_rc2</option>
++        <option value="1.4_rc3">1.4_rc3</option>
++        <option value="1.4_rc4">1.4_rc4</option>
++        <option value="2.0">2.0</option>
++        <option value="2.0 (stable)">2.0 (stable)</option>
++        <option value="2.15">2.15</option>
++        <option value="2.17.3">2.17.3</option>
++        <option value="2.17.6">2.17.6</option>
++        <option value="2.18rc2">2.18rc2</option>
++        <option value="2.5 (transition)">2.5 (transition)</option>
++        <option value="2.9 (3.0 dev)">2.9 (3.0 dev)</option>
++        <option value="2004.0">2004.0</option>
++        <option value="2004.1">2004.1</option>
++        <option value="2004.2">2004.2</option>
++        <option value="2004.3">2004.3</option>
++        <option value="2005.0">2005.0</option>
++        <option value="All">All</option>
++        <option value="CVS HEAD">CVS HEAD</option>
++        <option value="n/a">n/a</option>
++        <option value="unspecified">unspecified</option>
++      </select>
++    </label>
++  </td>
++              </tr>
++            </table>
++          </td>
++        </tr>
++      </table>
++    </td>
++  </tr>
++  
++
++
++
++    <tr>
++      <th align="right">A&nbsp;<u>C</u>omment:</th>
++      <td>
++        <select name="long_desc_type">                   
++          <option value="allwordssubstr">contains all of the words/strings</option>                   
++          <option value="anywordssubstr">contains any of the words/strings</option>                   
++          <option value="substring">contains the string</option>                   
++          <option value="casesubstring">contains the string (exact case)</option>                   
++          <option value="allwords">contains all of the words</option>                   
++          <option value="anywords">contains any of the words</option>                   
++          <option value="regexp">matches the regexp</option>                   
++          <option value="notregexp">doesn't match the regexp</option>              
++        </select>
++      </td>
++      <td><input name="long_desc" size="40"
++                 accesskey="c"
++                 value="">
++      </td>
++      <td></td>
++    </tr>  
++
++    <tr>
++      <th align="right">The&nbsp;<u>U</u>RL:</th>
++      <td>
++        <select name="bug_file_loc_type">                   
++          <option value="allwordssubstr">contains all of the words/strings</option>                   
++          <option value="anywordssubstr">contains any of the words/strings</option>                   
++          <option value="substring">contains the string</option>                   
++          <option value="casesubstring">contains the string (exact case)</option>                   
++          <option value="allwords">contains all of the words</option>                   
++          <option value="anywords">contains any of the words</option>                   
++          <option value="regexp">matches the regexp</option>                   
++          <option value="notregexp">doesn't match the regexp</option>              
++        </select>
++      </td>
++      <td><input name="bug_file_loc" size="40"
++                 accesskey="u"
++                 value="">
++      </td>
++      <td></td>
++    </tr>  
++
++    <tr>
++      <th align="right"><u>W</u>hiteboard:</th>
++      <td>
++        <select name="status_whiteboard_type">                   
++          <option value="allwordssubstr">contains all of the words/strings</option>                   
++          <option value="anywordssubstr">contains any of the words/strings</option>                   
++          <option value="substring">contains the string</option>                   
++          <option value="casesubstring">contains the string (exact case)</option>                   
++          <option value="allwords">contains all of the words</option>                   
++          <option value="anywords">contains any of the words</option>                   
++          <option value="regexp">matches the regexp</option>                   
++          <option value="notregexp">doesn't match the regexp</option>              
++        </select>
++      </td>
++      <td><input name="status_whiteboard" size="40"
++                 accesskey="w"
++                 value="">
++      </td>
++      <td></td>
++    </tr>  
++
++    <tr>
++      <th align="right">
++        <a href="describekeywords.cgi"><u>K</u>eywords</a>:
++      </th>
++      <td>
++        <select name="keywords_type">
++
++          <option value="allwords">contains all of the keywords</option>
++
++          <option value="anywords">contains any of the keywords</option>
++
++          <option value="nowords">contains none of the keywords</option>
++        </select>
++      </td>
++      <td>
++        <input name="keywords" size="40" accesskey="k"
++               value="">
++      </td>
++    </tr>
++</table>  
++
++<hr>
++
++
++
++<table>
++  <tr>
++    <td>
++      <table>
++        <tr>
++          <th align="left"><a href="queryhelp.cgi#status">St<u>a</u>tus</a>:</th>
++        </tr>
++        <tr valign="top"><td align="left">
++    <label for="bug_status" accesskey="a">
++      <select name="bug_status" id="bug_status"
++              multiple="multiple" size="7">
++        <option value="UNCONFIRMED" selected>UNCONFIRMED</option>
++        <option value="NEW" selected>NEW</option>
++        <option value="ASSIGNED" selected>ASSIGNED</option>
++        <option value="REOPENED" selected>REOPENED</option>
++        <option value="RESOLVED" selected>RESOLVED</option>
++        <option value="VERIFIED" selected>VERIFIED</option>
++        <option value="CLOSED" selected>CLOSED</option>
++      </select>
++    </label>
++  </td>
++        </tr>
++      </table>
++    </td>
++    <td>
++      <table>
++        <tr>
++          <th align="left">
++            <a href="queryhelp.cgi#resolution"><u>R</u>esolution</a>:
++          </th>
++        </tr>
++        <tr valign="top"><td align="left">
++    <label for="resolution" accesskey="r">
++      <select name="resolution" id="resolution"
++              multiple="multiple" size="7">
++        <option value="FIXED">FIXED</option>
++        <option value="INVALID">INVALID</option>
++        <option value="WONTFIX">WONTFIX</option>
++        <option value="CANTFIX">CANTFIX</option>
++        <option value="NEEDINFO">NEEDINFO</option>
++        <option value="TEST-REQUEST">TEST-REQUEST</option>
++        <option value="LATER">LATER</option>
++        <option value="REMIND">REMIND</option>
++        <option value="DUPLICATE">DUPLICATE</option>
++        <option value="WORKSFORME">WORKSFORME</option>
++        <option value="MOVED">MOVED</option>
++        <option value="UPSTREAM">UPSTREAM</option>
++        <option value="---">---</option>
++      </select>
++    </label>
++  </td>
++        </tr>
++      </table>
++    </td>
++    <td>
++      <table>
++        <tr>
++          <th align="left"><a href="queryhelp.cgi#severity">S<u>e</u>verity</a>:</th>
++        </tr>
++        <tr valign="top"><td align="left">
++    <label for="bug_severity" accesskey="e">
++      <select name="bug_severity" id="bug_severity"
++              multiple="multiple" size="7">
++        <option value="blocker">blocker</option>
++        <option value="critical">critical</option>
++        <option value="major">major</option>
++        <option value="normal">normal</option>
++        <option value="minor">minor</option>
++        <option value="trivial">trivial</option>
++        <option value="enhancement">enhancement</option>
++      </select>
++    </label>
++  </td>    
++        </tr>
++      </table>
++    </td>
++    <td>
++      <table>
++        <tr>
++          <th align="left"><a href="queryhelp.cgi#priority">Pr<u>i</u>ority</a>:</th>
++        </tr>
++        <tr valign="top"><td align="left">
++    <label for="priority" accesskey="i">
++      <select name="priority" id="priority"
++              multiple="multiple" size="7">
++        <option value="P1">P1</option>
++        <option value="P2">P2</option>
++        <option value="P3">P3</option>
++        <option value="P4">P4</option>
++        <option value="P5">P5</option>
++      </select>
++    </label>
++  </td>    
++        </tr>
++      </table>
++    </td>
++    <td>
++      <table>
++        <tr>
++          <th align="left"><a href="queryhelp.cgi#platform"><u>H</u>ardware</a>:</th>
++        </tr>
++        <tr valign="top"><td align="left">
++    <label for="rep_platform" accesskey="h">
++      <select name="rep_platform" id="rep_platform"
++              multiple="multiple" size="7">
++        <option value="All">All</option>
++        <option value="x86">x86</option>
++        <option value="PPC">PPC</option>
++        <option value="PPC64">PPC64</option>
++        <option value="Sparc">Sparc</option>
++        <option value="MIPS">MIPS</option>
++        <option value="Alpha">Alpha</option>
++        <option value="ARM">ARM</option>
++        <option value="HPPA">HPPA</option>
++        <option value="amd64">amd64</option>
++        <option value="ia64">ia64</option>
++      </select>
++    </label>
++  </td>
++        </tr>
++      </table>
++    </td>
++    <td>
++      <table>
++        <tr>
++          <th align="left"><a href="queryhelp.cgi#opsys"><u>O</u>S</a>:</th>
++        </tr>
++        <tr valign="top"><td align="left">
++    <label for="op_sys" accesskey="o">
++      <select name="op_sys" id="op_sys"
++              multiple="multiple" size="7">
++        <option value="All">All</option>
++        <option value="Linux">Linux</option>
++      </select>
++    </label>
++  </td>
++        </tr>
++      </table>
++    </td>
++  </tr>
++</table>
++
++<p>
++
++
++
++<table>
++  <tr>
++    <td>
++      <fieldset>
++        <legend>
++          <strong>
++            <a href="queryhelp.cgi#peopleinvolved">Email</a> and Numbering
++          </strong>  
++        </legend>
++
++
++<table>
++  <tr>
++    <td>
++
++
++<table cellspacing="0" cellpadding="0">
++  <tr>
++    <td>
++      Any of:
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input type="checkbox" name="emailassigned_to1" 
++             id="emailassigned_to1" value="1" checked>
++      <label for="emailassigned_to1">
++        bug owner
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input type="checkbox" name="emailreporter1" 
++             id="emailreporter1" value="1">
++      <label for="emailreporter1">
++        reporter
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input type="checkbox" name="emailcc1" 
++             id="emailcc1" value="1">
++      <label for="emailcc1">
++        CC list member
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++        <input type="checkbox" name="emaillongdesc1" 
++               id="emaillongdesc1" value="1">
++      <label for="emaillongdesc1">
++        commenter
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <select name="emailtype1">
++        
++        <option value="substring">contains</option>
++        
++        <option value="exact">is</option>
++        
++        <option value="regexp">matches regexp</option>
++        
++        <option value="notregexp">doesn't match regexp</option>
++      </select>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input name="email1" size="25" value="">
++    </td>
++  </tr>
++</table>
++
++    
++    </td>
++    <td>
++
++
++<table cellspacing="0" cellpadding="0">
++  <tr>
++    <td>
++      Any of:
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input type="checkbox" name="emailassigned_to2" 
++             id="emailassigned_to2" value="1" checked>
++      <label for="emailassigned_to2">
++        bug owner
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input type="checkbox" name="emailreporter2" 
++             id="emailreporter2" value="1" checked>
++      <label for="emailreporter2">
++        reporter
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input type="checkbox" name="emailcc2" 
++             id="emailcc2" value="1" checked>
++      <label for="emailcc2">
++        CC list member
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++        <input type="checkbox" name="emaillongdesc2" 
++               id="emaillongdesc2" value="1">
++      <label for="emaillongdesc2">
++        commenter
++      </label>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <select name="emailtype2">
++        
++        <option value="substring">contains</option>
++        
++        <option value="exact">is</option>
++        
++        <option value="regexp">matches regexp</option>
++        
++        <option value="notregexp">doesn't match regexp</option>
++      </select>
++    </td>
++  </tr>
++  <tr>
++    <td>
++      <input name="email2" size="25" value="">
++    </td>
++  </tr>
++</table>
++
++    
++    </td>
++  </tr>
++</table>
++<hr>
++<table>  
++  <tr>
++    <td>
++      <select name="bugidtype">
++        <option value="include">Only include</option>
++        <option value="exclude">Exclude</option>
++      </select>
++      bugs numbered: 
++    </td>
++    <td>
++      <input type="text" name="bug_id" value="" size="20">
++    </td>
++  </tr>
++  <tr>
++    <td></td>
++    <td>(comma-separated list)</td>
++  </tr>
++    <tr>
++      <td align="right">
++        Only bugs with at least:
++      </td>
++      <td>
++        <input name="votes" size="3" value=""> votes
++      </td>
++    </tr>
++</table>
++
++
++      </fieldset>
++    </td>
++   
++
++
++    <td valign="top">
++      <fieldset>
++        <legend><strong>Bug Changes</strong></legend>
++
++
++<dl>
++  <dt>Only bugs changed in the last </dt>
++  <dd><input name="changedin" size="3" value=""> days</dd>
++</dl>
++
++<dl>
++  <dt>Only bugs where any of the fields</dt>
++  <dd>
++    <select name="chfield" multiple="multiple" size="4">
++      <option value="[Bug creation]">[Bug creation]</option>
++      <option value="alias">Alias</option>
++      <option value="assigned_to">Assignee</option>
++      <option value="bug_file_loc">URL</option>
++      <option value="bug_severity">Severity</option>
++      <option value="bug_status">Status</option>
++      <option value="cclist_accessible">CC list accessible?</option>
++      <option value="component">Component</option>
++      <option value="everconfirmed">Ever confirmed?</option>
++      <option value="keywords">Keywords</option>
++      <option value="op_sys">OS</option>
++      <option value="priority">Priority</option>
++      <option value="product">Product</option>
++      <option value="qa_contact">QA Contact</option>
++      <option value="rep_platform">Hardware</option>
++      <option value="reporter">Reporter</option>
++      <option value="reporter_accessible">Reporter accessible?</option>
++      <option value="resolution">Resolution</option>
++      <option value="short_desc">Summary</option>
++      <option value="status_whiteboard">Whiteboard</option>
++      <option value="target_milestone">Target Milestone</option>
++      <option value="version">Version</option>
++      <option value="votes">Votes</option>
++    </select>
++  </dd>
++
++  <dt>were changed between</dt>
++  <dd>
++    <input name="chfieldfrom" size="10" value="">
++    and <input name="chfieldto" size="10" value="Now">
++    <br>(YYYY-MM-DD)
++  </dd>
++  <dt>to this value: (optional)</dt>
++  <dd>
++    <input name="chfieldvalue" size="20" value="">
++  </dd>
++</dl>
++
++
++       </fieldset>
++     </td>
++  </tr>
++</table>
++<!-- 1.0 at bugzilla.org -->
++
++
++
++
++<br>
++  <input type="hidden" name="cmdtype" value="doit">
++
++<p>
++  Sort results by:
++  <select name="order">
++    <option value="Bug Number">Bug Number</option> 
++    <option value="Importance">Importance</option> 
++    <option value="Assignee">Assignee</option> 
++    <option value="Last Changed">Last Changed</option> 
++  </select>
++  <input type="submit" value="Search">
++
++</p>
++
++<hr>
++<!-- 1.0 at bugzilla.org -->
++
++
++
++  <p>
++    <strong>
++      <a name="chart" href="queryhelp.cgi#advancedquerying">
++      Advanced Querying Using Boolean Charts</a>:
++    </strong>
++  </p>
++
++
++
++
++  <table>
++    <tr>
++      <td>
++        <select name="field0-0-0">
++            <option value="noop">---</option>
++            <option value="assignee_accessible">assignee_accessible</option>
++            <option value="qacontact_accessible">qacontact_accessible</option>
++            <option value="bug_id">Bug #</option>
++            <option value="owner_idle_time">Time Since Owner Touched</option>
++            <option value="short_desc">Summary</option>
++            <option value="product">Product</option>
++            <option value="version">Version</option>
++            <option value="rep_platform">Platform</option>
++            <option value="bug_file_loc">URL</option>
++            <option value="op_sys">OS/Version</option>
++            <option value="bug_status">Status</option>
++            <option value="status_whiteboard">Status Whiteboard</option>
++            <option value="keywords">Keywords</option>
++            <option value="resolution">Resolution</option>
++            <option value="bug_severity">Severity</option>
++            <option value="priority">Priority</option>
++            <option value="component">Component</option>
++            <option value="assigned_to">AssignedTo</option>
++            <option value="reporter">ReportedBy</option>
++            <option value="votes">Votes</option>
++            <option value="qa_contact">QAContact</option>
++            <option value="cc">CC</option>
++            <option value="dependson">BugsThisDependsOn</option>
++            <option value="blocked">OtherBugsDependingOnThis</option>
++            <option value="attachments.description">Attachment description</option>
++            <option value="attachments.thedata">Attachment data</option>
++            <option value="attachments.filename">Attachment filename</option>
++            <option value="attachments.mimetype">Attachment mime type</option>
++            <option value="attachments.ispatch">Attachment is patch</option>
++            <option value="attachments.isobsolete">Attachment is obsolete</option>
++            <option value="attachments.isprivate">Attachment is private</option>
++            <option value="target_milestone">Target Milestone</option>
++            <option value="delta_ts">Last changed date</option>
++            <option value="(to_days(now()) - to_days(bugs.delta_ts))">Days since bug changed</option>
++            <option value="longdesc">Comment</option>
++            <option value="alias">Alias</option>
++            <option value="everconfirmed">Ever Confirmed</option>
++            <option value="reporter_accessible">Reporter Accessible</option>
++            <option value="cclist_accessible">CC Accessible</option>
++            <option value="bug_group">Group</option>
++            <option value="estimated_time">Estimated Hours</option>
++            <option value="flagtypes.name">Flag</option>
++            <option value="requesters.login_name">Flag Requester</option>
++            <option value="setters.login_name">Flag Setter</option>
++            <option value="content">Content</option>
++        </select>
++
++        <select name="type0-0-0">
++            <option value="noop">---</option>
++            <option value="equals">is equal to</option>
++            <option value="notequals">is not equal to</option>
++            <option value="anyexact">is equal to any of the strings</option>
++            <option value="substring">contains the string</option>
++            <option value="casesubstring">contains the string (exact case)</option>
++            <option value="notsubstring">does not contain the string</option>
++            <option value="allwordssubstr">contains all of the strings</option>
++            <option value="anywordssubstr">contains any of the strings</option>
++            <option value="regexp">contains regexp</option>
++            <option value="notregexp">does not contain regexp</option>
++            <option value="lessthan">is less than</option>
++            <option value="greaterthan">is greater than</option>
++            <option value="anywords">contains any of the words</option>
++            <option value="allwords">contains all of the words</option>
++            <option value="nowords">contains none of the words</option>
++            <option value="changedbefore">changed before</option>
++            <option value="changedafter">changed after</option>
++            <option value="changedfrom">changed from</option>
++            <option value="changedto">changed to</option>
++            <option value="changedby">changed by</option>
++        </select>
++
++        <input name="value0-0-0" 
++               value=""> 
++      </td>
++      
++        <td>
++          <input type="submit" value="Or" 
++                 name="cmd-add0-0-1" >
++        </td>
++      
++    </tr>
++    
++    <tr>
++      <td>
++        <input type="submit" value="And" 
++               name="cmd-add0-1-0"> 
++        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++        <input type="submit" value="Add another boolean chart" 
++               name="cmd-add1-0-0" >
++        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++      </td>
++    </tr>   
++    
++  </table>
++  <hr>
++
++<p>
++  Give me a <a href="queryhelp.cgi">clue</a> about how to use this form.
++</p>
++
++</form>
++
++<table border="0">
++  <tr>
++    <td bgcolor="#000000" valign="top">
++      <table border="0" cellpadding="10" cellspacing="0" width="100%"
++             bgcolor="dddaec">
++        <tr>
++          <td>
++          
++
++
++	<p class="version"><a href="http://www.bugzilla.org/">Bugzilla</a> Version 2.18rc2</p>
++
++	<p>For more information on Gentoo Linux, please visit our 
++	<a href="http://www.gentoo.org">homepage</a>.
++	</p>
++
++
++<form method="get" action="show_bug.cgi">
++  <table width="100%">
++    <tr>
++      <td>
++        Actions:
++      </td>
++      
++      <td valign="middle" nowrap="nowrap">
++        <a href="enter_bug.cgi?format=guided">New</a> |
++        <a href="enter_bug.cgi">New-Expert</a> | 
++        <a href="query.cgi">Query</a> |
++        
++        <input type="submit" value="Find"> bug # 
++        <input name="id" size="6"> | 
++        
++        <a href="report.cgi">Reports</a> 
++        
++          | <a href="request.cgi">Requests</a>
++              
++      </td>
++
++      <td>&nbsp;</td>
++          
++      <td valign="middle" align="right">
++          <a href="createaccount.cgi">New&nbsp;Account</a> | 
++        <a href="query.cgi?GoAheadAndLogIn=1">Log&nbsp;In</a>
++      </td>
++    </tr>
++    
++  </table>                
++</form>
++
++          </td>
++        </tr>
++      </table>
++    </td>
++  </tr>
++</table>
++
++</body>
++</html>
+\ No newline at end of file
+
+Added: trunk/examples/gentoo/show_activity.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/show_activity.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/show_activity.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,22 @@
++This is Bugzilla
++
++Home | Docs | Forums | Lists | Bugs | Planet | Store | GWN | Get Gentoo!
++
++Activity log
++
++Bug 77777
++
++
++??????????????????????????????????????????????????????????????????????????????????
++?       Who        ?           When           ?    What    ? Removed ?   Added   ?
++??????????????????????????????????????????????????????????????????????????????????
++? swift at gentoo.org ? 2005-01-13 12:15:14 PST  ? Status     ? NEW     ? RESOLVED  ?
++?                  ?                          ????????????????????????????????????
++?                  ?                          ? Resolution ?         ? DUPLICATE ?
++??????????????????????????????????????????????????????????????????????????????????
++
++Back to bug 77777
++
++Bugzilla Version 2.20+
++Actions:
++Home | New | Search | bug # [      ] [Find] | Reports | Requests | New Account | Log In
+
+Added: trunk/examples/gentoo/show_bug.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/show_bug.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/show_bug.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,760 @@
++<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
++<html><head><!-- 1.0 at bugzilla.org -->
++
++    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
++    <link rel="shortcut icon" href="http://bugs.gentoo.org/images/favicon.ico" type="image/x-icon">
++    <link title="new" rel="stylesheet" href="show_bug.cgi_files/main.css" type="text/css">
++    
++    
++
++<title>Bug 77777 - groff fails to build during "bootstrap.sh"</title><link rel="Top" href="http://bugs.gentoo.org/">
++
++  
++    <link rel="Up" href="http://bugs.gentoo.org/buglist.cgi?regetlastlist=1">
++
++
++
++      <link rel="Next" href="http://bugs.gentoo.org/show_bug.cgi?id=44423">
++      <link rel="Last" href="http://bugs.gentoo.org/show_bug.cgi?id=87474">
++
++
++  
++    <link rel="Show" title="Dependency Tree" href="http://bugs.gentoo.org/showdependencytree.cgi?id=77777">
++    <link rel="Show" title="Dependency Graph" href="http://bugs.gentoo.org/showdependencygraph.cgi?id=77777"> 
++
++
++      <link rel="Show" title="Bug Activity" href="http://bugs.gentoo.org/show_activity.cgi?id=77777">
++      <link rel="Show" title="Printer-Friendly Version" href="http://bugs.gentoo.org/long_list.cgi?buglist=77777">
++    
++    
++    <script type="text/javascript">
++  <!--
++  
++  function initHelp() {}
++  // -->
++  </script>        
++
++    
++        <link href="show_bug.cgi_files/edit_bug.css" rel="stylesheet" type="text/css"></head>
++
++
++
++
++
++
++    <body onload="" bgcolor="#ffffff">
++
++
++<a href="http://bugs.gentoo.org/"><img src="show_bug.cgi_files/bugzilla.png" alt="Gentoo Linux Bugzilla" border="0"></a>
++
++<p class="menu">
++<a class="menulink" href="http://www.gentoo.org/index.xml">Home</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/about.xml"> About </a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/contract.xml"> Social Contract</a> |
++<a class="menulink" href="http://www.gentoo.org/doc/en/index.xml">Docs</a> |
++<a class="menulink" href="http://forums.gentoo.org/">Forums</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/lists.xml"> Lists</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/shots.xml">ScreenShots</a> |
++<a class="highlight" href="http://bugs.gentoo.org/">Bugs</a> |
++<a class="menulink" href="http://store.gentoo.org/">Store</a> |
++<a class="menulink" href="http://www.gentoo.org/news/en/gwn/gwn.xml"> GWN</a> |
++<a class="menulink" href="http://www.gentoo.org/main/en/where.xml"> Get Gentoo!</a>
++</p>
++
++    <table border="0" cellspacing="0" width="100%">
++      <tbody><tr>
++        <td align="left" valign="top">
++          <table border="0" cellpadding="0" cellspacing="2">
++            <tbody><tr>
++              <td align="left" nowrap="nowrap" valign="top">
++                <font size="+1"><b>Bugzilla Bug 77777 <br> </b><i>groff fails to build during "bootstrap.sh"</i><b></b></font>
++              </td>
++            </tr>
++          </tbody></table>
++        </td>
++        <td align="left" valign="middle">&nbsp;</td>
++        <td align="left" valign="middle"></td>
++          <td align="right" valign="middle">Last modified: 2005-01-13 12:15 PST</td>
++      </tr>
++    </tbody></table>
++<!-- 1.0 at bugzilla.org -->
++
++
++  <b>Bug List:</b>
++  
++  <a href="http://bugs.gentoo.org/show_bug.cgi?id=44423">First</a>
++  <a href="http://bugs.gentoo.org/show_bug.cgi?id=87474">Last</a>
++ 
++      (This bug is not in your list)
++  
++  &nbsp;&nbsp;<a href="http://bugs.gentoo.org/buglist.cgi?regetlastlist=1">Show list</a>
++
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://bugs.gentoo.org/query.cgi">Query page</a>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://bugs.gentoo.org/enter_bug.cgi?format=guided">Enter new bug</a>
++
++<hr>
++<!-- 1.0 at bugzilla.org -->
++
++<!-- 1.0 at bugzilla.org -->
++
++
++<form name="changeform" method="post" action="process_bug.cgi">
++
++  <input name="delta_ts" value="20050113121514" type="hidden">
++  <input name="longdesclength" value="4" type="hidden">
++  <input name="id" value="77777" type="hidden">
++
++
++
++  <table border="0" cellpadding="1" cellspacing="1">
++    <tbody><tr>      
++      <td align="right">
++        <b>Bug#:</b>
++      </td>
++      <td>
++        <a href="http://bugs.gentoo.org/show_bug.cgi?id=77777">77777</a>
++            <label title="a name for the bug that can be used in place of its ID number, f.e. when adding it to a list of dependencies">
++              <b>alias:</b>
++              <input name="alias" value="" size="20" maxlength="20">
++            </label>
++      </td>
++      
++      <td>&nbsp;</td>
++
++      <td align="right">
++        <b><u>H</u>ardware:</b>
++      </td><td>
++    <label for="rep_platform" accesskey="h">
++      <select name="rep_platform" id="rep_platform"><option value="All">All
++          </option><option value="x86" selected="selected">x86
++          </option><option value="PPC">PPC
++          </option><option value="PPC64">PPC64
++          </option><option value="Sparc">Sparc
++          </option><option value="MIPS">MIPS
++          </option><option value="Alpha">Alpha
++          </option><option value="ARM">ARM
++          </option><option value="HPPA">HPPA
++          </option><option value="amd64">amd64
++          </option><option value="ia64">ia64
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++      
++      <td align="right">
++        <b>Reporter:</b>
++      </td>
++      <td>Stan Behrens &lt;stanbehrens at msn.com&gt;
++      </td>    
++    </tr>
++    
++    <tr>
++      <td align="right">
++        <b><u>P</u>roduct:</b>
++      </td><td>
++    <label for="product" accesskey="p">
++      <select name="product" id="product"><option value="Admin">Admin
++          </option><option value="Developer Relations">Developer Relations
++          </option><option value="Docs-developer">Docs-developer
++          </option><option value="Docs-user">Docs-user
++          </option><option value="Gentoo BSD">Gentoo BSD
++          </option><option value="Gentoo Bugzilla">Gentoo Bugzilla
++          </option><option value="Gentoo for Mac OS X">Gentoo for Mac OS X
++          </option><option value="Gentoo Hosted Projects">Gentoo Hosted Projects
++          </option><option value="Gentoo Infrastructure">Gentoo Infrastructure
++          </option><option value="Gentoo Linux" selected="selected">Gentoo Linux
++          </option><option value="Gentoo LiveCD (all flavors)">Gentoo LiveCD (all flavors)
++          </option><option value="Gentoo Security">Gentoo Security
++          </option><option value="GRP">GRP
++          </option><option value="Mirrors">Mirrors
++          </option><option value="Portage Development">Portage Development
++          </option><option value="Recruitment">Recruitment
++          </option><option value="Web-www.gentoo.org">Web-www.gentoo.org
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++      
++      <td align="right">
++        <b><u>O</u>S:</b>
++      </td><td>
++    <label for="op_sys" accesskey="o">
++      <select name="op_sys" id="op_sys"><option value="All">All
++          </option><option value="Linux" selected="selected">Linux
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++
++      <td align="right">
++        <b><u>A</u>dd&nbsp;CC:</b>
++      </td>
++      <td>
++        <input name="newcc" size="30" value="" accesskey="a">
++      </td>
++    </tr>
++
++    
++
++    <tr>
++      <td align="right">
++        <b>
++          <a href="http://bugs.gentoo.org/describecomponents.cgi?product=Gentoo%20Linux">
++            Co<u>m</u>ponent</a>:
++        </b>
++      </td><td>
++    <label for="component" accesskey="m">
++      <select name="component" id="component"><option value="Applications" selected="selected">Applications
++          </option><option value="baselayout">baselayout
++          </option><option value="Core system">Core system
++          </option><option value="Development">Development
++          </option><option value="Ebuilds">Ebuilds
++          </option><option value="Eclasses and Profiles">Eclasses and Profiles
++          </option><option value="Games">Games
++          </option><option value="GCC Porting">GCC Porting
++          </option><option value="GLI">GLI
++          </option><option value="GNOME">GNOME
++          </option><option value="Hardened">Hardened
++          </option><option value="KDE">KDE
++          </option><option value="Library">Library
++          </option><option value="Printing">Printing
++          </option><option value="Security">Security
++          </option><option value="Server">Server
++          </option><option value="Unspecified">Unspecified
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++ 
++      <td align="right">
++        <b><u>V</u>ersion:</b>
++      </td><td>
++    <label for="version" accesskey="v">
++      <select name="version" id="version"><option value="1.0">1.0
++          </option><option value="1.0 RC6 r14">1.0 RC6 r14
++          </option><option value="1.1a">1.1a
++          </option><option value="1.2">1.2
++          </option><option value="1.3">1.3
++          </option><option value="1.4">1.4
++          </option><option value="1.4_rc1">1.4_rc1
++          </option><option value="1.4_rc2">1.4_rc2
++          </option><option value="1.4_rc3">1.4_rc3
++          </option><option value="1.4_rc4">1.4_rc4
++          </option><option value="2004.0">2004.0
++          </option><option value="2004.1">2004.1
++          </option><option value="2004.2">2004.2
++          </option><option value="2004.3">2004.3
++          </option><option value="2005.0">2005.0
++          </option><option value="unspecified" selected="selected">unspecified
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++      
++      <td rowspan="4" align="right" valign="top">
++        <b>CC:</b>
++      </td>
++      <td rowspan="4" valign="top"> 
++        <input name="cc" value="" type="hidden">
++      </td>
++    </tr>
++    
++    <tr>
++      <td align="right">
++        <b>
++          <a href="http://bugs.gentoo.org/bug_status.html">Status</a>:
++        </b>
++      </td>
++      <td>RESOLVED</td>      
++      <td>&nbsp;</td>
++      
++      <td align="right">
++        <b><a href="http://bugs.gentoo.org/bug_status.html#priority">Pr<u>i</u>ority</a>:</b>
++      </td><td>
++    <label for="priority" accesskey="i">
++      <select name="priority" id="priority"><option value="P1">P1
++          </option><option value="P2" selected="selected">P2
++          </option><option value="P3">P3
++          </option><option value="P4">P4
++          </option><option value="P5">P5
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++    </tr>
++    
++    <tr>
++      <td align="right">
++        <b>
++          <a href="http://bugs.gentoo.org/bug_status.html">Resolution</a>:
++        </b>
++      </td>
++      <td>DUPLICATE</td>      
++      <td>&nbsp;</td>
++      
++      <td align="right">
++        <b><a href="http://bugs.gentoo.org/bug_status.html#severity">S<u>e</u>verity</a>:</b>
++      </td><td>
++    <label for="bug_severity" accesskey="e">
++      <select name="bug_severity" id="bug_severity"><option value="blocker" selected="selected">blocker
++          </option><option value="critical">critical
++          </option><option value="major">major
++          </option><option value="normal">normal
++          </option><option value="minor">minor
++          </option><option value="trivial">trivial
++          </option><option value="enhancement">enhancement
++          </option></select>
++    </label>
++  </td>
++  <td>&nbsp;</td>
++      
++    </tr>
++    
++    <tr>
++      <td align="right">
++        <b>
++          <a href="http://bugs.gentoo.org/bug_status.html#assigned_to">Assigned&nbsp;To</a>:
++        </b>
++      </td>
++      <td>Gentoo Linux bug wranglers &lt;bug-wranglers at gentoo.org&gt;</td>
++      <td>&nbsp;</td>
++ 
++        <td colspan="3">&nbsp;</td>
++    </tr>
++
++
++
++
++  <tr>
++    <td align="right">
++      <b>
++          <u>U</u>RL:
++      </b>
++    </td>
++    <td colspan="5">
++      <input name="bug_file_loc" accesskey="u" value="" size="60">
++    </td>
++    <td rowspan="4" colspan="2" valign="top"> 
++    </td>
++  </tr>
++  
++  <tr>
++    <td align="right">
++      <b><u>S</u>ummary:</b>
++    </td>
++    <td colspan="5">
++      <input name="short_desc" accesskey="s" value="groff fails to build during &quot;bootstrap.sh&quot;" size="60">
++    </td>
++  </tr>
++ 
++    <tr>
++      <td align="right">
++        <b>Status <u>W</u>hiteboard:</b>
++      </td>
++      <td colspan="5">
++        <input name="status_whiteboard" accesskey="w" value="" size="60">
++      </td>
++    </tr>
++
++    <tr>
++      <td align="right">
++        <b>
++          <a href="http://bugs.gentoo.org/describekeywords.cgi"><u>K</u>eywords</a>:
++        </b>
++      </td><td colspan="5">
++        <input name="keywords" accesskey="k" value="" size="60">
++      </td>
++    </tr> 
++  </tbody></table>
++
++  
++
++<!-- 1.0 at bugzilla.org -->
++
++
++<br>
++<table border="1" cellpadding="4" cellspacing="0">
++  <tbody><tr>
++    <th align="left" bgcolor="#cccccc">Attachment</th>
++    <th align="left" bgcolor="#cccccc">Type</th>
++    <th align="left" bgcolor="#cccccc">Created</th>
++    <th align="left" bgcolor="#cccccc">Actions</th>
++  </tr>
++
++  <tr>
++    <td colspan="3">
++      <a href="http://bugs.gentoo.org/attachment.cgi?bugid=77777&amp;action=enter">Create a New Attachment</a> (proposed patch, testcase, etc.)
++    </td>
++    <td colspan="1">
++      <a href="http://bugs.gentoo.org/attachment.cgi?bugid=77777&amp;action=viewall">View All</a>
++    </td>
++  </tr>
++</tbody></table>
++<br>
++
++
++
++  <table>
++    <tbody><tr><th align="right">Bug 77777 <u>d</u>epends on:</th>
++  <td>
++  </td>
++  <td>
++    <input name="dependson" accesskey="d" value="">
++  </td>
++      <td rowspan="2">
++        <a href="http://bugs.gentoo.org/showdependencytree.cgi?id=77777">Show 
++        dependency tree</a>  
++
++      </td>
++    </tr>
++
++    <tr><th align="right">Bug 77777 <u>b</u>locks:</th>
++  <td>
++  </td>
++  <td>
++    <input name="blocked" accesskey="b" value="">
++  </td>
++    </tr>
++  </tbody></table>
++
++
++
++
++  <br>
++  <b>Additional <u>C</u>omments:</b>
++  <br>
++  <textarea name="comment" rows="10" cols="80" accesskey="c"></textarea>
++  <br>
++
++
++
++
++  <br>
++  <input name="knob" value="none" checked="checked" type="radio">
++  Leave as <b>RESOLVED&nbsp;DUPLICATE</b>
++  <br>
++
++
++  
++        <input name="knob" value="reopen" type="radio"> Reopen bug
++        <br>
++        <input name="knob" value="verify" type="radio">
++        Mark bug as <b>VERIFIED</b><br>
++        <input name="knob" value="close" type="radio">
++        Mark bug as <b>CLOSED</b><br>  
++  
++  <input value="Commit" type="submit">
++  <input name="form_name" value="process_bug" type="hidden">
++  <p>
++    <font size="+1">
++      <b>
++        <a href="http://bugs.gentoo.org/show_activity.cgi?id=77777">View Bug Activity</a>
++        &nbsp; | &nbsp;
++        <a href="http://bugs.gentoo.org/long_list.cgi?buglist=77777">Format For Printing</a>
++      </b>
++    </font>
++
++  </p>  
++
++
++
++<table>
++  <tbody><tr>
++    <td align="left">
++      <b>
++        <a name="c0" href="#c0">Description</a>:
++      </b>
++    </td>
++    <td align="right" width="100%">
++      Opened: 2005-01-12 21:54 PST
++    </td>
++  </tr>
++</tbody></table>
++<hr>
++<!-- 1.0 at bugzilla.org -->
++
++<div>
++        
++
++<pre># cd /usr/portage; ./scripts/bootstrap.sh
++ [...]
++&gt;&gt;&gt; sys-devel/m4-1.4.1 merged.
++&gt;&gt;&gt; emerge (2 of 18) sys-apps/groff-1.19.1-r2 to /
++&gt;&gt;&gt; md5 src_uri ;-) groff-1.19.1.tar.gz
++&gt;&gt;&gt; Unpacking source...
++&gt;&gt;&gt; Unpacking groff-1.19.1.tar.gz to /var/tmp/portage/groff-1.19.1-r2/work
++ * Applying groff-1.18-infoext.patch ...                                  [ ok ]
++ * Applying groff-1.18-no-netpbm-depend.patch ...                         [ ok ]
++ * Applying groff-man-UTF-8.diff ...                                      [ ok ]
++ * Applying groff-1.19.1-stack.patch ...                                  [ ok ]
++ * Applying groff-1.19.1-tmpfile.patch ...                                [ ok ]
++ * Applying groff-1.19.1-parallel-make.patch ...                          [ ok ]
++&gt;&gt;&gt; Source unpacked.
++gcc
++g++
++configure: WARNING: If you wanted to set the --build type, don't use --host.
++    If a cross compiler is detected then cross compile mode will be used.
++checking for i686-pc-linux-gnu-gcc... gcc
++checking for C compiler default output file name... a.out
++checking whether the C compiler works... yes
++checking whether we are cross compiling... no
++checking for suffix of executables... 
++checking for suffix of object files... o
++checking whether we are using the GNU C compiler... yes
++checking whether gcc accepts -g... yes
++checking for gcc option to accept ANSI C... none needed
++checking for i686-pc-linux-gnu-g++... g++
++checking whether we are using the GNU C++ compiler... no
++checking whether g++ accepts -g... no
++checking that C++ compiler can compile simple program... no
++configure: error: a working C++ compiler is required
++
++!!! ERROR: sys-apps/groff-1.19.1-r2 failed.
++!!! Function src_compile, Line 85, Exitcode 1
++!!! (no error message)
++!!! If you need support, post the topmost build error, NOT this status message.
++
++=======================
++make.conf:
++-----------------------
++# grep -v ^# /etc/make.conf
++USE="-* x86"
++CHOST="i686-pc-linux-gnu"
++CFLAGS="-march=pentium4 -O3 -fomit-frame-pointer -pipe"
++CXXFLAGS="${CFLAGS}"
++ACCEPT_KEYWORDS="x86"
++GENTOO_MIRRORS="<a href="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</a>"
++SYNC="rsync://rsync.de.gentoo.org/gentoo-portage"
++MAKEOPTS="-j2"
++PORTAGE_NICENESS=3
++
++=======================
++config.log:
++-----------------------
++ [...]
++configure:2243: checking for i686-pc-linux-gnu-g++
++configure:2269: result: g++
++configure:2327: checking for C++ compiler version
++configure:2330: g++ --version &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2333: $? = 127
++configure:2335: g++ -v &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2338: $? = 127
++configure:2340: g++ -V &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2343: $? = 127
++configure:2346: checking whether we are using the GNU C++ compiler
++configure:2370: g++ -c -march=pentium4 -O3 -fomit-frame-pointer -pipe  conftest.cc &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2376: $? = 127
++configure: failed program was:
++| /* confdefs.h.  */
++| 
++| #define PACKAGE_NAME ""
++| #define PACKAGE_TARNAME ""
++| #define PACKAGE_VERSION ""
++| #define PACKAGE_STRING ""
++| #define PACKAGE_BUGREPORT ""
++| /* end confdefs.h.  */
++| 
++| int
++| main ()
++| {
++| #ifndef __GNUC__
++|        choke me
++| #endif
++| 
++|   ;
++|   return 0;
++| }
++configure:2402: result: no
++ [...]
++
++=======================
++environment:
++-----------------------
++# printenv 
++INFODIR=/usr/share/info
++MANPATH=/usr/share/man:/usr/local/share/man:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/man
++HOSTNAME=rescue
++SHELL=/bin/bash
++TERM=xterm
++SSH_CLIENT=212.202.12.236 56408 22
++SSH_TTY=/dev/pts/0
++USER=root
++PAGER=/usr/bin/less
++CONFIG_PROTECT_MASK=/etc/terminfo
++PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/opt/bin:/usr/i386-pc-linux-gnu/gcc-bin/3.3
++MAIL=/var/mail/root
++GLIBC_SSP_CHECKED=1
++PWD=/usr/portage
++INPUTRC=/etc/inputrc
++EDITOR=/bin/nano
++PS1=\[\033[01;31m\]\h \[\033[01;34m\]\W \$ \[\033[00m\]
++CXX=g++
++HOME=/root
++SHLVL=2
++LOGNAME=root
++LESS=-R
++CVS_RSH=ssh
++SSH_CONNECTION=212.202.12.236 56408 82.96.68.77 22
++LESSOPEN=|lesspipe.sh %s
++INFOPATH=/usr/share/info:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/info
++CC=gcc
++_=/bin/printenv
++OLDPWD=/
++
++=======================
++emerge --info:
++-----------------------
++# emerge --info
++Portage 2.0.51-r3 (default-linux/x86/2004.3, gcc-3.3.4, unavailable, 2.6.9-gentoo-r13 i686)
++=================================================================
++System uname: 2.6.9-gentoo-r13 i686 Intel(R) Pentium(R) 4 CPU 2.40GHz
++Gentoo Base System version 1.4.16
++Autoconf: 
++Automake: 
++Binutils: sys-devel/binutils-2.14.90.0.8-r1
++Headers:  
++Libtools: 
++ACCEPT_KEYWORDS="x86"
++AUTOCLEAN="yes"
++CFLAGS="-march=pentium4 -O3 -fomit-frame-pointer -pipe"
++CHOST="i686-pc-linux-gnu"
++COMPILER=""
++CONFIG_PROTECT="/etc /usr/kde/2/share/config /usr/kde/3/share/config /usr/share/config /var/qmail/control"
++CONFIG_PROTECT_MASK="/etc/gconf /etc/terminfo /etc/env.d"
++CXXFLAGS="-march=pentium4 -O3 -fomit-frame-pointer -pipe"
++DISTDIR="/usr/portage/distfiles"
++FEATURES="autoaddcvs autoconfig ccache distlocks sandbox sfperms"
++GENTOO_MIRRORS="<a href="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</a>"
++MAKEOPTS="-j2"
++PKGDIR="/usr/portage/packages"
++PORTAGE_TMPDIR="/var/tmp"
++PORTDIR="/usr/portage"
++PORTDIR_OVERLAY=""
++SYNC="rsync://rsync.de.gentoo.org/gentoo-portage"
++USE="x86"
++
++
++Reproducible: Always
++Steps to Reproduce:
++1. follow <a href="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml">http://www.gentoo.org/doc/en/handbook/handbook-x86.xml</a></pre>
++</div>
++  <div>
++        <br>
++        <i>------- Additional Comment
++        <a name="c1" href="#c1">#1</a> From 
++        <a href="mailto:douglas.hoffman at gmail.com">Douglas R. Hoffman</a>
++        2005-01-13 11:42 PST 
++        -------
++        </i>
++        
++
++<pre>I believe this a duplicate of :
++<a href="http://bugs.gentoo.org/show_bug.cgi?id=77718">http://bugs.gentoo.org/show_bug.cgi?id=77718</a></pre>
++</div>
++  <div>
++        <br>
++        <i>------- Additional Comment
++        <a name="c2" href="#c2">#2</a> From 
++        <a href="mailto:bss03 at volumehost.com">Boyd Stephen Smith Jr.</a>
++        2005-01-13 11:55 PST 
++        -------
++        </i>
++        
++
++<pre>I agree, looks very much like 77718.</pre>
++</div>
++  <div>
++        <br>
++        <i>------- Additional Comment
++        <a name="c3" href="#c3">#3</a> From 
++        <a href="mailto:swift at gentoo.org">Sven Vermeulen</a>
++        2005-01-13 12:15 PST 
++        -------
++        </i>
++        
++
++<pre>
++*** This bug has been marked as a duplicate of <span class="bz_closed"><a href="http://bugs.gentoo.org/show_bug.cgi?id=77718" title="RESOLVED FIXED - Missing g++ program when bootstraping">77718</a></span> ***</pre>
++</div>
++  
++<!-- 1.0 at bugzilla.org -->
++  
++</form>
++
++<hr>
++<!-- 1.0 at bugzilla.org -->
++
++
++  <b>Bug List:</b>
++  
++  <a href="http://bugs.gentoo.org/show_bug.cgi?id=44423">First</a>
++  <a href="http://bugs.gentoo.org/show_bug.cgi?id=87474">Last</a>
++ 
++      (This bug is not in your list)
++  
++  &nbsp;&nbsp;<a href="http://bugs.gentoo.org/buglist.cgi?regetlastlist=1">Show list</a>
++
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://bugs.gentoo.org/query.cgi">Query page</a>
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://bugs.gentoo.org/enter_bug.cgi?format=guided">Enter new bug</a>
++
++<br>
++<table border="0">
++  <tbody><tr>
++    <td bgcolor="#000000" valign="top">
++      <table bgcolor="#dddaec" border="0" cellpadding="10" cellspacing="0" width="100%">
++        <tbody><tr>
++          <td>
++          
++
++
++	<p class="version"><a href="http://www.bugzilla.org/">Bugzilla</a> Version 2.18rc2</p>
++
++	<p>For more information on Gentoo Linux, please visit our 
++	<a href="http://www.gentoo.org/">homepage</a>.
++	</p>
++
++
++<form method="get" action="show_bug.cgi">
++  <table width="100%">
++    <tbody><tr>
++      <td>
++        Actions:
++      </td>
++      
++      <td nowrap="nowrap" valign="middle">
++        <a href="http://bugs.gentoo.org/enter_bug.cgi?format=guided">New</a> |
++        <a href="http://bugs.gentoo.org/enter_bug.cgi">New-Expert</a> | 
++        <a href="http://bugs.gentoo.org/query.cgi">Query</a> |
++        
++        <input value="Find" type="submit"> bug # 
++        <input name="id" size="6"> | 
++        
++        <a href="http://bugs.gentoo.org/report.cgi">Reports</a> 
++        
++          | <a href="http://bugs.gentoo.org/request.cgi">Requests</a>
++              
++      </td>
++
++      <td>&nbsp;</td>
++          
++      <td align="right" valign="middle">
++          <a href="http://bugs.gentoo.org/createaccount.cgi">New&nbsp;Account</a> | 
++        <a href="http://bugs.gentoo.org/query.cgi?GoAheadAndLogIn=1">Log&nbsp;In</a>
++      </td>
++    </tr>
++    
++  </tbody></table>                
++</form>
++
++          </td>
++        </tr>
++      </tbody></table>
++    </td>
++  </tr>
++</tbody></table>
++
++</body></html>
+\ No newline at end of file
+
+
+
+From agriffis at berlios.de  Mon Jan 30 16:00:26 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Mon, 30 Jan 2006 16:00:26 +0100
+Subject: [qute] r30 - trunk/examples/gentoo
+Message-ID: <200601301500.k0UF0QAY024203@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-01-30 16:00:25 +0100 (Mon, 30 Jan 2006)
+New Revision: 30
+
+Modified:
+   trunk/examples/gentoo/buglist.cgi.htm
+   trunk/examples/gentoo/show_activity.cgi.htm
+Log:
+Save HTML not w3m rendered text
+
+Modified: trunk/examples/gentoo/buglist.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/buglist.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
++++ trunk/examples/gentoo/buglist.cgi.htm	2006-01-30 15:00:25 UTC (rev 30)
+@@ -1,100 +1,8 @@
+-This is Bugzilla
+-
+-Home | Docs | Forums | Lists | Bugs | Planet | Store | GWN | Get Gentoo!
+-
+-Bug List
+-
+-                                                     Sat Jan 28 2006 17:22:46 PST
+-??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+-37 bugs found.
+-
+-ID       Sev  Pri  Plt  Assignee                 Status   Resolution   Summary
+-
+-47618    nor  P2   x86  agriffis at gentoo.org      NEW                   several "depscan.sh to fix this" during boot
+-
+-48950    min  P2   All  agriffis at gentoo.org      NEW                   econf should include || die in ebuilds
+-
+-52681    maj  P2   All  agriffis at gentoo.org      NEW                   media-sound/lilypond-2.x can't build its documentation
+-
+-66774    nor  P2   All  agriffis at gentoo.org      NEW                   rdist noexec option broken-- looks for a.out, not ELF bin...
+-
+-73494    enh  P2   All  agriffis at gentoo.org      NEW                   feature request: epm -qf to handle symbolic links
+-
+-75893    nor  P2   All  agriffis at gentoo.org      NEW                   lilypond-2.4.2 error: can't find `feta20.afm'
+-
+-81549    enh  P2   x86  agriffis at gentoo.org      NEW                   Lilypond ebuild for 2.5.2 works for me!
+-
+-82467    min  P2   All  agriffis at gentoo.org      NEW                   Late handling of SIGTERM in app-shells/psh
+-
+-84453    nor  P2   Alp  alpha at gentoo.org         NEW                   2005.0 (pre) 2.6 kernel panics on marvel (gs1280)
+-
+-84454    nor  P2   Alp  alpha at gentoo.org         NEW                   2005.0 (pre) 2.4 kernel doesn't contain gs1280 console su...
+-
+-85666    nor  P2   All  text-markup at gentoo.org   NEW                   jadetex-3.12 failure on amd64
+-
+-86125    min  P2   x86  agriffis at gentoo.org      NEW                   lilypond depends via mftrace on xorg
+-
+-87075    nor  P2   x86  agriffis at gentoo.org      NEW                   gpa unable to sign keys - gpgme error
+-
+-87986    maj  P2   x86  agriffis at gentoo.org      NEW                   rcp and very large files (>2 GB)
+-
+-88291    nor  P2   x86  agriffis at gentoo.org      NEW                   ec-fonts-mftraced-1.0.8 doesn't compile (unknown error)
+-
+-90334    nor  P2   x86  agriffis at gentoo.org      NEW                   lilypond-2.5.2 fails to emerge due to metafont problem
+-
+-92558    nor  P2   x86  agriffis at gentoo.org      NEW                   epm --query --{requires | whatrequires} not working ?
+-
+-93843    nor  P2   All  agriffis at gentoo.org      NEW                   epm -qf issues
+-
+-95341    nor  P2   x86  agriffis at gentoo.org      NEW                   logrotate cvs unknown option endscript
+-
+-96119    nor  P2   x86  agriffis at gentoo.org      NEW                   gbuffy-0.2.6 (unstable) does not compile
+-
+-97324    nor  P2   All  dev-portage at gentoo.org   NEW                   rewrite of fowners and fperms
+-
+-97574    enh  P2   All  agriffis at gentoo.org      NEW                   new ebuild for lilypond 2.6
+-
+-99745    nor  P2   All  agriffis at gentoo.org      NEW                   x11-misc/xcut installs in to /usr/local
+-
+-102885   nor  P2   All  agriffis at gentoo.org      NEW                   linuxtrade-3.65 missing DEPEND on curl
+-
+-102945   min  P2   All  agriffis at gentoo.org      NEW                   mail-client/muttng misses system config files (in FILESDIR)
+-
+-104430   enh  P2   All  agriffis at gentoo.org      NEW                   mutt flag_safe behaviour request
+-
+-105434   enh  P2   All  agriffis at gentoo.org      NEW                   muttng-20050909 (updated ebuild)
+-
+-106266   enh  P2   All  agriffis at gentoo.org      NEW                   mercurial ebuild has no bash-completion support
+-
+-107888   nor  P2   All  agriffis at gentoo.org      NEW                   dev-util/mercurial-0.7 fails installing because of xsl error
+-
+-112471   nor  P2   All  agriffis at gentoo.org      NEW                   file collision: app-text/cooledit-3.17.7 with /usr/share/...
+-
+-113849   nor  P2   All  agriffis at gentoo.org      NEW                   please s/pgp.mit.edu/subkeys.pgp.net/
+-
+-116117   min  P2   All  common-lisp at gentoo.org   NEW                   gcl installs files to /usr/share/doc
+-
+-116197   enh  P2   All  gnome at gentoo.org         NEW                   gnome-extra/hardware-monitor bump
+-
+-116878   nor  P1   All  agriffis at gentoo.org      NEW                   linuxtrade in portage is obsolete and should be removed, ...
+-
+-117256   nor  P2   All  agriffis at gentoo.org      NEW                   cdk has incorrect PIC handling
+-
+-118698   nor  P4   AMD  agriffis at gentoo.org      NEW                   media-sound/lilypond-2.5.2 emerge failure in ../../script...
+-
+-120061   nor  P2   All  agriffis at gentoo.org      NEW                   echangelog tries to update copyright year on files that w...
+-
+-37 bugs found.
+-
+-[  Long Format ]                  CSV | RSS | iCalendar | Change Columns |                   Edit Search   [Remember search] as 
+-                                  Change Several Bugs at Once | Send Mail to Bug Assignees |               [                    ]
+-
+-Bugzilla Version 2.20+
+-Logged in as: agriffis at gentoo.org | Log out
+-Actions:
+-Home | New | Search | bug # [      ] [Find] | Reports | My Requests
+-Edit:
+-Prefs | Users | Whining
+-Saved Searches:
+-My Bugs | Bug Wranglers | All my bugs | alpha | Baselayout | Baselayout InCVS | Blockers | ia64 | Interesting | Monthly | mozilla |
+-mozilla???launcher | Weekly
++?
++GL{?V??>LT??O???J?T	???p}?5??~???????B?????_>??]?????p??b?E?K??\????`^?LRV??s?y&???Y??????R? ?i??]x???_	A?	?Sa?t]?%	??5?a???.???^?'???????tDo"?cP???T3A'237????????????#???VZ,!?S?n???Bp?l?D
++?????V?d?v?"???^??-?z?8?~?#??4!?UR?V?????i?m?????N??u????[v0?U?'oA)l at 2?YU?f?:??????Nr[???	Ha?zUw??(????ydF]?V??<}?P??????BF?5?N #?oEk0tgn&?(?*.?P??	`????F??i??????v???FA=??????w??b?H???D???s5#E?>A?x?
++\i??#.????~???T????v??<*???T4:^???B/7#???????~Z????uw??r?Y?m??j????Uv??Fe?*+??jf????b?????C???k}??^??l??K??w????m?v??N=???v4?}??e?????????IQqy|??u??{?	?'??{X_?=??????E?Kn?????E???~???0F???5L??f???lRt?+???^?5??=?????k%
++?m?`?N??!`????oWju2?\`h
++?!(????%U??J?B??"
++??Bw??r?b??"??????j?O??V?????O?{5??q??3?F?}EZ?c??j??J?h#?[?<??_?W?z+?Zz??\???.??=??D???}_	J????<???$?!??|?K??N:??7???????x<?????BP?@??^???@??I?R?>???et??????!???)z??0???&on????;i????23Xu'???z2????yls%?/6?w*??0pA?????z?\??\?J?/Y?
++??WQ??&??15??G6^Ytf?q?????L?OSP???9(q^??X?.??
+\ No newline at end of file
+
+Modified: trunk/examples/gentoo/show_activity.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/show_activity.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
++++ trunk/examples/gentoo/show_activity.cgi.htm	2006-01-30 15:00:25 UTC (rev 30)
+@@ -1,22 +1,10 @@
+-This is Bugzilla
+-
+-Home | Docs | Forums | Lists | Bugs | Planet | Store | GWN | Get Gentoo!
+-
+-Activity log
+-
+-Bug 77777
+-
+-
+-??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+-???       Who        ???           When           ???    What    ??? Removed ???   Added   ???
+-??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+-??? swift at gentoo.org ??? 2005-01-13 12:15:14 PST  ??? Status     ??? NEW     ??? RESOLVED  ???
+-???                  ???                          ????????????????????????????????????????????????????????????????????????????????????????????????????????????
+-???                  ???                          ??? Resolution ???         ??? DUPLICATE ???
+-??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+-
+-Back to bug 77777
+-
+-Bugzilla Version 2.20+
+-Actions:
+-Home | New | Search | bug # [      ] [Find] | Reports | Requests | New Account | Log In
++?
++?2??????????A??5???'????b?t=	c???J?'???$?????vWJ????????
++U???????	r??{???uO??????4?-4L0?TQ?1s???SC+?N?T|?????1{?I???p?2!$i??w???&u??wZGQ?H?$?< E?'H	4??g?????V?u??(!?s?"vP??????	???0
++?8??_FX?0????#??C"dDy??\?\+?0*Uc??`|'VS?]?n?p(????O???Ez?wu???$???<$t2???A?0?`P???<???? b)i???D?k???"Q$????F??L??bEs?O?`?Z;/?r?#??z???
++?#?y?
++????cOX%?L?j??'??B?H>??2FIjbE?~?Q"fzKyN?A??9???rF'j?????b3]?o??n6????z?-j?[?[?z0\??A
++6??eK??V?f??\???h?[?k??????fv?S?z???????????????*???Eyyg?O?^?"?B?]??)?Ut)?3??<lP?Z
++?AQ?V[@????nkZNSI&SV??^N?o?n]??%2<"???,?a9G??r?????T0??@????%??e?sJ??e?c??3F"?Q?????b?X?
++??$???eM+?#???FNGU&L??#TU??????*?j?7c[?????B?ei'??I??;???|??wS?????????6??BW?????,?X.D?A?n!?t7?>|z????Y?'Dm?(m???0??"~
++_P??i??>?D?/?X?KX?},??z??hd?08?:?????i???di??az?9??j?\????g???????1?x[Ko???? ???x???uuA??1?]?????????=???`?????#??28?6??M??-??????????~??;?]????????L?}O??+??????}???????????
+\ No newline at end of file
+
+
+
+From agriffis at berlios.de  Mon Jan 30 16:09:49 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Mon, 30 Jan 2006 16:09:49 +0100
+Subject: [qute] r31 - trunk/examples/gentoo
+Message-ID: <200601301509.k0UF9nLl025408@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-01-30 16:09:48 +0100 (Mon, 30 Jan 2006)
+New Revision: 31
+
+Modified:
+   trunk/examples/gentoo/buglist.cgi.htm
+   trunk/examples/gentoo/show_activity.cgi.htm
+Log:
+Third time's the charm
+
+Modified: trunk/examples/gentoo/buglist.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/buglist.cgi.htm	2006-01-30 15:00:25 UTC (rev 30)
++++ trunk/examples/gentoo/buglist.cgi.htm	2006-01-30 15:09:48 UTC (rev 31)
+@@ -1,8 +1,1490 @@
+-?
+-GL{?V??>LT??O???J?T	???p}?5??~???????B?????_>??]?????p??b?E?K??\????`^?LRV??s?y&???Y??????R? ?i??]x???_	A?	?Sa?t]?%	??5?a???.???^?'???????tDo"?cP???T3A'237????????????#???VZ,!?S?n???Bp?l?D
+-?????V?d?v?"???^??-?z?8?~?#??4!?UR?V?????i?m?????N??u????[v0?U?'oA)l at 2?YU?f?:??????Nr[???	Ha?zUw??(????ydF]?V??<}?P??????BF?5?N #?oEk0tgn&?(?*.?P??	`????F??i??????v???FA=??????w??b?H???D???s5#E?>A?x?
+-\i??#.????~???T????v??<*???T4:^???B/7#???????~Z????uw??r?Y?m??j????Uv??Fe?*+??jf????b?????C???k}??^??l??K??w????m?v??N=???v4?}??e?????????IQqy|??u??{?	?'??{X_?=??????E?Kn?????E???~???0F???5L??f???lRt?+???^?5??=?????k%
+-?m?`?N??!`????oWju2?\`h
+-?!(????%U??J?B??"
+-??Bw??r?b??"??????j?O??V?????O?{5??q??3?F?}EZ?c??j??J?h#?[?<??_?W?z+?Zz??\???.??=??D???}_	J????<???$?!??|?K??N:??7???????x<?????BP?@??^???@??I?R?>???et??????!???)z??0???&on????;i????23Xu'???z2????yls%?/6?w*??0pA?????z?\??\?J?/Y?
+-??WQ??&??15??G6^Ytf?q?????L?OSP???9(q^??X?.??
+\ No newline at end of file
++<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
++                      "http://www.w3.org/TR/html4/loose.dtd">
++<html>
++  <head>
++    <title>Bug List</title>
++
++
++<link rel="Top" href="http://bugs.gentoo.org/">
++
++  
++
++
++  
++
++
++  
++    <link rel="Saved&nbsp;Searches" title="My Bugs"
++          href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1">
++
++    <link rel="Saved&nbsp;Searches" 
++          title="All my bugs"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=All%20my%20bugs">
++    <link rel="Saved&nbsp;Searches" 
++          title="alpha"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=alpha">
++    <link rel="Saved&nbsp;Searches" 
++          title="Baselayout"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout">
++    <link rel="Saved&nbsp;Searches" 
++          title="Baselayout InCVS"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout%20InCVS">
++    <link rel="Saved&nbsp;Searches" 
++          title="Blockers"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Blockers">
++    <link rel="Saved&nbsp;Searches" 
++          title="ia64"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=ia64">
++    <link rel="Saved&nbsp;Searches" 
++          title="Interesting"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Interesting">
++    <link rel="Saved&nbsp;Searches" 
++          title="Monthly"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Monthly">
++    <link rel="Saved&nbsp;Searches" 
++          title="mozilla"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla">
++    <link rel="Saved&nbsp;Searches" 
++          title="mozilla-launcher"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla-launcher">
++    <link rel="Saved&nbsp;Searches" 
++          title="My Bugs"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=My%20Bugs">
++    <link rel="Saved&nbsp;Searches" 
++          title="Weekly"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Weekly">
++
++   <link rel="Administration" title="Whining"       
++                  href="editwhines.cgi">
++
++    
++
++    <script type="text/javascript">
++  <!--
++  
++  function initHelp() {}
++  // -->
++  </script>
++
++    <link href="skins/standard/global.css" rel="stylesheet" type="text/css">
++    <link href="skins/custom/global.css" rel="stylesheet" type="text/css">
++
++
++        <link href="skins/standard/buglist.css" rel="stylesheet" type="text/css">
++          <link href="skins/custom/buglist.css" rel="stylesheet" type="text/css">
++
++    
++       <link rel="alternate" 
++             type="application/rss+xml" title="RSS 1.0" 
++             href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;ctype=rss" />
++
++
++  </head>
++
++
++
++  <body onload=""
++        class="bugs-gentoo-org">
++
++
++<div id="banner">
++      <p id="banner-name">
++        <span>This is Bugzilla</span>
++      </p>
++      <p id="banner-version">
++<!--        <a href="http://www.bugzilla.org/"><span>Bugzilla</span></a>
++        <span>Version 2.20+</span> -->
++	<a href="http://www.gentoo.org/">Home</a> |
++	<a href="http://www.gentoo.org/doc/en/index.xml">Docs</a> |
++	<a href="http://forums.gentoo.org/">Forums</a> |
++	<a href="http://www.gentoo.org/main/en/lists.xml">Lists</a> |
++	<a href="http://bugs.gentoo.org">Bugs</a> |
++	<a href="http://planet.gentoo.org">Planet</a> |
++	<a href="http://store.gentoo.org">Store</a> |
++	<a href="http://www.gentoo.org/news/en/gwn/gwn.xml">GWN</a> |
++	<a href="http://www.gentoo.org/main/en/where.xml">Get Gentoo!</a>
++      </p>
++    <div class="outro"></div>
++    </div>
++
++<div id="header">
++    <h1>Bug List</h1>
++
++
++</div>
++
++<div align="center">
++    <b>Mon Jan 30 2006 06:58:38 PST</b><br>
++
++
++
++</div>
++
++
++<hr>
++
++
++
++
++38 bugs found.
++
++
++
++
++
++
++
++
++
++<table class="bz_buglist" cellspacing="0" cellpadding="4" width="100%">
++    <colgroup>
++      <col class="bz_id_column">
++      <col class="bz_bug_severity_column">
++      <col class="bz_priority_column">
++      <col class="bz_rep_platform_column">
++      <col class="bz_assigned_to_column">
++      <col class="bz_bug_status_column">
++      <col class="bz_resolution_column">
++      <col class="bz_short_short_desc_column">
++    </colgroup>
++
++    <tr align="left">
++      <th colspan="1" class="first-child">
++          <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.bug_id&amp;query_based_on=">ID</a>
++      </th>
++
++<th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.bug_severity&amp;query_based_on=">Sev</a>
++  </th><th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.priority&amp;query_based_on=">Pri</a>
++  </th><th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.rep_platform&amp;query_based_on=">Plt</a>
++  </th><th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=map_assigned_to.login_name&amp;query_based_on=">Assignee</a>
++  </th><th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.bug_status&amp;query_based_on=">Status</a>
++  </th><th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.resolution&amp;query_based_on=">Resolution</a>
++  </th><th colspan="1">
++      <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;order=bugs.short_desc&amp;query_based_on=">Summary</a>
++  </th>
++
++
++    </tr>
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=47618">47618</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >several &quot;depscan.sh to fix this&quot; during boot
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_minor             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=48950">48950</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">min
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >econf should include || die in ebuilds
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_major             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=52681">52681</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">maj
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >media-sound/lilypond-2.x can't build its documentation
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=66774">66774</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >rdist noexec option broken-- looks for a.out, not ELF bin...
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=73494">73494</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >feature request: epm -qf to handle symbolic links
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=75893">75893</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >lilypond-2.4.2 error: can't find `feta20.afm'
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=81549">81549</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >Lilypond ebuild for 2.5.2 works for me!
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_minor             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=82467">82467</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">min
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >Late handling of SIGTERM in app-shells/psh
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=84453">84453</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">Alp
++    </td>
++    <td style="white-space: nowrap">alpha&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >2005.0 (pre) 2.6 kernel panics on marvel (gs1280)
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=84454">84454</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">Alp
++    </td>
++    <td style="white-space: nowrap">alpha&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >2005.0 (pre) 2.4 kernel doesn't contain gs1280 console su...
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=85666">85666</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">text-markup&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >jadetex-3.12 failure on amd64
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_minor             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=86125">86125</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">min
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >lilypond depends via mftrace on xorg
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=87075">87075</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >gpa unable to sign keys - gpgme error
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_major             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=87986">87986</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">maj
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >rcp and very large files (&gt;2 GB)
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=88291">88291</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >ec-fonts-mftraced-1.0.8 doesn't compile (unknown error)
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=90334">90334</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >lilypond-2.5.2 fails to emerge due to metafont problem
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=92558">92558</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >epm --query --{requires | whatrequires} not working ?
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=93843">93843</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >epm -qf issues
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=95341">95341</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >logrotate cvs unknown option endscript
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=96119">96119</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">x86
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >gbuffy-0.2.6 (unstable) does not compile
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=97324">97324</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">dev-portage&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >rewrite of fowners and fperms
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=97574">97574</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >new ebuild for lilypond 2.6
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=99745">99745</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >x11-misc/xcut installs in to /usr/local
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=102885">102885</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >linuxtrade-3.65 missing DEPEND on curl
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_minor             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=102945">102945</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">min
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >mail-client/muttng misses system config files (in FILESDIR)
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=104430">104430</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >mutt flag_safe behaviour request
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=105434">105434</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >muttng-20050909 (updated ebuild)
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=106266">106266</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >mercurial ebuild has no bash-completion support
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=107888">107888</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >dev-util/mercurial-0.7 fails installing because of xsl error
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=112471">112471</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >file collision: app-text/cooledit-3.17.7 with /usr/share/...
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=113849">113849</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >please s/pgp.mit.edu/subkeys.pgp.net/
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_minor             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=116117">116117</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">min
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">common-lisp&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >gcl installs files to /usr/share/doc
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_enhancement             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=116197">116197</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">enh
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">gnome&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >gnome-extra/hardware-monitor bump
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P1             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=116878">116878</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P1
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >linuxtrade in portage is obsolete and should be removed, ...
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=117256">117256</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >cdk has incorrect PIC handling
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P4             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=118698">118698</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P4
++    </td>
++    <td style="white-space: nowrap">AMD
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >media-sound/lilypond-2.5.2 emerge failure in ../../script...
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_odd             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=120061">120061</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >echangelog tries to update copyright year on files that w...
++    </td>
++
++  </tr>
++
++  
++
++
++  
++
++  <tr class="bz_normal             bz_P2             bz_NEW                                                    bz_row_even             ">
++             
++
++    <td class="first-child">
++      <a href="show_bug.cgi?id=120773">120773</a>
++      <span style="display: none"></span>
++    </td>
++
++    <td style="white-space: nowrap">nor
++    </td>
++    <td style="white-space: nowrap">P2
++    </td>
++    <td style="white-space: nowrap">All
++    </td>
++    <td style="white-space: nowrap">agriffis&#64;gentoo.org
++    </td>
++    <td style="white-space: nowrap">NEW
++    </td>
++    <td style="white-space: nowrap">
++    </td>
++    <td >media-sound/lilypond-2.0.3 does not compile with gcc-3.4.4
++    </td>
++
++  </tr>
++
++  
++    </table>
++
++
++
++
++38 bugs found.
++
++<br>
++
++
++
++
++
++
++
++
++
++
++<table>
++  <tr>
++      <td valign="middle">
++        <form method="post" action="show_bug.cgi">
++            <input type="hidden" name="id" value="47618">
++            <input type="hidden" name="id" value="48950">
++            <input type="hidden" name="id" value="52681">
++            <input type="hidden" name="id" value="66774">
++            <input type="hidden" name="id" value="73494">
++            <input type="hidden" name="id" value="75893">
++            <input type="hidden" name="id" value="81549">
++            <input type="hidden" name="id" value="82467">
++            <input type="hidden" name="id" value="84453">
++            <input type="hidden" name="id" value="84454">
++            <input type="hidden" name="id" value="85666">
++            <input type="hidden" name="id" value="86125">
++            <input type="hidden" name="id" value="87075">
++            <input type="hidden" name="id" value="87986">
++            <input type="hidden" name="id" value="88291">
++            <input type="hidden" name="id" value="90334">
++            <input type="hidden" name="id" value="92558">
++            <input type="hidden" name="id" value="93843">
++            <input type="hidden" name="id" value="95341">
++            <input type="hidden" name="id" value="96119">
++            <input type="hidden" name="id" value="97324">
++            <input type="hidden" name="id" value="97574">
++            <input type="hidden" name="id" value="99745">
++            <input type="hidden" name="id" value="102885">
++            <input type="hidden" name="id" value="102945">
++            <input type="hidden" name="id" value="104430">
++            <input type="hidden" name="id" value="105434">
++            <input type="hidden" name="id" value="106266">
++            <input type="hidden" name="id" value="107888">
++            <input type="hidden" name="id" value="112471">
++            <input type="hidden" name="id" value="113849">
++            <input type="hidden" name="id" value="116117">
++            <input type="hidden" name="id" value="116197">
++            <input type="hidden" name="id" value="116878">
++            <input type="hidden" name="id" value="117256">
++            <input type="hidden" name="id" value="118698">
++            <input type="hidden" name="id" value="120061">
++            <input type="hidden" name="id" value="120773">
++          <input type="hidden" name="format" value="multiple">
++          <input type="submit" value="&nbsp;&nbsp;Long Format&nbsp;">
++        </form>
++
++      </td>
++      
++      <td>&nbsp;</td>
++      
++      <td valign="middle">
++        <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;ctype=csv">CSV</a> |
++        <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;ctype=rss">RSS</a> |
++        <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;ctype=ics">iCalendar</a> |
++        <a href="colchange.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced">Change&nbsp;Columns</a> |
++
++          <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced&amp;tweak=1"
++            >Change&nbsp;Several&nbsp;Bugs&nbsp;at&nbsp;Once</a>
++          |
++
++          <a href="mailto:dev-portage&#64;gentoo.org,gnome&#64;gentoo.org,text-markup&#64;gentoo.org,alpha&#64;gentoo.org,common-lisp&#64;gentoo.org,agriffis&#64;gentoo.org">Send&nbsp;Mail&nbsp;to&nbsp;Bug&nbsp;Assignees</a> |
++
++        
++      </td>
++    
++    <td valign="middle">
++      <a href="query.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced">Edit&nbsp;Search</a>
++    </td>
++      
++      <td>&nbsp;</td>
++      
++      <td valign="middle">
++        <form method="get" action="buglist.cgi">
++          <input type="submit" value="Remember search"> as 
++          <input type="hidden" name="newquery" 
++                 value="bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1&amp;remaction=&amp;query_format=advanced">
++          <input type="hidden" name="cmdtype" value="doit">
++          <input type="hidden" name="remtype" value="asnamed">
++          <input type="text" name="newqueryname" size="20"
++                 value=""> 
++        </form> 
++      </td>  
++  </tr>
++</table>
++
++
++
++
++
++<div id="footer">
++  <div class="intro"></div>
++
++
++
++
++<form method="get" action="show_bug.cgi">
++<p class="version"><a href="http://www.bugzilla.org/">Bugzilla</a> Version 2.20+<br>
++                <b><i>Logged in as: agriffis&#64;gentoo.org</b> | <a href="relogin.cgi">Log&nbsp;out</a></i>
++
++<div id="useful-links">
++  <div id="links-actions">
++    <div class="label">Actions:</div>
++    <div class="links">
++        <a href="./">Home</a> | 
++        <a href="enter_bug.cgi">New</a> | 
++        <a href="query.cgi">Search</a> |
++        bug # <input class="txt" name="id" size="6">
++        <input class="btn" type="submit" value="Find"> | 
++        
++        <a href="report.cgi">Reports</a> 
++        
++          | <a href="request.cgi?requester=agriffis%40gentoo.org&amp;requestee=agriffis%40gentoo.org&amp;do_union=1&amp;group=type">My Requests</a>
++              
++         
++    </div>
++  </div>
++       
++  <div id="links-edit">
++    <div class="label">Edit:</div>
++    <div class="links">
++
++        <a href="userprefs.cgi">Prefs</a> | <a href="editusers.cgi">Users</a>  | <a href="editwhines.cgi">Whining</a>
++    </div>
++  </div>
++    
++
++    
++    
++  <div id="links-saved">
++    <div class="label">
++          Saved&nbsp;Searches:
++    </div>
++    <div class="links">
++<!-- jsf
++          <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1">My&nbsp;Bugs</a> -->
++          <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1">My&nbsp;Bugs</a>
++      | <a href="buglist.cgi?query_format=&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=UNCONFIRMED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=exact&amp;email1=bug-wranglers at gentoo.org&amp;emailtype2=exact&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Bug&nbsp;Wranglers</a>
++
++ | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=All%20my%20bugs">All&nbsp;my&nbsp;bugs</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=alpha">alpha</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout">Baselayout</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout%20InCVS">Baselayout&nbsp;InCVS</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Blockers">Blockers</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=ia64">ia64</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Interesting">Interesting</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Monthly">Monthly</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla">mozilla</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla-launcher">mozilla&#8209;launcher</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Weekly">Weekly</a>
++    </div>
++  </div>
++
++  
++</div>
++</form>
++
++  <div class="outro"></div>
++</div>
++
++</body>
++</html>
+\ No newline at end of file
+
+Modified: trunk/examples/gentoo/show_activity.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/show_activity.cgi.htm	2006-01-30 15:00:25 UTC (rev 30)
++++ trunk/examples/gentoo/show_activity.cgi.htm	2006-01-30 15:09:48 UTC (rev 31)
+@@ -1,10 +1,219 @@
+-?
+-?2??????????A??5???'????b?t=	c???J?'???$?????vWJ????????
+-U???????	r??{???uO??????4?-4L0?TQ?1s???SC+?N?T|?????1{?I???p?2!$i??w???&u??wZGQ?H?$?< E?'H	4??g?????V?u??(!?s?"vP??????	???0
+-?8??_FX?0????#??C"dDy??\?\+?0*Uc??`|'VS?]?n?p(????O???Ez?wu???$???<$t2???A?0?`P???<???? b)i???D?k???"Q$????F??L??bEs?O?`?Z;/?r?#??z???
+-?#?y?
+-????cOX%?L?j??'??B?H>??2FIjbE?~?Q"fzKyN?A??9???rF'j?????b3]?o??n6????z?-j?[?[?z0\??A
+-6??eK??V?f??\???h?[?k??????fv?S?z???????????????*???Eyyg?O?^?"?B?]??)?Ut)?3??<lP?Z
+-?AQ?V[@????nkZNSI&SV??^N?o?n]??%2<"???,?a9G??r?????T0??@????%??e?sJ??e?c??3F"?Q?????b?X?
+-??$???eM+?#???FNGU&L??#TU??????*?j?7c[?????B?ei'??I??;???|??wS?????????6??BW?????,?X.D?A?n!?t7?>|z????Y?'Dm?(m???0??"~
+-_P??i??>?D?/?X?KX?},??z??hd?08?:?????i???di??az?9??j?\????g???????1?x[Ko???? ???x???uuA??1?]?????????=???`?????#??28?6??M??-??????????~??;?]????????L?}O??+??????}???????????
+\ No newline at end of file
++<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
++                      "http://www.w3.org/TR/html4/loose.dtd">
++<html>
++  <head>
++    <title>Changes made to bug 77777</title>
++
++
++<link rel="Top" href="http://bugs.gentoo.org/">
++
++  
++
++
++  
++
++
++  
++    <link rel="Saved&nbsp;Searches" title="My Bugs"
++          href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1">
++
++    <link rel="Saved&nbsp;Searches" 
++          title="All my bugs"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=All%20my%20bugs">
++    <link rel="Saved&nbsp;Searches" 
++          title="alpha"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=alpha">
++    <link rel="Saved&nbsp;Searches" 
++          title="Baselayout"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout">
++    <link rel="Saved&nbsp;Searches" 
++          title="Baselayout InCVS"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout%20InCVS">
++    <link rel="Saved&nbsp;Searches" 
++          title="Blockers"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Blockers">
++    <link rel="Saved&nbsp;Searches" 
++          title="ia64"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=ia64">
++    <link rel="Saved&nbsp;Searches" 
++          title="Interesting"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Interesting">
++    <link rel="Saved&nbsp;Searches" 
++          title="Monthly"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Monthly">
++    <link rel="Saved&nbsp;Searches" 
++          title="mozilla"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla">
++    <link rel="Saved&nbsp;Searches" 
++          title="mozilla-launcher"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla-launcher">
++    <link rel="Saved&nbsp;Searches" 
++          title="My Bugs"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=My%20Bugs">
++    <link rel="Saved&nbsp;Searches" 
++          title="Weekly"
++          href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Weekly">
++
++   <link rel="Administration" title="Whining"       
++                  href="editwhines.cgi">
++
++    
++
++    <script type="text/javascript">
++  <!--
++  
++  function initHelp() {}
++  // -->
++  </script>
++
++    <link href="skins/standard/global.css" rel="stylesheet" type="text/css">
++    <link href="skins/custom/global.css" rel="stylesheet" type="text/css">
++
++
++
++    
++
++
++  </head>
++
++
++
++  <body onload=""
++        class="bugs-gentoo-org">
++
++
++<div id="banner">
++      <p id="banner-name">
++        <span>This is Bugzilla</span>
++      </p>
++      <p id="banner-version">
++<!--        <a href="http://www.bugzilla.org/"><span>Bugzilla</span></a>
++        <span>Version 2.20+</span> -->
++	<a href="http://www.gentoo.org/">Home</a> |
++	<a href="http://www.gentoo.org/doc/en/index.xml">Docs</a> |
++	<a href="http://forums.gentoo.org/">Forums</a> |
++	<a href="http://www.gentoo.org/main/en/lists.xml">Lists</a> |
++	<a href="http://bugs.gentoo.org">Bugs</a> |
++	<a href="http://planet.gentoo.org">Planet</a> |
++	<a href="http://store.gentoo.org">Store</a> |
++	<a href="http://www.gentoo.org/news/en/gwn/gwn.xml">GWN</a> |
++	<a href="http://www.gentoo.org/main/en/where.xml">Get Gentoo!</a>
++      </p>
++    <div class="outro"></div>
++    </div>
++
++<div id="header">
++    <h1>Activity log</h1>
++
++    <h2>Bug <a href="show_bug.cgi?id=77777">77777</a></h2>
++
++</div>
++
++<br>
++<table border cellpadding="4">
++    <tr>
++      <th>Who</th>
++      <th>When</th>
++      <th>What</th>
++      <th>Removed</th>
++      <th>Added</th>
++    </tr>
++
++      <tr>
++        <td rowspan="2" valign="top">swift&#64;gentoo.org
++        </td>
++        <td rowspan="2" valign="top">2005-01-13 12:15:14 PST
++        </td>
++            <td>Status
++            </td>
++            <td>NEW
++            </td>
++            <td>RESOLVED
++            </td></tr><tr>
++            <td>Resolution
++            </td>
++            <td>
++                &nbsp;
++            </td>
++            <td>DUPLICATE
++            </td>
++      </tr>
++  </table>
++
++<p>
++  <a href="show_bug.cgi?id=77777">Back to bug 
++  77777</a>
++</p>
++<div id="footer">
++  <div class="intro"></div>
++
++
++
++
++<form method="get" action="show_bug.cgi">
++<p class="version"><a href="http://www.bugzilla.org/">Bugzilla</a> Version 2.20+<br>
++                <b><i>Logged in as: agriffis&#64;gentoo.org</b> | <a href="relogin.cgi">Log&nbsp;out</a></i>
++
++<div id="useful-links">
++  <div id="links-actions">
++    <div class="label">Actions:</div>
++    <div class="links">
++        <a href="./">Home</a> | 
++        <a href="enter_bug.cgi">New</a> | 
++        <a href="query.cgi">Search</a> |
++        bug # <input class="txt" name="id" size="6">
++        <input class="btn" type="submit" value="Find"> | 
++        
++        <a href="report.cgi">Reports</a> 
++        
++          | <a href="request.cgi?requester=agriffis%40gentoo.org&amp;requestee=agriffis%40gentoo.org&amp;do_union=1&amp;group=type">My Requests</a>
++              
++         
++    </div>
++  </div>
++       
++  <div id="links-edit">
++    <div class="label">Edit:</div>
++    <div class="links">
++
++        <a href="userprefs.cgi">Prefs</a> | <a href="editusers.cgi">Users</a>  | <a href="editwhines.cgi">Whining</a>
++    </div>
++  </div>
++    
++
++    
++    
++  <div id="links-saved">
++    <div class="label">
++          Saved&nbsp;Searches:
++    </div>
++    <div class="links">
++<!-- jsf
++          <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1">My&nbsp;Bugs</a> -->
++          <a href="buglist.cgi?bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED&amp;email1=agriffis%40gentoo.org&amp;emailtype1=exact&amp;emailassigned_to1=1&amp;emailreporter1=1">My&nbsp;Bugs</a>
++      | <a href="buglist.cgi?query_format=&amp;short_desc_type=allwordssubstr&amp;short_desc=&amp;long_desc_type=allwordssubstr&amp;long_desc=&amp;bug_file_loc_type=allwordssubstr&amp;bug_file_loc=&amp;keywords_type=allwords&amp;keywords=&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=UNCONFIRMED&amp;bug_status=REOPENED&amp;emailassigned_to1=1&amp;emailtype1=exact&amp;email1=bug-wranglers at gentoo.org&amp;emailtype2=exact&amp;email2=&amp;bugidtype=include&amp;bug_id=&amp;changedin=&amp;chfieldfrom=&amp;chfieldto=Now&amp;chfieldvalue=&amp;cmdtype=doit&amp;order=Reuse+same+sort+as+last+time&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=">Bug&nbsp;Wranglers</a>
++
++ | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=All%20my%20bugs">All&nbsp;my&nbsp;bugs</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=alpha">alpha</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout">Baselayout</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Baselayout%20InCVS">Baselayout&nbsp;InCVS</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Blockers">Blockers</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=ia64">ia64</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Interesting">Interesting</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Monthly">Monthly</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla">mozilla</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=mozilla-launcher">mozilla&#8209;launcher</a> | 
++            <a href="buglist.cgi?cmdtype=runnamed&amp;namedcmd=Weekly">Weekly</a>
++    </div>
++  </div>
++
++  
++</div>
++</form>
++
++  <div class="outro"></div>
++</div>
++
++</body>
++</html>
+\ No newline at end of file
+
+
+
+From agriffis at berlios.de  Mon Jan 30 19:08:11 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Mon, 30 Jan 2006 19:08:11 +0100
+Subject: [qute] r32 - trunk
+Message-ID: <200601301808.k0UI8B5q001979@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-01-30 19:08:10 +0100 (Mon, 30 Jan 2006)
+New Revision: 32
+
+Modified:
+   trunk/bugz.rb
+   trunk/qute.rb
+Log:
+Fix svn:executable properties
+
+
+Property changes on: trunk/bugz.rb
+___________________________________________________________________
+Name: svn:executable
+   + *
+
+
+Property changes on: trunk/qute.rb
+___________________________________________________________________
+Name: svn:executable
+   - *
+
+
+
+From agriffis at berlios.de  Tue Jan 31 00:05:17 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Tue, 31 Jan 2006 00:05:17 +0100
+Subject: [qute] r33 - trunk
+Message-ID: <200601302305.k0UN5HPZ021841@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-01-31 00:05:15 +0100 (Tue, 31 Jan 2006)
+New Revision: 33
+
+Modified:
+   trunk/qute.rb
+Log:
+Add attribute documentation for Form class.
+Use rdoc-style definitions for "Classes related to..."
+
+Modified: trunk/qute.rb
+===================================================================
+--- trunk/qute.rb	2006-01-30 18:08:10 UTC (rev 32)
++++ trunk/qute.rb	2006-01-30 23:05:15 UTC (rev 33)
+@@ -361,14 +361,30 @@
+ end
+ 
+ # Classes related to forms:
+-#       FormField - one field in a form
+-#       Form      - one form in a page, handles posting and marshalling
+-#       FormList  - list of forms in a page
++# FormField:: one field in a form
++# Form::      one form in a page, handles posting and marshalling
++# FormList::  list of forms in a page
+ # 
+ # The Form class represents a list of FormFields (via OrderedHash), along with
+-# the methods necessary to post the itself to a CGI.
++# the methods necessary to post itself to a CGI.
+ class Form < OrderedHash
+-  attr_accessor :sourceurl, :targeturl, :cookie, :method
++  # used in the Referer: header when posting the Form.  The initial Form
++  # generally does not have sourceurl set.  Parsed forms inherit their sourceurl
++  # from the parent's targeturl.
++  attr_accessor :sourceurl
++
++  # specifies the target for posting the Form.  For the initial Form, the
++  # targeturl specifies where the form can be fetched (for example
++  # http://bugs.gentoo.org/query.cgi)
++  attr_accessor :targeturl
++
++  # set by the set-cookie header when parsing, then posted back by any child
++  # Forms
++  attr_accessor :cookie
++  
++  # 'get' or 'post', defaults to the method of the parent form or 'get'
++  attr_accessor :method
++
+   @@http = nil
+ 
+   def initialize(targeturl = nil, prevobj = nil)
+@@ -387,7 +403,7 @@
+ 
+   # convert self into a URL-escaped string for posting
+   def querystring
+-    map { |field| field.to_s }.join('&')
++    self.map { |field| field.to_s }.join('&')
+   end
+ 
+   # parse a URL-escaped string and load the resulting values
+@@ -686,9 +702,9 @@
+ end
+ 
+ # Classes related to table management:
+-#       TableRow    - one row of a table
+-#       TableRecord - one record, comprising N rows
+-#       Table       - entire web page
++# TableRow::    one row of a table
++# TableRecord:: one record, comprising N rows
++# Table::       entire web page
+ #
+ # A Table is an array of TableRows.  It keeps track of a sourceurl and cookie
+ # for the entire table, plus provides easy access to all the header rows.
+
+
+
+From agriffis at berlios.de  Tue Jan 31 18:36:26 2006
+From: agriffis at berlios.de (agriffis at BerliOS)
+Date: Tue, 31 Jan 2006 18:36:26 +0100
+Subject: [qute] r34 - trunk
+Message-ID: <200601311736.k0VHaQrM004063@sheep.berlios.de>
+
+Author: agriffis
+Date: 2006-01-31 18:36:24 +0100 (Tue, 31 Jan 2006)
+New Revision: 34
+
+Modified:
+   trunk/qutecmd.rb
+Log:
+Rename QuteCmdObj#setting -> settings and add attribute documentation to QuteCmdObj
+
+Modified: trunk/qutecmd.rb
+===================================================================
+--- trunk/qutecmd.rb	2006-01-30 23:05:15 UTC (rev 33)
++++ trunk/qutecmd.rb	2006-01-31 17:36:24 UTC (rev 34)
+@@ -120,12 +120,12 @@
+   oldout = $stdout
+ 
+   # Set up pager
+-  if cmdobj.setting.has_key? 'mailto'
++  if cmdobj.settings.has_key? 'mailto'
+     mailout = StringFile.new
+     $stdout = mailout
+-  elsif pagerok and not cmdobj.setting.has_key? 'nopage'
++  elsif pagerok and not cmdobj.settings.has_key? 'nopage'
+     # Get the pager we want to use
+-    pagercmd = (cmdobj.setting['pager'] or ENV['QUTEPAGER'] or
++    pagercmd = (cmdobj.settings['pager'] or ENV['QUTEPAGER'] or
+       ENV['PAGER'] or 'more')
+     begin
+       # Use the pager as the default output
+@@ -145,8 +145,8 @@
+   # If we're using mailout, send it where it belongs
+   if mailout
+     # Use template from file, or the inline default below
+-    if cmdobj.setting['template']
+-      msg = File.open(cmdobj.setting['template']) { |file| file.read }
++    if cmdobj.settings['template']
++      msg = File.open(cmdobj.settings['template']) { |file| file.read }
+     else
+       msg = <<ENDTMPL
+ From: \#{user}
+@@ -166,7 +166,7 @@
+     # Collect the values available for the template, and apply them
+     uservars = proc {
+       user      = ENV['USER']
+-      mailto    = cmdobj.setting['mailto']
++      mailto    = cmdobj.settings['mailto']
+       date      = Date.today.to_s
+       report    = mailout.to_s
+       command   = cmdobj.to_s
+@@ -175,8 +175,8 @@
+     outstr = eval([ '%Q{', msg, '}' ].join, uservars)
+ 
+     # Actually mail this if we have a mailto address
+-    if cmdobj.setting['mailto']
+-      sendmail = IO.popen("/usr/lib/sendmail #{cmdobj.setting['mailto']}", 'w')
++    if cmdobj.settings['mailto']
++      sendmail = IO.popen("/usr/lib/sendmail #{cmdobj.settings['mailto']}", 'w')
+       sendmail.write(outstr)
+       sendmail.close
+     else
+@@ -595,8 +595,8 @@
+   # Decide if we're going to color or not.
+   def usecolor
+     return @usecolor if defined? @usecolor
+-    if @cmdobj.setting.has_key? 'nocolor'   then @usecolor = false
+-    elsif @cmdobj.setting.has_key? 'mailto' then @usecolor = false
++    if @cmdobj.settings.has_key? 'nocolor'   then @usecolor = false
++    elsif @cmdobj.settings.has_key? 'mailto' then @usecolor = false
+     elsif not @colorok                      then @usecolor = false
+     else                                         @usecolor = $stdout.tty?
+     end
+@@ -677,7 +677,7 @@
+ class OptsSettings
+   def validopts(cmdobj)
+     # These are the settings options that will be available through
+-    # cmdobj.setting
++    # cmdobj.settings
+     return [
+       [ 'nowrap',       ArgNone ],
+       [ 'width',        ArgRequired ],
+@@ -699,7 +699,7 @@
+       else
+         # All these other settings are properly associated with a specific
+         # run of a command, so don't store them is a totally global place.
+-        cmdobj.setting[opt] = arg
++        cmdobj.settings[opt] = arg
+       end
+     end
+   end
+@@ -782,14 +782,25 @@
+ # instance of this class represents one "qute command" and encapsulates all
+ # the state necessary for executing that command.
+ class QuteCmdObj
+-  attr_reader :command, :setting
+-  attr_accessor :defaultargs, :syngrid
++  # usually the first argument, such as "read", "query", "update", etc.
++  attr_reader :command
++  
++  # hash of option/argument pairs from the cmdline
++  attr_reader :settings
+ 
++  # default arguments for when none are given, if wanted should be set by the
++  # instance before calling parseargs!
++  attr_accessor :defaultargs
++  
++  # synopsis grid associated with this command, if wanted should be set by the
++  # instance before calling parseargs!
++  attr_accessor :syngrid
++
+   def initialize(cmdlist, argv = ARGV)
+     @syngrid = nil
+     @defaultargs = []
+     @actualopts = []
+-    @setting = {}
++    @settings = {}
+     @optobjlist = []
+     @command = 'read'  # default command
+ 
+@@ -829,7 +840,7 @@
+     @optobjlist << QuteCmd::OptsSettings.new
+     if @syngrid
+       # If we're going to use a SynopsisGrid, let the user customize it
+-      @optobjlist << OptsSynopsis.new
++      @optobjlist << QuteCmd::OptsSynopsis.new
+     end
+ 
+     # Use defaultargs if none were given
+
+
+

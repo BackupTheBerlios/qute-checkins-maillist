@@ -1,0 +1,2666 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r29 - in trunk: . examples examples/gentoo
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-January/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r29%20-%20in%20trunk%3A%20.%20examples%20examples/gentoo&In-Reply-To=%3C200601290126.k0T1Q67o010703%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000001.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r29 - in trunk: . examples examples/gentoo</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r29%20-%20in%20trunk%3A%20.%20examples%20examples/gentoo&In-Reply-To=%3C200601290126.k0T1Q67o010703%40sheep.berlios.de%3E"
+       TITLE="[qute] r29 - in trunk: . examples examples/gentoo">agriffis at berlios.de
+       </A><BR>
+    <I>Sun Jan 29 02:26:06 CET 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000001.html">[qute] r30 - trunk/examples/gentoo
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-01-29 02:26:00 +0100 (Sun, 29 Jan 2006)
+New Revision: 29
+
+Added:
+   trunk/examples/
+   trunk/examples/gentoo/
+   trunk/examples/gentoo/buglist.cgi.htm
+   trunk/examples/gentoo/long_list.cgi.htm
+   trunk/examples/gentoo/query.cgi.htm
+   trunk/examples/gentoo/show_activity.cgi.htm
+   trunk/examples/gentoo/show_bug.cgi.htm
+Log:
+Add example pages from Gentoo
+
+Added: trunk/examples/gentoo/buglist.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/buglist.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/buglist.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,100 @@
++This is Bugzilla
++
++Home | Docs | Forums | Lists | Bugs | Planet | Store | GWN | Get Gentoo!
++
++Bug List
++
++                                                     Sat Jan 28 2006 17:22:46 PST
++&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;&#9473;
++37 bugs found.
++
++ID       Sev  Pri  Plt  Assignee                 Status   Resolution   Summary
++
++47618    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   several &quot;depscan.sh to fix this&quot; during boot
++
++48950    min  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   econf should include || die in ebuilds
++
++52681    maj  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   media-sound/lilypond-2.x can't build its documentation
++
++66774    nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   rdist noexec option broken-- looks for a.out, not ELF bin...
++
++73494    enh  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   feature request: epm -qf to handle symbolic links
++
++75893    nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   lilypond-2.4.2 error: can't find `feta20.afm'
++
++81549    enh  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   Lilypond ebuild for 2.5.2 works for me!
++
++82467    min  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   Late handling of SIGTERM in app-shells/psh
++
++84453    nor  P2   Alp  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">alpha at gentoo.org</A>         NEW                   2005.0 (pre) 2.6 kernel panics on marvel (gs1280)
++
++84454    nor  P2   Alp  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">alpha at gentoo.org</A>         NEW                   2005.0 (pre) 2.4 kernel doesn't contain gs1280 console su...
++
++85666    nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">text-markup at gentoo.org</A>   NEW                   jadetex-3.12 failure on amd64
++
++86125    min  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   lilypond depends via mftrace on xorg
++
++87075    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   gpa unable to sign keys - gpgme error
++
++87986    maj  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   rcp and very large files (&gt;2 GB)
++
++88291    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   ec-fonts-mftraced-1.0.8 doesn't compile (unknown error)
++
++90334    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   lilypond-2.5.2 fails to emerge due to metafont problem
++
++92558    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   epm --query --{requires | whatrequires} not working ?
++
++93843    nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   epm -qf issues
++
++95341    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   logrotate cvs unknown option endscript
++
++96119    nor  P2   x86  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   gbuffy-0.2.6 (unstable) does not compile
++
++97324    nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">dev-portage at gentoo.org</A>   NEW                   rewrite of fowners and fperms
++
++97574    enh  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   new ebuild for lilypond 2.6
++
++99745    nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   x11-misc/xcut installs in to /usr/local
++
++102885   nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   linuxtrade-3.65 missing DEPEND on curl
++
++102945   min  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   mail-client/muttng misses system config files (in FILESDIR)
++
++104430   enh  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   mutt flag_safe behaviour request
++
++105434   enh  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   muttng-20050909 (updated ebuild)
++
++106266   enh  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   mercurial ebuild has no bash-completion support
++
++107888   nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   dev-util/mercurial-0.7 fails installing because of xsl error
++
++112471   nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   file collision: app-text/cooledit-3.17.7 with /usr/share/...
++
++113849   nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   please s/pgp.mit.edu/subkeys.pgp.net/
++
++116117   min  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">common-lisp at gentoo.org</A>   NEW                   gcl installs files to /usr/share/doc
++
++116197   enh  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">gnome at gentoo.org</A>         NEW                   gnome-extra/hardware-monitor bump
++
++116878   nor  P1   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   linuxtrade in portage is obsolete and should be removed, ...
++
++117256   nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   cdk has incorrect PIC handling
++
++118698   nor  P4   AMD  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   media-sound/lilypond-2.5.2 emerge failure in ../../script...
++
++120061   nor  P2   All  <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A>      NEW                   echangelog tries to update copyright year on files that w...
++
++37 bugs found.
++
++[  Long Format ]                  CSV | RSS | iCalendar | Change Columns |                   Edit Search   [Remember search] as 
++                                  Change Several Bugs at Once | Send Mail to Bug Assignees |               [                    ]
++
++Bugzilla Version 2.20+
++Logged in as: <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">agriffis at gentoo.org</A> | Log out
++Actions:
++Home | New | Search | bug # [      ] [Find] | Reports | My Requests
++Edit:
++Prefs | Users | Whining
++Saved Searches:
++My Bugs | Bug Wranglers | All my bugs | alpha | Baselayout | Baselayout InCVS | Blockers | ia64 | Interesting | Monthly | mozilla |
++mozilla&#8209;launcher | Weekly
+
+Added: trunk/examples/gentoo/long_list.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/long_list.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/long_list.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,407 @@
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
++
++&lt;html&gt;
++    &lt;head&gt;
++
++    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
++    &lt;link REL=&quot;shortcut icon&quot; HREF=&quot;/images/favicon.ico&quot; TYPE=&quot;image/x-icon&quot;&gt;
++    &lt;link title=&quot;new&quot; rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot; type=&quot;text/css&quot;&gt;
++    &lt;title&gt;Full Text Bug Listing&lt;/title&gt;
++    
++
++&lt;link rel=&quot;Top&quot; href=&quot;<A HREF="http://bugs.gentoo.org/">http://bugs.gentoo.org/</A>&quot;&gt;
++    
++    
++    &lt;script type=&quot;text/javascript&quot;&gt;
++  &lt;!--
++  
++  function initHelp() {}
++  // --&gt;
++  &lt;/script&gt;        
++
++    
++        &lt;link href=&quot;css/show_multiple.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
++  
++  &lt;/head&gt;
++  
++
++
++  &lt;body bgcolor=&quot;#ffffff&quot; onload=&quot;&quot;&gt;
++
++
++&lt;a href=&quot;/&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;images/bugzilla.png&quot; alt=&quot;Gentoo Linux Bugzilla&quot;&gt;&lt;/a&gt;
++
++&lt;p class=&quot;menu&quot;&gt;
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/index.xml">http://www.gentoo.org/index.xml</A>&quot;&gt;Home&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/about.xml">http://www.gentoo.org/main/en/about.xml</A>&quot;&gt; About &lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/contract.xml">http://www.gentoo.org/main/en/contract.xml</A>&quot;&gt; Social Contract&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/doc/en/index.xml">http://www.gentoo.org/doc/en/index.xml</A>&quot;&gt;Docs&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://forums.gentoo.org">http://forums.gentoo.org</A>&quot;&gt;Forums&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/lists.xml">http://www.gentoo.org/main/en/lists.xml</A>&quot;&gt; Lists&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/shots.xml">http://www.gentoo.org/main/en/shots.xml</A>&quot;&gt;ScreenShots&lt;/a&gt; |
++&lt;a class=&quot;highlight&quot; href=&quot;/&quot;&gt;Bugs&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://store.gentoo.org">http://store.gentoo.org</A>&quot;&gt;Store&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/news/en/gwn/gwn.xml">http://www.gentoo.org/news/en/gwn/gwn.xml</A>&quot;&gt; GWN&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/where.xml">http://www.gentoo.org/main/en/where.xml</A>&quot;&gt; Get Gentoo!&lt;/a&gt;
++&lt;/p&gt;&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;&lt;img alt=&quot;&quot; src=&quot;1x1.gif&quot; width=&quot;1&quot; height=&quot;80&quot; align=&quot;left&quot;&gt;
++  &lt;div align=&quot;center&quot;&gt;
++    &lt;b&gt;
++      &lt;font =&quot;+3&quot;&gt;Bug 77777 - groff fails to build during &quot;bootstrap.sh&quot;&lt;/font&gt;
++    &lt;/b&gt;
++  &lt;/div&gt;
++
++  &lt;table width=&quot;100%&quot;&gt;
++    &lt;tr&gt;
++      &lt;td&gt;
++        &lt;b&gt;Bug#:&lt;/b&gt;
++        &lt;a href=&quot;show_bug.cgi?id=77777&quot;&gt;77777&lt;/a&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Product:&lt;/b&gt;&nbsp;Gentoo Linux
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Version:&lt;/b&gt;&nbsp;unspecified
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Platform:&lt;/b&gt;&nbsp;x86
++  &lt;/td&gt;
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;&lt;td&gt;
++    &lt;b&gt;OS/Version:&lt;/b&gt;&nbsp;Linux
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Status:&lt;/b&gt;&nbsp;RESOLVED
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Severity:&lt;/b&gt;&nbsp;blocker
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Priority:&lt;/b&gt;&nbsp;P2
++  &lt;/td&gt;
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;&lt;td&gt;
++    &lt;b&gt;Resolution:&lt;/b&gt;&nbsp;DUPLICATE
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Assigned To:&lt;/b&gt;&nbsp;bug-wranglers&#64;gentoo.org
++  &lt;/td&gt;&lt;td&gt;
++    &lt;b&gt;Reported By:&lt;/b&gt;&nbsp;stanbehrens&#64;msn.com
++  &lt;/td&gt;
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td colspan=&quot;2&quot;&gt;
++        &lt;b&gt;Component:&lt;/b&gt;&nbsp;Applications
++      &lt;/td&gt;
++    
++      &lt;td colspan=&quot;2&quot;&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td colspan=&quot;4&quot;&gt;
++        &lt;b&gt;URL:&lt;/b&gt;&nbsp;
++        &lt;a href=&quot;&quot;&gt;&lt;/a&gt; 
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td colspan=&quot;4&quot;&gt;
++        &lt;b&gt;Summary:&lt;/b&gt;&nbsp;groff fails to build during &quot;bootstrap.sh&quot;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++     
++      &lt;tr&gt;
++        &lt;td colspan=&quot;4&quot;&gt;
++          &lt;b&gt;Keywords: &lt;/b&gt;&nbsp;
++        &lt;/td&gt;
++      &lt;/tr&gt;
++
++      &lt;tr&gt;
++        &lt;td colspan=&quot;4&quot;&gt;
++          &lt;b&gt;Status Whiteboard:&lt;/b&gt;&nbsp;
++        &lt;/td&gt;
++      &lt;/tr&gt;
++
++
++    &lt;tr&gt;
++      &lt;td colspan=&quot;4&quot;&gt;
++        &lt;b&gt;Opened:&lt;/b&gt;&nbsp;2005-01-12 21:54 PST
++      &lt;/td&gt;
++    &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td colspan=&quot;4&quot;&gt;
++        &lt;b&gt;Description:&lt;/b&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/table&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++&lt;div &gt;
++        
++
++&lt;pre&gt;# cd /usr/portage; ./scripts/bootstrap.sh
++ [...]
++&gt;&gt;&gt; sys-devel/m4-1.4.1 merged.
++&gt;&gt;&gt; emerge (2 of 18) sys-apps/groff-1.19.1-r2 to /
++&gt;&gt;&gt; md5 src_uri ;-) groff-1.19.1.tar.gz
++&gt;&gt;&gt; Unpacking source...
++&gt;&gt;&gt; Unpacking groff-1.19.1.tar.gz to /var/tmp/portage/groff-1.19.1-r2/work
++ * Applying groff-1.18-infoext.patch ...                                  [ ok ]
++ * Applying groff-1.18-no-netpbm-depend.patch ...                         [ ok ]
++ * Applying groff-man-UTF-8.diff ...                                      [ ok ]
++ * Applying groff-1.19.1-stack.patch ...                                  [ ok ]
++ * Applying groff-1.19.1-tmpfile.patch ...                                [ ok ]
++ * Applying groff-1.19.1-parallel-make.patch ...                          [ ok ]
++&gt;&gt;&gt; Source unpacked.
++gcc
++g++
++configure: WARNING: If you wanted to set the --build type, don't use --host.
++    If a cross compiler is detected then cross compile mode will be used.
++checking for i686-pc-linux-gnu-gcc... gcc
++checking for C compiler default output file name... a.out
++checking whether the C compiler works... yes
++checking whether we are cross compiling... no
++checking for suffix of executables... 
++checking for suffix of object files... o
++checking whether we are using the GNU C compiler... yes
++checking whether gcc accepts -g... yes
++checking for gcc option to accept ANSI C... none needed
++checking for i686-pc-linux-gnu-g++... g++
++checking whether we are using the GNU C++ compiler... no
++checking whether g++ accepts -g... no
++checking that C++ compiler can compile simple program... no
++configure: error: a working C++ compiler is required
++
++!!! ERROR: sys-apps/groff-1.19.1-r2 failed.
++!!! Function src_compile, Line 85, Exitcode 1
++!!! (no error message)
++!!! If you need support, post the topmost build error, NOT this status message.
++
++=======================
++make.conf:
++-----------------------
++# grep -v ^# /etc/make.conf
++USE=&quot;-* x86&quot;
++CHOST=&quot;i686-pc-linux-gnu&quot;
++CFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++CXXFLAGS=&quot;${CFLAGS}&quot;
++ACCEPT_KEYWORDS=&quot;x86&quot;
++GENTOO_MIRRORS=&quot;&lt;a href=&quot;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</A>&quot;&gt;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a">http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a</A>&gt;&quot;
++SYNC=&quot;<A HREF="rsync://rsync.de.gentoo.org/gentoo-portage&amp;quot;">rsync://rsync.de.gentoo.org/gentoo-portage&quot;</A>
++MAKEOPTS=&quot;-j2&quot;
++PORTAGE_NICENESS=3
++
++=======================
++config.log:
++-----------------------
++ [...]
++configure:2243: checking for i686-pc-linux-gnu-g++
++configure:2269: result: g++
++configure:2327: checking for C++ compiler version
++configure:2330: g++ --version &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2333: $? = 127
++configure:2335: g++ -v &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2338: $? = 127
++configure:2340: g++ -V &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2343: $? = 127
++configure:2346: checking whether we are using the GNU C++ compiler
++configure:2370: g++ -c -march=pentium4 -O3 -fomit-frame-pointer -pipe  conftest.cc &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2376: $? = 127
++configure: failed program was:
++| /* confdefs.h.  */
++| 
++| #define PACKAGE_NAME &quot;&quot;
++| #define PACKAGE_TARNAME &quot;&quot;
++| #define PACKAGE_VERSION &quot;&quot;
++| #define PACKAGE_STRING &quot;&quot;
++| #define PACKAGE_BUGREPORT &quot;&quot;
++| /* end confdefs.h.  */
++| 
++| int
++| main ()
++| {
++| #ifndef __GNUC__
++|        choke me
++| #endif
++| 
++|   ;
++|   return 0;
++| }
++configure:2402: result: no
++ [...]
++
++=======================
++environment:
++-----------------------
++# printenv 
++INFODIR=/usr/share/info
++MANPATH=/usr/share/man:/usr/local/share/man:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/man
++HOSTNAME=rescue
++SHELL=/bin/bash
++TERM=xterm
++SSH_CLIENT=212.202.12.236 56408 22
++SSH_TTY=/dev/pts/0
++USER=root
++PAGER=/usr/bin/less
++CONFIG_PROTECT_MASK=/etc/terminfo
++PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/opt/bin:/usr/i386-pc-linux-gnu/gcc-bin/3.3
++MAIL=/var/mail/root
++GLIBC_SSP_CHECKED=1
++PWD=/usr/portage
++INPUTRC=/etc/inputrc
++EDITOR=/bin/nano
++PS1=\[\033[01;31m\]\h \[\033[01;34m\]\W \$ \[\033[00m\]
++CXX=g++
++HOME=/root
++SHLVL=2
++LOGNAME=root
++LESS=-R
++CVS_RSH=ssh
++SSH_CONNECTION=212.202.12.236 56408 82.96.68.77 22
++LESSOPEN=|lesspipe.sh %s
++INFOPATH=/usr/share/info:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/info
++CC=gcc
++_=/bin/printenv
++OLDPWD=/
++
++=======================
++emerge --info:
++-----------------------
++# emerge --info
++Portage 2.0.51-r3 (default-linux/x86/2004.3, gcc-3.3.4, unavailable, 2.6.9-gentoo-r13 i686)
++=================================================================
++System uname: 2.6.9-gentoo-r13 i686 Intel(R) Pentium(R) 4 CPU 2.40GHz
++Gentoo Base System version 1.4.16
++Autoconf: 
++Automake: 
++Binutils: sys-devel/binutils-2.14.90.0.8-r1
++Headers:  
++Libtools: 
++ACCEPT_KEYWORDS=&quot;x86&quot;
++AUTOCLEAN=&quot;yes&quot;
++CFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++CHOST=&quot;i686-pc-linux-gnu&quot;
++COMPILER=&quot;&quot;
++CONFIG_PROTECT=&quot;/etc /usr/kde/2/share/config /usr/kde/3/share/config /usr/share/config /var/qmail/control&quot;
++CONFIG_PROTECT_MASK=&quot;/etc/gconf /etc/terminfo /etc/env.d&quot;
++CXXFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++DISTDIR=&quot;/usr/portage/distfiles&quot;
++FEATURES=&quot;autoaddcvs autoconfig ccache distlocks sandbox sfperms&quot;
++GENTOO_MIRRORS=&quot;&lt;a href=&quot;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</A>&quot;&gt;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a">http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a</A>&gt;&quot;
++MAKEOPTS=&quot;-j2&quot;
++PKGDIR=&quot;/usr/portage/packages&quot;
++PORTAGE_TMPDIR=&quot;/var/tmp&quot;
++PORTDIR=&quot;/usr/portage&quot;
++PORTDIR_OVERLAY=&quot;&quot;
++SYNC=&quot;<A HREF="rsync://rsync.de.gentoo.org/gentoo-portage&amp;quot;">rsync://rsync.de.gentoo.org/gentoo-portage&quot;</A>
++USE=&quot;x86&quot;
++
++
++Reproducible: Always
++Steps to Reproduce:
++1. follow &lt;a href=&quot;<A HREF="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml">http://www.gentoo.org/doc/en/handbook/handbook-x86.xml</A>&quot;&gt;<A HREF="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml&lt;/a">http://www.gentoo.org/doc/en/handbook/handbook-x86.xml&lt;/a</A>&gt;&lt;/pre&gt;
++&lt;/div&gt;
++  &lt;div &gt;
++        &lt;br&gt;
++        &lt;i&gt;------- Additional Comment
++        &lt;a name=&quot;c1&quot; href=&quot;#c1&quot;&gt;#1&lt;/a&gt; From 
++        &lt;a href=&quot;mailto:douglas.hoffman&#64;gmail.com&quot;&gt;Douglas R. Hoffman&lt;/a&gt;
++        2005-01-13 11:42 PST 
++        -------
++        &lt;/i&gt;
++        
++
++&lt;pre&gt;
++I believe this a duplicate of :
++&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=77718">http://bugs.gentoo.org/show_bug.cgi?id=77718</A>&quot;&gt;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=77718&lt;/a">http://bugs.gentoo.org/show_bug.cgi?id=77718&lt;/a</A>&gt;&lt;/pre&gt;
++&lt;/div&gt;
++  &lt;div &gt;
++        &lt;br&gt;
++        &lt;i&gt;------- Additional Comment
++        &lt;a name=&quot;c2&quot; href=&quot;#c2&quot;&gt;#2&lt;/a&gt; From 
++        &lt;a href=&quot;mailto:bss03&#64;volumehost.com&quot;&gt;Boyd Stephen Smith Jr.&lt;/a&gt;
++        2005-01-13 11:55 PST 
++        -------
++        &lt;/i&gt;
++        
++
++&lt;pre&gt;I agree, looks very much like 77718.&lt;/pre&gt;
++&lt;/div&gt;
++  &lt;div &gt;
++        &lt;br&gt;
++        &lt;i&gt;------- Additional Comment
++        &lt;a name=&quot;c3&quot; href=&quot;#c3&quot;&gt;#3&lt;/a&gt; From 
++        &lt;a href=&quot;mailto:swift&#64;gentoo.org&quot;&gt;Sven Vermeulen&lt;/a&gt;
++        2005-01-13 12:15 PST 
++        -------
++        &lt;/i&gt;
++        
++
++&lt;pre&gt;
++
++*** This bug has been marked as a duplicate of &lt;span class=&quot;bz_closed&quot;&gt;&lt;a href=&quot;show_bug.cgi?id=77718&quot; title=&quot;RESOLVED FIXED - Missing g++ program when bootstraping&quot;&gt;77718&lt;/a&gt;&lt;/span&gt; ***&lt;/pre&gt;
++&lt;/div&gt;
++  
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++  
++  &lt;hr&gt;
++
++&lt;table border=&quot;0&quot;&gt;
++  &lt;tr&gt;
++    &lt;td bgcolor=&quot;#000000&quot; valign=&quot;top&quot;&gt;
++      &lt;table border=&quot;0&quot; cellpadding=&quot;10&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;
++             bgcolor=&quot;dddaec&quot;&gt;
++        &lt;tr&gt;
++          &lt;td&gt;
++          
++
++
++	&lt;p class=&quot;version&quot;&gt;&lt;a href=&quot;<A HREF="http://www.bugzilla.org/">http://www.bugzilla.org/</A>&quot;&gt;Bugzilla&lt;/a&gt; Version 2.18rc2&lt;/p&gt;
++
++	&lt;p&gt;For more information on Gentoo Linux, please visit our 
++	&lt;a href=&quot;<A HREF="http://www.gentoo.org">http://www.gentoo.org</A>&quot;&gt;homepage&lt;/a&gt;.
++	&lt;/p&gt;
++
++
++&lt;form method=&quot;get&quot; action=&quot;show_bug.cgi&quot;&gt;
++  &lt;table width=&quot;100%&quot;&gt;
++    &lt;tr&gt;
++      &lt;td&gt;
++        Actions:
++      &lt;/td&gt;
++      
++      &lt;td valign=&quot;middle&quot; nowrap=&quot;nowrap&quot;&gt;
++        &lt;a href=&quot;enter_bug.cgi?format=guided&quot;&gt;New&lt;/a&gt; |
++        &lt;a href=&quot;enter_bug.cgi&quot;&gt;New-Expert&lt;/a&gt; | 
++        &lt;a href=&quot;query.cgi&quot;&gt;Query&lt;/a&gt; |
++        
++        &lt;input type=&quot;submit&quot; value=&quot;Find&quot;&gt; bug # 
++        &lt;input name=&quot;id&quot; size=&quot;6&quot;&gt; | 
++        
++        &lt;a href=&quot;report.cgi&quot;&gt;Reports&lt;/a&gt; 
++        
++          | &lt;a href=&quot;request.cgi&quot;&gt;Requests&lt;/a&gt;
++              
++      &lt;/td&gt;
++
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++          
++      &lt;td valign=&quot;middle&quot; align=&quot;right&quot;&gt;
++          &lt;a href=&quot;createaccount.cgi&quot;&gt;New&nbsp;Account&lt;/a&gt; | 
++        &lt;a href=&quot;query.cgi?GoAheadAndLogIn=1&quot;&gt;Log&nbsp;In&lt;/a&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++    
++  &lt;/table&gt;                
++&lt;/form&gt;
++
++          &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++
++&lt;/body&gt;
++&lt;/html&gt;
+\ No newline at end of file
+
+Added: trunk/examples/gentoo/query.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/query.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/query.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,1270 @@
++&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
++
++&lt;html&gt;
++    &lt;head&gt;
++
++    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
++    &lt;link REL=&quot;shortcut icon&quot; HREF=&quot;/images/favicon.ico&quot; TYPE=&quot;image/x-icon&quot;&gt;
++    &lt;link title=&quot;new&quot; rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot; type=&quot;text/css&quot;&gt;
++    &lt;title&gt;Search for bugs&lt;/title&gt;
++    
++
++&lt;link rel=&quot;Top&quot; href=&quot;<A HREF="http://bugs.gentoo.org/">http://bugs.gentoo.org/</A>&quot;&gt;
++    
++    
++    &lt;script type=&quot;text/javascript&quot;&gt;
++  &lt;!--
++  
++  function initHelp() {}
++  // --&gt;
++  &lt;/script&gt;        
++
++      &lt;style type=&quot;text/css&quot;&gt;td.selected_tab {
++                 border-width: 2px 2px 0px;
++                 border-style: solid; 
++               }
++               td.unselected_tab, td.spacer {
++                 border-width: 0px 0px 2px 0px;
++                 border-style: solid; 
++               }
++               dl.bug_changes dt {
++                 margin-top: 15px;
++               }
++      &lt;/style&gt;
++    
++  
++  &lt;/head&gt;
++  
++
++
++  &lt;body bgcolor=&quot;#ffffff&quot; onload=&quot;selectProduct(document.forms['queryform']);initHelp();&quot;&gt;
++
++
++&lt;a href=&quot;/&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;images/bugzilla.png&quot; alt=&quot;Gentoo Linux Bugzilla&quot;&gt;&lt;/a&gt;
++
++&lt;p class=&quot;menu&quot;&gt;
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/index.xml">http://www.gentoo.org/index.xml</A>&quot;&gt;Home&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/about.xml">http://www.gentoo.org/main/en/about.xml</A>&quot;&gt; About &lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/contract.xml">http://www.gentoo.org/main/en/contract.xml</A>&quot;&gt; Social Contract&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/doc/en/index.xml">http://www.gentoo.org/doc/en/index.xml</A>&quot;&gt;Docs&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://forums.gentoo.org">http://forums.gentoo.org</A>&quot;&gt;Forums&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/lists.xml">http://www.gentoo.org/main/en/lists.xml</A>&quot;&gt; Lists&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/shots.xml">http://www.gentoo.org/main/en/shots.xml</A>&quot;&gt;ScreenShots&lt;/a&gt; |
++&lt;a class=&quot;highlight&quot; href=&quot;/&quot;&gt;Bugs&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://store.gentoo.org">http://store.gentoo.org</A>&quot;&gt;Store&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/news/en/gwn/gwn.xml">http://www.gentoo.org/news/en/gwn/gwn.xml</A>&quot;&gt; GWN&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/where.xml">http://www.gentoo.org/main/en/where.xml</A>&quot;&gt; Get Gentoo!&lt;/a&gt;
++&lt;/p&gt;
++&lt;center&gt;
++  &lt;table cellspacing=&quot;0&quot; cellpadding=&quot;10&quot; border=&quot;0&quot; width=&quot;100%&quot;&gt;
++    &lt;tr&gt;
++      &lt;td class=&quot;spacer&quot;&gt;&nbsp;&lt;/td&gt;
++ 
++          &lt;td align=&quot;center&quot; bgcolor=&quot;#BBBBEE&quot; class=&quot;unselected_tab&quot;&gt;
++            &lt;a href=&quot;query.cgi?format=specific&quot; &gt;Find a Specific Bug 
++            &lt;/a&gt;
++          &lt;/td&gt;
++          &lt;td align=&quot;center&quot; bgcolor=&quot;lightblue&quot; class=&quot;selected_tab&quot;&gt;Advanced Search
++          &lt;/td&gt;
++ 
++       &lt;td class=&quot;spacer&quot;&gt;&nbsp;&lt;/td&gt;
++     &lt;/tr&gt;
++   &lt;/table&gt;
++&lt;/center&gt;
++
++
++
++      &lt;p&gt;&lt;a href=&quot;queryhelp.cgi&quot;&gt;Give me help&lt;/a&gt; with this form.&lt;/p&gt;
++&lt;form method=&quot;get&quot; action=&quot;buglist.cgi&quot; name=&quot;queryform&quot;&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++  
++  
++
++&lt;script language=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt; &lt;!--
++
++var first_load = true;         
++var last_sel = new Array();    
++
++var cpts = new Array();
++var vers = new Array();
++
++
++
++  cpts[0] = [ 'CVS', 'Mailinglists' ];
++  vers[0] = [ 'unspecified' ];
++  cpts[1] = [ 'Default' ];
++  vers[1] = [ 'unspecified' ];
++  cpts[2] = [ 'Contributing ebuilds', 'CVS tutorial', 'Developers HOWTO', 'Documentation Developer Policy', 'Documentation Guide', 'Eclass HOWTO', 'Gentoo Linux Developer\'s Policy', 'Guide XML', 'Other', 'Portage Documentation', 'Submit New Documentation', 'User-Mode Linux Guide' ];
++  vers[2] = [ 'n\/a' ];
++  cpts[3] = [ 'Alsa Configuration Guide', 'ATI FAQ', 'Desktop Configuration Guide', 'env.d HOWTO', 'Gentoo Alternative Installation Guide', 'Gentoo Java Guide', 'Gentoo Linux FAQ', 'Gentoo Linux PPC FAQ', 'Gentoo Linux PPC Installation Guide', 'Gentoo Linux rc-script Guide', 'Gentoo Linux Sparc Installation Guide', 'Gentoo Linux x86 Installation Guide', 'Gentoo Security Guide', 'Gentoolkit HOWTO', 'GNUpg User Guide', 'Handbook', 'Localisation Guide', 'LVM HOWTO', 'Nano Basics Guide', 'nVIDIA Trouble Shooting Guide', 'OpenAFS Guide', 'Other', 'Portage Manual', 'Portage User Guide', 'PPC QuickStart', 'Prelink HOWTO', 'Printing HOWTO', 'Quick Start Guide', 'Submit New', 'Translated Documentation', 'USE Variable HOWTO', 'Vi HOWTO', 'Virtual-mail HOWTO' ];
++  vers[3] = [ 'n\/a' ];
++  cpts[4] = [ 'Code', 'Documentation', 'Feature Requests', 'Install', 'Unittests' ];
++  vers[4] = [ '2.0' ];
++  cpts[5] = [ 'Core System' ];
++  vers[5] = [ 'unspecified' ];
++  cpts[6] = [ 'General Bugs' ];
++  vers[6] = [ '2.15', '2.17.3', '2.17.6', '2.18rc2', 'unspecified' ];
++  cpts[7] = [ 'Bugs', 'Keywords', 'New Ebuilds' ];
++  vers[7] = [ 'unspecified' ];
++  cpts[8] = [ 'Catalyst', 'genkernel', 'Keychain', 'Tenshi' ];
++  vers[8] = [ 'unspecified' ];
++  cpts[9] = [ 'CVS', 'Dev box issues', 'Developer account issues', 'Mailing Lists', 'Other', 'Other web server issues', 'packages.gentoo.org', 'Web Node Issues' ];
++  vers[9] = [ 'unspecified' ];
++  cpts[10] = [ 'Applications', 'baselayout', 'Core system', 'Development', 'Ebuilds', 'Eclasses and Profiles', 'Games', 'GCC Porting', 'GLI', 'GNOME', 'Hardened', 'KDE', 'Library', 'Printing', 'Security', 'Server', 'Unspecified' ];
++  vers[10] = [ '1.0', '1.0 RC6 r14', '1.1a', '1.2', '1.3', '1.4', '1.4_rc1', '1.4_rc2', '1.4_rc3', '1.4_rc4', '2004.0', '2004.1', '2004.2', '2004.3', '2005.0', 'unspecified' ];
++  cpts[11] = [ 'BootX Installer', 'bug', 'keyword', 'new ebuild' ];
++  vers[11] = [ 'unspecified' ];
++  cpts[12] = [ 'General Bugs', 'New Ebuilds' ];
++  vers[12] = [ 'unspecified' ];
++  cpts[13] = [ 'Everything' ];
++  vers[13] = [ '2004.3', '2005.0', 'unspecified' ];
++  cpts[14] = [ 'Auditing', 'Default Configs', 'GLSA Errors', 'Kernel', 'Vulnerabilities' ];
++  vers[14] = [ 'unspecified' ];
++  cpts[15] = [ 'GRP bug' ];
++  vers[15] = [ 'unspecified' ];
++  cpts[16] = [ 'Feature Request', 'New Server', 'Server Problem' ];
++  vers[16] = [ 'n\/a' ];
++  cpts[17] = [ 'Conceptual\/Abstract Ideas', 'Core', 'Core - Configuration', 'Core - Dependencies', 'Core - Ebuild Support', 'Core - External Interaction', 'Core - Interface (emerge)', 'Documentation', 'Enhancement\/Feature Requests', 'Repoman', 'Sandbox', 'Third-Party Tools', 'Tools', 'Unclassified', 'Unclassified (old)' ];
++  vers[17] = [ '2.0 (stable)', '2.5 (transition)', '2.9 (3.0 dev)', 'CVS HEAD', 'unspecified' ];
++  cpts[18] = [ 'New Developers' ];
++  vers[18] = [ 'All' ];
++  cpts[19] = [ 'About Gentoo Linux', 'Articles', 'Bugs', 'Changelog', 'CVS repository', 'Documentation', 'Forums', 'Graphics', 'News', 'Other', 'Packages', 'Projects', 'Screenshots', 'Social Contract' ];
++  vers[19] = [ 'n\/a' ];
++
++
++
++function updateSelect(array, sel, target, merging) {
++        
++    var i, item;
++
++    
++    if (array.length &lt; 1) {
++        target.options.length = 0;
++        return false;
++    }
++
++    if (merging) {
++        
++        
++        item = merge_arrays(array[sel[0]], target.options, 1);
++
++        
++        for (i = 1 ; i &lt; sel.length ; i++) {
++            item = merge_arrays(array[sel[i]], item, 0);
++        }
++    } else if ( sel.length &gt; 1 ) {
++        
++        item = merge_arrays(array[sel[0]],array[sel[1]], 0);
++
++        
++        for (i = 2; i &lt; sel.length; i++) {
++            item = merge_arrays(item, array[sel[i]], 0);
++        }
++    } else { 
++        item = array[sel[0]];
++    }
++
++    
++    target.options.length = 0;
++
++    
++    for (i = 0; i &lt; item.length; i++) {
++        target.options[i] = new Option(item[i], item[i]);
++    }
++    return true;
++}
++
++
++function fake_diff_array(a, b) {
++    var newsel = new Array();
++    var found = false;
++
++    
++    for (var ia in a) {
++        for (var ib in b) {
++            if (a[ia] == b[ib]) {
++                found = true;
++            }
++        }
++        if (!found) {
++            newsel[newsel.length] = a[ia];
++        }
++        found = false;
++    }
++    return newsel;
++}
++
++
++function merge_arrays(a, b, b_is_select) {
++    var pos_a = 0;
++    var pos_b = 0;
++    var ret = new Array();
++    var bitem, aitem;
++
++    
++    while ((pos_a &lt; a.length) &amp;&amp; (pos_b &lt; b.length)) {
++        if (b_is_select) {
++            bitem = b[pos_b].value;
++        } else {
++            bitem = b[pos_b];
++        }
++        aitem = a[pos_a];
++
++        
++        if (aitem.toLowerCase() &lt; bitem.toLowerCase()) {
++            ret[ret.length] = aitem;
++            pos_a++;
++        } else {
++            
++            if (aitem.toLowerCase() &gt; bitem.toLowerCase()) {
++                ret[ret.length] = bitem;
++                pos_b++;
++            } else {
++                
++                ret[ret.length] = aitem;
++                pos_a++;
++                pos_b++;
++            }
++        }
++    }
++
++    
++    if (pos_a &lt; a.length) {
++        for (; pos_a &lt; a.length ; pos_a++) {
++            ret[ret.length] = a[pos_a];
++        }
++    }
++
++    if (pos_b &lt; b.length) {
++        for (; pos_b &lt; b.length; pos_b++) {
++            if (b_is_select) {
++                bitem = b[pos_b].value;
++            } else {
++                bitem = b[pos_b];
++            }
++            ret[ret.length] = bitem;
++        }
++    }
++    return ret;
++}
++
++
++function get_selection(control, findall, want_values) {
++    var ret = new Array();
++
++    if ((!findall) &amp;&amp; (control.selectedIndex == -1)) {
++        return ret;
++    }
++
++    for (var i=0; i&lt;control.length; i++) {
++        if (findall || control.options[i].selected) {
++            ret[ret.length] = want_values ? control.options[i].value : i;
++        }
++    }
++    return ret;
++}
++
++
++function restoreSelection(control, selnames) {
++    
++    for (var j=0; j &lt; selnames.length; j++) {
++        for (var i=0; i &lt; control.options.length; i++) {
++            if (control.options[i].value == selnames[j]) {
++                control.options[i].selected = true;
++            }
++        }
++    }
++}
++
++
++function selectProduct(f) {
++    
++    if ((!f) || (!f.product)) {
++        return;
++    }
++
++    
++    if ((first_load) &amp;&amp; (f.product.selectedIndex == -1)) {
++        first_load = false;
++        return;
++    }
++    
++    
++    first_load = false;
++
++    
++    var merging = false;
++    var sel = Array();
++
++    
++    var findall = f.product.selectedIndex == -1;
++    sel = get_selection(f.product, findall, false);
++    if (!findall) {
++        
++        var tmp = sel;
++    
++        
++        if ((last_sel.length &gt; 0) &amp;&amp; (last_sel.length &lt; sel.length)) {
++            sel = fake_diff_array(sel, last_sel);
++            merging = true;
++        }
++        last_sel = tmp;
++    }
++    
++    var saved_cpts = get_selection(f.component, false, true);
++    var saved_vers = get_selection(f.version, false, true);
++
++    
++    updateSelect(cpts, sel, f.component, merging);
++    restoreSelection(f.component, saved_cpts);
++    updateSelect(vers, sel, f.version, merging);
++    restoreSelection(f.version, saved_vers);
++}
++
++// --&gt;
++&lt;/script&gt;
++
++
++
++
++&lt;input type=&quot;hidden&quot; name=&quot;query_format&quot; value=&quot;advanced&quot;&gt;
++
++
++
++&lt;table&gt;
++  &lt;tr&gt;
++    &lt;th align=&quot;right&quot;&gt;&lt;u&gt;S&lt;/u&gt;ummary:&lt;/th&gt;
++    &lt;td&gt;
++      &lt;select name=&quot;short_desc_type&quot;&gt;
++        &lt;option value=&quot;allwordssubstr&quot;&gt;contains all of the words/strings&lt;/option&gt;
++        &lt;option value=&quot;anywordssubstr&quot;&gt;contains any of the words/strings&lt;/option&gt;
++        &lt;option value=&quot;substring&quot;&gt;contains the string&lt;/option&gt;
++        &lt;option value=&quot;casesubstring&quot;&gt;contains the string (exact case)&lt;/option&gt;
++        &lt;option value=&quot;allwords&quot;&gt;contains all of the words&lt;/option&gt;
++        &lt;option value=&quot;anywords&quot;&gt;contains any of the words&lt;/option&gt;
++        &lt;option value=&quot;regexp&quot;&gt;matches the regexp&lt;/option&gt;
++        &lt;option value=&quot;notregexp&quot;&gt;doesn't match the regexp&lt;/option&gt;              
++      &lt;/select&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;input name=&quot;short_desc&quot; size=&quot;40&quot; accesskey=&quot;s&quot;
++             value=&quot;&quot;&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;submit&quot; value=&quot;Search&quot;&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;  
++
++
++
++  &lt;tr&gt;
++    &lt;td colspan=&quot;4&quot;&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;td valign=&quot;top&quot;&gt;
++            &lt;table&gt;
++              &lt;tr valign=&quot;bottom&quot;&gt;
++                &lt;th align=&quot;left&quot;&gt;&lt;u&gt;P&lt;/u&gt;roduct:&lt;/th&gt;
++              &lt;/tr&gt;
++              &lt;tr valign=&quot;top&quot;&gt;
++                
++                &lt;td align=&quot;left&quot;&gt;
++                  &lt;label for=&quot;product&quot; accesskey=&quot;p&quot;&gt;
++                    &lt;select name=&quot;product&quot; multiple=&quot;multiple&quot; size=&quot;5&quot; id=&quot;product&quot;
++                            onchange=&quot;selectProduct(this.form);&quot;&gt;
++                      &lt;option value=&quot;Admin&quot;&gt;Admin&lt;/option&gt;
++                      &lt;option value=&quot;Developer Relations&quot;&gt;Developer Relations&lt;/option&gt;
++                      &lt;option value=&quot;Docs-developer&quot;&gt;Docs-developer&lt;/option&gt;
++                      &lt;option value=&quot;Docs-user&quot;&gt;Docs-user&lt;/option&gt;
++                      &lt;option value=&quot;Future Portage Development&quot;&gt;Future Portage Development&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo BSD&quot;&gt;Gentoo BSD&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Bugzilla&quot;&gt;Gentoo Bugzilla&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo for Mac OS X&quot;&gt;Gentoo for Mac OS X&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Hosted Projects&quot;&gt;Gentoo Hosted Projects&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Infrastructure&quot;&gt;Gentoo Infrastructure&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux&quot;&gt;Gentoo Linux&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux/PPC&quot;&gt;Gentoo Linux/PPC&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux/SPARC&quot;&gt;Gentoo Linux/SPARC&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo LiveCD (all flavors)&quot;&gt;Gentoo LiveCD (all flavors)&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Security&quot;&gt;Gentoo Security&lt;/option&gt;
++                      &lt;option value=&quot;GRP&quot;&gt;GRP&lt;/option&gt;
++                      &lt;option value=&quot;Mirrors&quot;&gt;Mirrors&lt;/option&gt;
++                      &lt;option value=&quot;Portage Development&quot;&gt;Portage Development&lt;/option&gt;
++                      &lt;option value=&quot;Recruitment&quot;&gt;Recruitment&lt;/option&gt;
++                      &lt;option value=&quot;Web-www.gentoo.org&quot;&gt;Web-www.gentoo.org&lt;/option&gt;
++                    &lt;/select&gt;
++                  &lt;/label&gt;
++                &lt;/td&gt;
++              &lt;/tr&gt;
++            &lt;/table&gt;
++          &lt;/td&gt;
++          &lt;td valign=&quot;top&quot;&gt;
++            &lt;table&gt;
++              &lt;tr valign=&quot;bottom&quot;&gt;
++                &lt;th align=&quot;left&quot;&gt;
++                  &lt;a href=&quot;describecomponents.cgi&quot;&gt;Co&lt;u&gt;m&lt;/u&gt;ponent&lt;/a&gt;:
++                &lt;/th&gt;
++              &lt;/tr&gt;
++              &lt;tr valign=&quot;top&quot;&gt;
++                
++                &lt;td align=&quot;left&quot;&gt;
++                  &lt;label for=&quot;component&quot; accesskey=&quot;m&quot;&gt;
++                    &lt;select name=&quot;component&quot; id=&quot;component&quot; 
++                            multiple=&quot;multiple&quot; size=&quot;5&quot;&gt;
++                      &lt;option value=&quot;About Gentoo Linux&quot;&gt;About Gentoo Linux&lt;/option&gt;
++                      &lt;option value=&quot;Alsa Configuration Guide&quot;&gt;Alsa Configuration Guide&lt;/option&gt;
++                      &lt;option value=&quot;Applications&quot;&gt;Applications&lt;/option&gt;
++                      &lt;option value=&quot;Articles&quot;&gt;Articles&lt;/option&gt;
++                      &lt;option value=&quot;ATI FAQ&quot;&gt;ATI FAQ&lt;/option&gt;
++                      &lt;option value=&quot;Auditing&quot;&gt;Auditing&lt;/option&gt;
++                      &lt;option value=&quot;baselayout&quot;&gt;baselayout&lt;/option&gt;
++                      &lt;option value=&quot;BootX Installer&quot;&gt;BootX Installer&lt;/option&gt;
++                      &lt;option value=&quot;bug&quot;&gt;bug&lt;/option&gt;
++                      &lt;option value=&quot;Bugs&quot;&gt;Bugs&lt;/option&gt;
++                      &lt;option value=&quot;Catalyst&quot;&gt;Catalyst&lt;/option&gt;
++                      &lt;option value=&quot;Changelog&quot;&gt;Changelog&lt;/option&gt;
++                      &lt;option value=&quot;Code&quot;&gt;Code&lt;/option&gt;
++                      &lt;option value=&quot;Conceptual/Abstract Ideas&quot;&gt;Conceptual/Abstract Ideas&lt;/option&gt;
++                      &lt;option value=&quot;Contributing ebuilds&quot;&gt;Contributing ebuilds&lt;/option&gt;
++                      &lt;option value=&quot;Core&quot;&gt;Core&lt;/option&gt;
++                      &lt;option value=&quot;Core - Configuration&quot;&gt;Core - Configuration&lt;/option&gt;
++                      &lt;option value=&quot;Core - Dependencies&quot;&gt;Core - Dependencies&lt;/option&gt;
++                      &lt;option value=&quot;Core - Ebuild Support&quot;&gt;Core - Ebuild Support&lt;/option&gt;
++                      &lt;option value=&quot;Core - External Interaction&quot;&gt;Core - External Interaction&lt;/option&gt;
++                      &lt;option value=&quot;Core - Interface (emerge)&quot;&gt;Core - Interface (emerge)&lt;/option&gt;
++                      &lt;option value=&quot;Core System&quot;&gt;Core System&lt;/option&gt;
++                      &lt;option value=&quot;Core system&quot;&gt;Core system&lt;/option&gt;
++                      &lt;option value=&quot;CVS&quot;&gt;CVS&lt;/option&gt;
++                      &lt;option value=&quot;CVS repository&quot;&gt;CVS repository&lt;/option&gt;
++                      &lt;option value=&quot;CVS tutorial&quot;&gt;CVS tutorial&lt;/option&gt;
++                      &lt;option value=&quot;Default&quot;&gt;Default&lt;/option&gt;
++                      &lt;option value=&quot;Default Configs&quot;&gt;Default Configs&lt;/option&gt;
++                      &lt;option value=&quot;Desktop Configuration Guide&quot;&gt;Desktop Configuration Guide&lt;/option&gt;
++                      &lt;option value=&quot;Dev box issues&quot;&gt;Dev box issues&lt;/option&gt;
++                      &lt;option value=&quot;Developer account issues&quot;&gt;Developer account issues&lt;/option&gt;
++                      &lt;option value=&quot;Developers HOWTO&quot;&gt;Developers HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Development&quot;&gt;Development&lt;/option&gt;
++                      &lt;option value=&quot;Documentation&quot;&gt;Documentation&lt;/option&gt;
++                      &lt;option value=&quot;Documentation Developer Policy&quot;&gt;Documentation Developer Policy&lt;/option&gt;
++                      &lt;option value=&quot;Documentation Guide&quot;&gt;Documentation Guide&lt;/option&gt;
++                      &lt;option value=&quot;Ebuilds&quot;&gt;Ebuilds&lt;/option&gt;
++                      &lt;option value=&quot;Eclass HOWTO&quot;&gt;Eclass HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Eclasses and Profiles&quot;&gt;Eclasses and Profiles&lt;/option&gt;
++                      &lt;option value=&quot;Enhancement/Feature Requests&quot;&gt;Enhancement/Feature Requests&lt;/option&gt;
++                      &lt;option value=&quot;env.d HOWTO&quot;&gt;env.d HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Everything&quot;&gt;Everything&lt;/option&gt;
++                      &lt;option value=&quot;Feature Request&quot;&gt;Feature Request&lt;/option&gt;
++                      &lt;option value=&quot;Feature Requests&quot;&gt;Feature Requests&lt;/option&gt;
++                      &lt;option value=&quot;Forums&quot;&gt;Forums&lt;/option&gt;
++                      &lt;option value=&quot;Games&quot;&gt;Games&lt;/option&gt;
++                      &lt;option value=&quot;GCC Porting&quot;&gt;GCC Porting&lt;/option&gt;
++                      &lt;option value=&quot;General Bugs&quot;&gt;General Bugs&lt;/option&gt;
++                      &lt;option value=&quot;genkernel&quot;&gt;genkernel&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Alternative Installation Guide&quot;&gt;Gentoo Alternative Installation Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Java Guide&quot;&gt;Gentoo Java Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux Developer's Policy&quot;&gt;Gentoo Linux Developer's Policy&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux FAQ&quot;&gt;Gentoo Linux FAQ&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux PPC FAQ&quot;&gt;Gentoo Linux PPC FAQ&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux PPC Installation Guide&quot;&gt;Gentoo Linux PPC Installation Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux rc-script Guide&quot;&gt;Gentoo Linux rc-script Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux Sparc Installation Guide&quot;&gt;Gentoo Linux Sparc Installation Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Linux x86 Installation Guide&quot;&gt;Gentoo Linux x86 Installation Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoo Security Guide&quot;&gt;Gentoo Security Guide&lt;/option&gt;
++                      &lt;option value=&quot;Gentoolkit HOWTO&quot;&gt;Gentoolkit HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;GLI&quot;&gt;GLI&lt;/option&gt;
++                      &lt;option value=&quot;GLSA Errors&quot;&gt;GLSA Errors&lt;/option&gt;
++                      &lt;option value=&quot;GNOME&quot;&gt;GNOME&lt;/option&gt;
++                      &lt;option value=&quot;GNUpg User Guide&quot;&gt;GNUpg User Guide&lt;/option&gt;
++                      &lt;option value=&quot;Graphics&quot;&gt;Graphics&lt;/option&gt;
++                      &lt;option value=&quot;GRP bug&quot;&gt;GRP bug&lt;/option&gt;
++                      &lt;option value=&quot;Guide XML&quot;&gt;Guide XML&lt;/option&gt;
++                      &lt;option value=&quot;Handbook&quot;&gt;Handbook&lt;/option&gt;
++                      &lt;option value=&quot;Hardened&quot;&gt;Hardened&lt;/option&gt;
++                      &lt;option value=&quot;Install&quot;&gt;Install&lt;/option&gt;
++                      &lt;option value=&quot;KDE&quot;&gt;KDE&lt;/option&gt;
++                      &lt;option value=&quot;Kernel&quot;&gt;Kernel&lt;/option&gt;
++                      &lt;option value=&quot;Keychain&quot;&gt;Keychain&lt;/option&gt;
++                      &lt;option value=&quot;keyword&quot;&gt;keyword&lt;/option&gt;
++                      &lt;option value=&quot;Keywords&quot;&gt;Keywords&lt;/option&gt;
++                      &lt;option value=&quot;Library&quot;&gt;Library&lt;/option&gt;
++                      &lt;option value=&quot;Localisation Guide&quot;&gt;Localisation Guide&lt;/option&gt;
++                      &lt;option value=&quot;LVM HOWTO&quot;&gt;LVM HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Mailing Lists&quot;&gt;Mailing Lists&lt;/option&gt;
++                      &lt;option value=&quot;Mailinglists&quot;&gt;Mailinglists&lt;/option&gt;
++                      &lt;option value=&quot;Nano Basics Guide&quot;&gt;Nano Basics Guide&lt;/option&gt;
++                      &lt;option value=&quot;New Developers&quot;&gt;New Developers&lt;/option&gt;
++                      &lt;option value=&quot;new ebuild&quot;&gt;new ebuild&lt;/option&gt;
++                      &lt;option value=&quot;New Ebuilds&quot;&gt;New Ebuilds&lt;/option&gt;
++                      &lt;option value=&quot;New Server&quot;&gt;New Server&lt;/option&gt;
++                      &lt;option value=&quot;News&quot;&gt;News&lt;/option&gt;
++                      &lt;option value=&quot;nVIDIA Trouble Shooting Guide&quot;&gt;nVIDIA Trouble Shooting Guide&lt;/option&gt;
++                      &lt;option value=&quot;OpenAFS Guide&quot;&gt;OpenAFS Guide&lt;/option&gt;
++                      &lt;option value=&quot;Other&quot;&gt;Other&lt;/option&gt;
++                      &lt;option value=&quot;Other web server issues&quot;&gt;Other web server issues&lt;/option&gt;
++                      &lt;option value=&quot;Packages&quot;&gt;Packages&lt;/option&gt;
++                      &lt;option value=&quot;packages.gentoo.org&quot;&gt;packages.gentoo.org&lt;/option&gt;
++                      &lt;option value=&quot;Portage Documentation&quot;&gt;Portage Documentation&lt;/option&gt;
++                      &lt;option value=&quot;Portage Manual&quot;&gt;Portage Manual&lt;/option&gt;
++                      &lt;option value=&quot;Portage User Guide&quot;&gt;Portage User Guide&lt;/option&gt;
++                      &lt;option value=&quot;PPC QuickStart&quot;&gt;PPC QuickStart&lt;/option&gt;
++                      &lt;option value=&quot;Prelink HOWTO&quot;&gt;Prelink HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Printing&quot;&gt;Printing&lt;/option&gt;
++                      &lt;option value=&quot;Printing HOWTO&quot;&gt;Printing HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Projects&quot;&gt;Projects&lt;/option&gt;
++                      &lt;option value=&quot;Quick Start Guide&quot;&gt;Quick Start Guide&lt;/option&gt;
++                      &lt;option value=&quot;Repoman&quot;&gt;Repoman&lt;/option&gt;
++                      &lt;option value=&quot;Sandbox&quot;&gt;Sandbox&lt;/option&gt;
++                      &lt;option value=&quot;Screenshots&quot;&gt;Screenshots&lt;/option&gt;
++                      &lt;option value=&quot;Security&quot;&gt;Security&lt;/option&gt;
++                      &lt;option value=&quot;Server&quot;&gt;Server&lt;/option&gt;
++                      &lt;option value=&quot;Server Problem&quot;&gt;Server Problem&lt;/option&gt;
++                      &lt;option value=&quot;Social Contract&quot;&gt;Social Contract&lt;/option&gt;
++                      &lt;option value=&quot;Submit New&quot;&gt;Submit New&lt;/option&gt;
++                      &lt;option value=&quot;Submit New Documentation&quot;&gt;Submit New Documentation&lt;/option&gt;
++                      &lt;option value=&quot;Tenshi&quot;&gt;Tenshi&lt;/option&gt;
++                      &lt;option value=&quot;Third-Party Tools&quot;&gt;Third-Party Tools&lt;/option&gt;
++                      &lt;option value=&quot;Tools&quot;&gt;Tools&lt;/option&gt;
++                      &lt;option value=&quot;Translated Documentation&quot;&gt;Translated Documentation&lt;/option&gt;
++                      &lt;option value=&quot;Unclassified&quot;&gt;Unclassified&lt;/option&gt;
++                      &lt;option value=&quot;Unclassified (old)&quot;&gt;Unclassified (old)&lt;/option&gt;
++                      &lt;option value=&quot;Unittests&quot;&gt;Unittests&lt;/option&gt;
++                      &lt;option value=&quot;Unspecified&quot;&gt;Unspecified&lt;/option&gt;
++                      &lt;option value=&quot;USE Variable HOWTO&quot;&gt;USE Variable HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;User-Mode Linux Guide&quot;&gt;User-Mode Linux Guide&lt;/option&gt;
++                      &lt;option value=&quot;Vi HOWTO&quot;&gt;Vi HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Virtual-mail HOWTO&quot;&gt;Virtual-mail HOWTO&lt;/option&gt;
++                      &lt;option value=&quot;Vulnerabilities&quot;&gt;Vulnerabilities&lt;/option&gt;
++                      &lt;option value=&quot;Web Node Issues&quot;&gt;Web Node Issues&lt;/option&gt;
++                    &lt;/select&gt;
++                  &lt;/label&gt;
++                &lt;/td&gt;
++              &lt;/tr&gt;
++            &lt;/table&gt;
++          &lt;/td&gt;
++          &lt;td valign=&quot;top&quot;&gt;
++            &lt;table&gt;
++              &lt;tr valign=&quot;bottom&quot;&gt;
++                &lt;th align=&quot;left&quot;&gt;&lt;u&gt;V&lt;/u&gt;ersion:&lt;/th&gt;
++              &lt;/tr&gt;
++              &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;version&quot; accesskey=&quot;v&quot;&gt;
++      &lt;select name=&quot;version&quot; id=&quot;version&quot;
++              multiple=&quot;multiple&quot; size=&quot;5&quot;&gt;
++        &lt;option value=&quot;1.0&quot;&gt;1.0&lt;/option&gt;
++        &lt;option value=&quot;1.0 RC6 r14&quot;&gt;1.0 RC6 r14&lt;/option&gt;
++        &lt;option value=&quot;1.1a&quot;&gt;1.1a&lt;/option&gt;
++        &lt;option value=&quot;1.2&quot;&gt;1.2&lt;/option&gt;
++        &lt;option value=&quot;1.3&quot;&gt;1.3&lt;/option&gt;
++        &lt;option value=&quot;1.4&quot;&gt;1.4&lt;/option&gt;
++        &lt;option value=&quot;1.4_rc1&quot;&gt;1.4_rc1&lt;/option&gt;
++        &lt;option value=&quot;1.4_rc2&quot;&gt;1.4_rc2&lt;/option&gt;
++        &lt;option value=&quot;1.4_rc3&quot;&gt;1.4_rc3&lt;/option&gt;
++        &lt;option value=&quot;1.4_rc4&quot;&gt;1.4_rc4&lt;/option&gt;
++        &lt;option value=&quot;2.0&quot;&gt;2.0&lt;/option&gt;
++        &lt;option value=&quot;2.0 (stable)&quot;&gt;2.0 (stable)&lt;/option&gt;
++        &lt;option value=&quot;2.15&quot;&gt;2.15&lt;/option&gt;
++        &lt;option value=&quot;2.17.3&quot;&gt;2.17.3&lt;/option&gt;
++        &lt;option value=&quot;2.17.6&quot;&gt;2.17.6&lt;/option&gt;
++        &lt;option value=&quot;2.18rc2&quot;&gt;2.18rc2&lt;/option&gt;
++        &lt;option value=&quot;2.5 (transition)&quot;&gt;2.5 (transition)&lt;/option&gt;
++        &lt;option value=&quot;2.9 (3.0 dev)&quot;&gt;2.9 (3.0 dev)&lt;/option&gt;
++        &lt;option value=&quot;2004.0&quot;&gt;2004.0&lt;/option&gt;
++        &lt;option value=&quot;2004.1&quot;&gt;2004.1&lt;/option&gt;
++        &lt;option value=&quot;2004.2&quot;&gt;2004.2&lt;/option&gt;
++        &lt;option value=&quot;2004.3&quot;&gt;2004.3&lt;/option&gt;
++        &lt;option value=&quot;2005.0&quot;&gt;2005.0&lt;/option&gt;
++        &lt;option value=&quot;All&quot;&gt;All&lt;/option&gt;
++        &lt;option value=&quot;CVS HEAD&quot;&gt;CVS HEAD&lt;/option&gt;
++        &lt;option value=&quot;n/a&quot;&gt;n/a&lt;/option&gt;
++        &lt;option value=&quot;unspecified&quot;&gt;unspecified&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++              &lt;/tr&gt;
++            &lt;/table&gt;
++          &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  
++
++
++
++    &lt;tr&gt;
++      &lt;th align=&quot;right&quot;&gt;A&nbsp;&lt;u&gt;C&lt;/u&gt;omment:&lt;/th&gt;
++      &lt;td&gt;
++        &lt;select name=&quot;long_desc_type&quot;&gt;                   
++          &lt;option value=&quot;allwordssubstr&quot;&gt;contains all of the words/strings&lt;/option&gt;                   
++          &lt;option value=&quot;anywordssubstr&quot;&gt;contains any of the words/strings&lt;/option&gt;                   
++          &lt;option value=&quot;substring&quot;&gt;contains the string&lt;/option&gt;                   
++          &lt;option value=&quot;casesubstring&quot;&gt;contains the string (exact case)&lt;/option&gt;                   
++          &lt;option value=&quot;allwords&quot;&gt;contains all of the words&lt;/option&gt;                   
++          &lt;option value=&quot;anywords&quot;&gt;contains any of the words&lt;/option&gt;                   
++          &lt;option value=&quot;regexp&quot;&gt;matches the regexp&lt;/option&gt;                   
++          &lt;option value=&quot;notregexp&quot;&gt;doesn't match the regexp&lt;/option&gt;              
++        &lt;/select&gt;
++      &lt;/td&gt;
++      &lt;td&gt;&lt;input name=&quot;long_desc&quot; size=&quot;40&quot;
++                 accesskey=&quot;c&quot;
++                 value=&quot;&quot;&gt;
++      &lt;/td&gt;
++      &lt;td&gt;&lt;/td&gt;
++    &lt;/tr&gt;  
++
++    &lt;tr&gt;
++      &lt;th align=&quot;right&quot;&gt;The&nbsp;&lt;u&gt;U&lt;/u&gt;RL:&lt;/th&gt;
++      &lt;td&gt;
++        &lt;select name=&quot;bug_file_loc_type&quot;&gt;                   
++          &lt;option value=&quot;allwordssubstr&quot;&gt;contains all of the words/strings&lt;/option&gt;                   
++          &lt;option value=&quot;anywordssubstr&quot;&gt;contains any of the words/strings&lt;/option&gt;                   
++          &lt;option value=&quot;substring&quot;&gt;contains the string&lt;/option&gt;                   
++          &lt;option value=&quot;casesubstring&quot;&gt;contains the string (exact case)&lt;/option&gt;                   
++          &lt;option value=&quot;allwords&quot;&gt;contains all of the words&lt;/option&gt;                   
++          &lt;option value=&quot;anywords&quot;&gt;contains any of the words&lt;/option&gt;                   
++          &lt;option value=&quot;regexp&quot;&gt;matches the regexp&lt;/option&gt;                   
++          &lt;option value=&quot;notregexp&quot;&gt;doesn't match the regexp&lt;/option&gt;              
++        &lt;/select&gt;
++      &lt;/td&gt;
++      &lt;td&gt;&lt;input name=&quot;bug_file_loc&quot; size=&quot;40&quot;
++                 accesskey=&quot;u&quot;
++                 value=&quot;&quot;&gt;
++      &lt;/td&gt;
++      &lt;td&gt;&lt;/td&gt;
++    &lt;/tr&gt;  
++
++    &lt;tr&gt;
++      &lt;th align=&quot;right&quot;&gt;&lt;u&gt;W&lt;/u&gt;hiteboard:&lt;/th&gt;
++      &lt;td&gt;
++        &lt;select name=&quot;status_whiteboard_type&quot;&gt;                   
++          &lt;option value=&quot;allwordssubstr&quot;&gt;contains all of the words/strings&lt;/option&gt;                   
++          &lt;option value=&quot;anywordssubstr&quot;&gt;contains any of the words/strings&lt;/option&gt;                   
++          &lt;option value=&quot;substring&quot;&gt;contains the string&lt;/option&gt;                   
++          &lt;option value=&quot;casesubstring&quot;&gt;contains the string (exact case)&lt;/option&gt;                   
++          &lt;option value=&quot;allwords&quot;&gt;contains all of the words&lt;/option&gt;                   
++          &lt;option value=&quot;anywords&quot;&gt;contains any of the words&lt;/option&gt;                   
++          &lt;option value=&quot;regexp&quot;&gt;matches the regexp&lt;/option&gt;                   
++          &lt;option value=&quot;notregexp&quot;&gt;doesn't match the regexp&lt;/option&gt;              
++        &lt;/select&gt;
++      &lt;/td&gt;
++      &lt;td&gt;&lt;input name=&quot;status_whiteboard&quot; size=&quot;40&quot;
++                 accesskey=&quot;w&quot;
++                 value=&quot;&quot;&gt;
++      &lt;/td&gt;
++      &lt;td&gt;&lt;/td&gt;
++    &lt;/tr&gt;  
++
++    &lt;tr&gt;
++      &lt;th align=&quot;right&quot;&gt;
++        &lt;a href=&quot;describekeywords.cgi&quot;&gt;&lt;u&gt;K&lt;/u&gt;eywords&lt;/a&gt;:
++      &lt;/th&gt;
++      &lt;td&gt;
++        &lt;select name=&quot;keywords_type&quot;&gt;
++
++          &lt;option value=&quot;allwords&quot;&gt;contains all of the keywords&lt;/option&gt;
++
++          &lt;option value=&quot;anywords&quot;&gt;contains any of the keywords&lt;/option&gt;
++
++          &lt;option value=&quot;nowords&quot;&gt;contains none of the keywords&lt;/option&gt;
++        &lt;/select&gt;
++      &lt;/td&gt;
++      &lt;td&gt;
++        &lt;input name=&quot;keywords&quot; size=&quot;40&quot; accesskey=&quot;k&quot;
++               value=&quot;&quot;&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++&lt;/table&gt;  
++
++&lt;hr&gt;
++
++
++
++&lt;table&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;th align=&quot;left&quot;&gt;&lt;a href=&quot;queryhelp.cgi#status&quot;&gt;St&lt;u&gt;a&lt;/u&gt;tus&lt;/a&gt;:&lt;/th&gt;
++        &lt;/tr&gt;
++        &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;bug_status&quot; accesskey=&quot;a&quot;&gt;
++      &lt;select name=&quot;bug_status&quot; id=&quot;bug_status&quot;
++              multiple=&quot;multiple&quot; size=&quot;7&quot;&gt;
++        &lt;option value=&quot;UNCONFIRMED&quot; selected&gt;UNCONFIRMED&lt;/option&gt;
++        &lt;option value=&quot;NEW&quot; selected&gt;NEW&lt;/option&gt;
++        &lt;option value=&quot;ASSIGNED&quot; selected&gt;ASSIGNED&lt;/option&gt;
++        &lt;option value=&quot;REOPENED&quot; selected&gt;REOPENED&lt;/option&gt;
++        &lt;option value=&quot;RESOLVED&quot; selected&gt;RESOLVED&lt;/option&gt;
++        &lt;option value=&quot;VERIFIED&quot; selected&gt;VERIFIED&lt;/option&gt;
++        &lt;option value=&quot;CLOSED&quot; selected&gt;CLOSED&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;th align=&quot;left&quot;&gt;
++            &lt;a href=&quot;queryhelp.cgi#resolution&quot;&gt;&lt;u&gt;R&lt;/u&gt;esolution&lt;/a&gt;:
++          &lt;/th&gt;
++        &lt;/tr&gt;
++        &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;resolution&quot; accesskey=&quot;r&quot;&gt;
++      &lt;select name=&quot;resolution&quot; id=&quot;resolution&quot;
++              multiple=&quot;multiple&quot; size=&quot;7&quot;&gt;
++        &lt;option value=&quot;FIXED&quot;&gt;FIXED&lt;/option&gt;
++        &lt;option value=&quot;INVALID&quot;&gt;INVALID&lt;/option&gt;
++        &lt;option value=&quot;WONTFIX&quot;&gt;WONTFIX&lt;/option&gt;
++        &lt;option value=&quot;CANTFIX&quot;&gt;CANTFIX&lt;/option&gt;
++        &lt;option value=&quot;NEEDINFO&quot;&gt;NEEDINFO&lt;/option&gt;
++        &lt;option value=&quot;TEST-REQUEST&quot;&gt;TEST-REQUEST&lt;/option&gt;
++        &lt;option value=&quot;LATER&quot;&gt;LATER&lt;/option&gt;
++        &lt;option value=&quot;REMIND&quot;&gt;REMIND&lt;/option&gt;
++        &lt;option value=&quot;DUPLICATE&quot;&gt;DUPLICATE&lt;/option&gt;
++        &lt;option value=&quot;WORKSFORME&quot;&gt;WORKSFORME&lt;/option&gt;
++        &lt;option value=&quot;MOVED&quot;&gt;MOVED&lt;/option&gt;
++        &lt;option value=&quot;UPSTREAM&quot;&gt;UPSTREAM&lt;/option&gt;
++        &lt;option value=&quot;---&quot;&gt;---&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;th align=&quot;left&quot;&gt;&lt;a href=&quot;queryhelp.cgi#severity&quot;&gt;S&lt;u&gt;e&lt;/u&gt;verity&lt;/a&gt;:&lt;/th&gt;
++        &lt;/tr&gt;
++        &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;bug_severity&quot; accesskey=&quot;e&quot;&gt;
++      &lt;select name=&quot;bug_severity&quot; id=&quot;bug_severity&quot;
++              multiple=&quot;multiple&quot; size=&quot;7&quot;&gt;
++        &lt;option value=&quot;blocker&quot;&gt;blocker&lt;/option&gt;
++        &lt;option value=&quot;critical&quot;&gt;critical&lt;/option&gt;
++        &lt;option value=&quot;major&quot;&gt;major&lt;/option&gt;
++        &lt;option value=&quot;normal&quot;&gt;normal&lt;/option&gt;
++        &lt;option value=&quot;minor&quot;&gt;minor&lt;/option&gt;
++        &lt;option value=&quot;trivial&quot;&gt;trivial&lt;/option&gt;
++        &lt;option value=&quot;enhancement&quot;&gt;enhancement&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;    
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;th align=&quot;left&quot;&gt;&lt;a href=&quot;queryhelp.cgi#priority&quot;&gt;Pr&lt;u&gt;i&lt;/u&gt;ority&lt;/a&gt;:&lt;/th&gt;
++        &lt;/tr&gt;
++        &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;priority&quot; accesskey=&quot;i&quot;&gt;
++      &lt;select name=&quot;priority&quot; id=&quot;priority&quot;
++              multiple=&quot;multiple&quot; size=&quot;7&quot;&gt;
++        &lt;option value=&quot;P1&quot;&gt;P1&lt;/option&gt;
++        &lt;option value=&quot;P2&quot;&gt;P2&lt;/option&gt;
++        &lt;option value=&quot;P3&quot;&gt;P3&lt;/option&gt;
++        &lt;option value=&quot;P4&quot;&gt;P4&lt;/option&gt;
++        &lt;option value=&quot;P5&quot;&gt;P5&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;    
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;th align=&quot;left&quot;&gt;&lt;a href=&quot;queryhelp.cgi#platform&quot;&gt;&lt;u&gt;H&lt;/u&gt;ardware&lt;/a&gt;:&lt;/th&gt;
++        &lt;/tr&gt;
++        &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;rep_platform&quot; accesskey=&quot;h&quot;&gt;
++      &lt;select name=&quot;rep_platform&quot; id=&quot;rep_platform&quot;
++              multiple=&quot;multiple&quot; size=&quot;7&quot;&gt;
++        &lt;option value=&quot;All&quot;&gt;All&lt;/option&gt;
++        &lt;option value=&quot;x86&quot;&gt;x86&lt;/option&gt;
++        &lt;option value=&quot;PPC&quot;&gt;PPC&lt;/option&gt;
++        &lt;option value=&quot;PPC64&quot;&gt;PPC64&lt;/option&gt;
++        &lt;option value=&quot;Sparc&quot;&gt;Sparc&lt;/option&gt;
++        &lt;option value=&quot;MIPS&quot;&gt;MIPS&lt;/option&gt;
++        &lt;option value=&quot;Alpha&quot;&gt;Alpha&lt;/option&gt;
++        &lt;option value=&quot;ARM&quot;&gt;ARM&lt;/option&gt;
++        &lt;option value=&quot;HPPA&quot;&gt;HPPA&lt;/option&gt;
++        &lt;option value=&quot;amd64&quot;&gt;amd64&lt;/option&gt;
++        &lt;option value=&quot;ia64&quot;&gt;ia64&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;table&gt;
++        &lt;tr&gt;
++          &lt;th align=&quot;left&quot;&gt;&lt;a href=&quot;queryhelp.cgi#opsys&quot;&gt;&lt;u&gt;O&lt;/u&gt;S&lt;/a&gt;:&lt;/th&gt;
++        &lt;/tr&gt;
++        &lt;tr valign=&quot;top&quot;&gt;&lt;td align=&quot;left&quot;&gt;
++    &lt;label for=&quot;op_sys&quot; accesskey=&quot;o&quot;&gt;
++      &lt;select name=&quot;op_sys&quot; id=&quot;op_sys&quot;
++              multiple=&quot;multiple&quot; size=&quot;7&quot;&gt;
++        &lt;option value=&quot;All&quot;&gt;All&lt;/option&gt;
++        &lt;option value=&quot;Linux&quot;&gt;Linux&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++
++&lt;p&gt;
++
++
++
++&lt;table&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;fieldset&gt;
++        &lt;legend&gt;
++          &lt;strong&gt;
++            &lt;a href=&quot;queryhelp.cgi#peopleinvolved&quot;&gt;Email&lt;/a&gt; and Numbering
++          &lt;/strong&gt;  
++        &lt;/legend&gt;
++
++
++&lt;table&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++
++
++&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      Any of:
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;checkbox&quot; name=&quot;emailassigned_to1&quot; 
++             id=&quot;emailassigned_to1&quot; value=&quot;1&quot; checked&gt;
++      &lt;label for=&quot;emailassigned_to1&quot;&gt;
++        bug owner
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;checkbox&quot; name=&quot;emailreporter1&quot; 
++             id=&quot;emailreporter1&quot; value=&quot;1&quot;&gt;
++      &lt;label for=&quot;emailreporter1&quot;&gt;
++        reporter
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;checkbox&quot; name=&quot;emailcc1&quot; 
++             id=&quot;emailcc1&quot; value=&quot;1&quot;&gt;
++      &lt;label for=&quot;emailcc1&quot;&gt;
++        CC list member
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++        &lt;input type=&quot;checkbox&quot; name=&quot;emaillongdesc1&quot; 
++               id=&quot;emaillongdesc1&quot; value=&quot;1&quot;&gt;
++      &lt;label for=&quot;emaillongdesc1&quot;&gt;
++        commenter
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;select name=&quot;emailtype1&quot;&gt;
++        
++        &lt;option value=&quot;substring&quot;&gt;contains&lt;/option&gt;
++        
++        &lt;option value=&quot;exact&quot;&gt;is&lt;/option&gt;
++        
++        &lt;option value=&quot;regexp&quot;&gt;matches regexp&lt;/option&gt;
++        
++        &lt;option value=&quot;notregexp&quot;&gt;doesn't match regexp&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input name=&quot;email1&quot; size=&quot;25&quot; value=&quot;&quot;&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++
++    
++    &lt;/td&gt;
++    &lt;td&gt;
++
++
++&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      Any of:
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;checkbox&quot; name=&quot;emailassigned_to2&quot; 
++             id=&quot;emailassigned_to2&quot; value=&quot;1&quot; checked&gt;
++      &lt;label for=&quot;emailassigned_to2&quot;&gt;
++        bug owner
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;checkbox&quot; name=&quot;emailreporter2&quot; 
++             id=&quot;emailreporter2&quot; value=&quot;1&quot; checked&gt;
++      &lt;label for=&quot;emailreporter2&quot;&gt;
++        reporter
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;checkbox&quot; name=&quot;emailcc2&quot; 
++             id=&quot;emailcc2&quot; value=&quot;1&quot; checked&gt;
++      &lt;label for=&quot;emailcc2&quot;&gt;
++        CC list member
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++        &lt;input type=&quot;checkbox&quot; name=&quot;emaillongdesc2&quot; 
++               id=&quot;emaillongdesc2&quot; value=&quot;1&quot;&gt;
++      &lt;label for=&quot;emaillongdesc2&quot;&gt;
++        commenter
++      &lt;/label&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;select name=&quot;emailtype2&quot;&gt;
++        
++        &lt;option value=&quot;substring&quot;&gt;contains&lt;/option&gt;
++        
++        &lt;option value=&quot;exact&quot;&gt;is&lt;/option&gt;
++        
++        &lt;option value=&quot;regexp&quot;&gt;matches regexp&lt;/option&gt;
++        
++        &lt;option value=&quot;notregexp&quot;&gt;doesn't match regexp&lt;/option&gt;
++      &lt;/select&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;input name=&quot;email2&quot; size=&quot;25&quot; value=&quot;&quot;&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++
++    
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++&lt;hr&gt;
++&lt;table&gt;  
++  &lt;tr&gt;
++    &lt;td&gt;
++      &lt;select name=&quot;bugidtype&quot;&gt;
++        &lt;option value=&quot;include&quot;&gt;Only include&lt;/option&gt;
++        &lt;option value=&quot;exclude&quot;&gt;Exclude&lt;/option&gt;
++      &lt;/select&gt;
++      bugs numbered: 
++    &lt;/td&gt;
++    &lt;td&gt;
++      &lt;input type=&quot;text&quot; name=&quot;bug_id&quot; value=&quot;&quot; size=&quot;20&quot;&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  &lt;tr&gt;
++    &lt;td&gt;&lt;/td&gt;
++    &lt;td&gt;(comma-separated list)&lt;/td&gt;
++  &lt;/tr&gt;
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        Only bugs with at least:
++      &lt;/td&gt;
++      &lt;td&gt;
++        &lt;input name=&quot;votes&quot; size=&quot;3&quot; value=&quot;&quot;&gt; votes
++      &lt;/td&gt;
++    &lt;/tr&gt;
++&lt;/table&gt;
++
++
++      &lt;/fieldset&gt;
++    &lt;/td&gt;
++   
++
++
++    &lt;td valign=&quot;top&quot;&gt;
++      &lt;fieldset&gt;
++        &lt;legend&gt;&lt;strong&gt;Bug Changes&lt;/strong&gt;&lt;/legend&gt;
++
++
++&lt;dl&gt;
++  &lt;dt&gt;Only bugs changed in the last &lt;/dt&gt;
++  &lt;dd&gt;&lt;input name=&quot;changedin&quot; size=&quot;3&quot; value=&quot;&quot;&gt; days&lt;/dd&gt;
++&lt;/dl&gt;
++
++&lt;dl&gt;
++  &lt;dt&gt;Only bugs where any of the fields&lt;/dt&gt;
++  &lt;dd&gt;
++    &lt;select name=&quot;chfield&quot; multiple=&quot;multiple&quot; size=&quot;4&quot;&gt;
++      &lt;option value=&quot;[Bug creation]&quot;&gt;[Bug creation]&lt;/option&gt;
++      &lt;option value=&quot;alias&quot;&gt;Alias&lt;/option&gt;
++      &lt;option value=&quot;assigned_to&quot;&gt;Assignee&lt;/option&gt;
++      &lt;option value=&quot;bug_file_loc&quot;&gt;URL&lt;/option&gt;
++      &lt;option value=&quot;bug_severity&quot;&gt;Severity&lt;/option&gt;
++      &lt;option value=&quot;bug_status&quot;&gt;Status&lt;/option&gt;
++      &lt;option value=&quot;cclist_accessible&quot;&gt;CC list accessible?&lt;/option&gt;
++      &lt;option value=&quot;component&quot;&gt;Component&lt;/option&gt;
++      &lt;option value=&quot;everconfirmed&quot;&gt;Ever confirmed?&lt;/option&gt;
++      &lt;option value=&quot;keywords&quot;&gt;Keywords&lt;/option&gt;
++      &lt;option value=&quot;op_sys&quot;&gt;OS&lt;/option&gt;
++      &lt;option value=&quot;priority&quot;&gt;Priority&lt;/option&gt;
++      &lt;option value=&quot;product&quot;&gt;Product&lt;/option&gt;
++      &lt;option value=&quot;qa_contact&quot;&gt;QA Contact&lt;/option&gt;
++      &lt;option value=&quot;rep_platform&quot;&gt;Hardware&lt;/option&gt;
++      &lt;option value=&quot;reporter&quot;&gt;Reporter&lt;/option&gt;
++      &lt;option value=&quot;reporter_accessible&quot;&gt;Reporter accessible?&lt;/option&gt;
++      &lt;option value=&quot;resolution&quot;&gt;Resolution&lt;/option&gt;
++      &lt;option value=&quot;short_desc&quot;&gt;Summary&lt;/option&gt;
++      &lt;option value=&quot;status_whiteboard&quot;&gt;Whiteboard&lt;/option&gt;
++      &lt;option value=&quot;target_milestone&quot;&gt;Target Milestone&lt;/option&gt;
++      &lt;option value=&quot;version&quot;&gt;Version&lt;/option&gt;
++      &lt;option value=&quot;votes&quot;&gt;Votes&lt;/option&gt;
++    &lt;/select&gt;
++  &lt;/dd&gt;
++
++  &lt;dt&gt;were changed between&lt;/dt&gt;
++  &lt;dd&gt;
++    &lt;input name=&quot;chfieldfrom&quot; size=&quot;10&quot; value=&quot;&quot;&gt;
++    and &lt;input name=&quot;chfieldto&quot; size=&quot;10&quot; value=&quot;Now&quot;&gt;
++    &lt;br&gt;(YYYY-MM-DD)
++  &lt;/dd&gt;
++  &lt;dt&gt;to this value: (optional)&lt;/dt&gt;
++  &lt;dd&gt;
++    &lt;input name=&quot;chfieldvalue&quot; size=&quot;20&quot; value=&quot;&quot;&gt;
++  &lt;/dd&gt;
++&lt;/dl&gt;
++
++
++       &lt;/fieldset&gt;
++     &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++
++
++
++&lt;br&gt;
++  &lt;input type=&quot;hidden&quot; name=&quot;cmdtype&quot; value=&quot;doit&quot;&gt;
++
++&lt;p&gt;
++  Sort results by:
++  &lt;select name=&quot;order&quot;&gt;
++    &lt;option value=&quot;Bug Number&quot;&gt;Bug Number&lt;/option&gt; 
++    &lt;option value=&quot;Importance&quot;&gt;Importance&lt;/option&gt; 
++    &lt;option value=&quot;Assignee&quot;&gt;Assignee&lt;/option&gt; 
++    &lt;option value=&quot;Last Changed&quot;&gt;Last Changed&lt;/option&gt; 
++  &lt;/select&gt;
++  &lt;input type=&quot;submit&quot; value=&quot;Search&quot;&gt;
++
++&lt;/p&gt;
++
++&lt;hr&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++
++
++  &lt;p&gt;
++    &lt;strong&gt;
++      &lt;a name=&quot;chart&quot; href=&quot;queryhelp.cgi#advancedquerying&quot;&gt;
++      Advanced Querying Using Boolean Charts&lt;/a&gt;:
++    &lt;/strong&gt;
++  &lt;/p&gt;
++
++
++
++
++  &lt;table&gt;
++    &lt;tr&gt;
++      &lt;td&gt;
++        &lt;select name=&quot;field0-0-0&quot;&gt;
++            &lt;option value=&quot;noop&quot;&gt;---&lt;/option&gt;
++            &lt;option value=&quot;assignee_accessible&quot;&gt;assignee_accessible&lt;/option&gt;
++            &lt;option value=&quot;qacontact_accessible&quot;&gt;qacontact_accessible&lt;/option&gt;
++            &lt;option value=&quot;bug_id&quot;&gt;Bug #&lt;/option&gt;
++            &lt;option value=&quot;owner_idle_time&quot;&gt;Time Since Owner Touched&lt;/option&gt;
++            &lt;option value=&quot;short_desc&quot;&gt;Summary&lt;/option&gt;
++            &lt;option value=&quot;product&quot;&gt;Product&lt;/option&gt;
++            &lt;option value=&quot;version&quot;&gt;Version&lt;/option&gt;
++            &lt;option value=&quot;rep_platform&quot;&gt;Platform&lt;/option&gt;
++            &lt;option value=&quot;bug_file_loc&quot;&gt;URL&lt;/option&gt;
++            &lt;option value=&quot;op_sys&quot;&gt;OS/Version&lt;/option&gt;
++            &lt;option value=&quot;bug_status&quot;&gt;Status&lt;/option&gt;
++            &lt;option value=&quot;status_whiteboard&quot;&gt;Status Whiteboard&lt;/option&gt;
++            &lt;option value=&quot;keywords&quot;&gt;Keywords&lt;/option&gt;
++            &lt;option value=&quot;resolution&quot;&gt;Resolution&lt;/option&gt;
++            &lt;option value=&quot;bug_severity&quot;&gt;Severity&lt;/option&gt;
++            &lt;option value=&quot;priority&quot;&gt;Priority&lt;/option&gt;
++            &lt;option value=&quot;component&quot;&gt;Component&lt;/option&gt;
++            &lt;option value=&quot;assigned_to&quot;&gt;AssignedTo&lt;/option&gt;
++            &lt;option value=&quot;reporter&quot;&gt;ReportedBy&lt;/option&gt;
++            &lt;option value=&quot;votes&quot;&gt;Votes&lt;/option&gt;
++            &lt;option value=&quot;qa_contact&quot;&gt;QAContact&lt;/option&gt;
++            &lt;option value=&quot;cc&quot;&gt;CC&lt;/option&gt;
++            &lt;option value=&quot;dependson&quot;&gt;BugsThisDependsOn&lt;/option&gt;
++            &lt;option value=&quot;blocked&quot;&gt;OtherBugsDependingOnThis&lt;/option&gt;
++            &lt;option value=&quot;attachments.description&quot;&gt;Attachment description&lt;/option&gt;
++            &lt;option value=&quot;attachments.thedata&quot;&gt;Attachment data&lt;/option&gt;
++            &lt;option value=&quot;attachments.filename&quot;&gt;Attachment filename&lt;/option&gt;
++            &lt;option value=&quot;attachments.mimetype&quot;&gt;Attachment mime type&lt;/option&gt;
++            &lt;option value=&quot;attachments.ispatch&quot;&gt;Attachment is patch&lt;/option&gt;
++            &lt;option value=&quot;attachments.isobsolete&quot;&gt;Attachment is obsolete&lt;/option&gt;
++            &lt;option value=&quot;attachments.isprivate&quot;&gt;Attachment is private&lt;/option&gt;
++            &lt;option value=&quot;target_milestone&quot;&gt;Target Milestone&lt;/option&gt;
++            &lt;option value=&quot;delta_ts&quot;&gt;Last changed date&lt;/option&gt;
++            &lt;option value=&quot;(to_days(now()) - to_days(bugs.delta_ts))&quot;&gt;Days since bug changed&lt;/option&gt;
++            &lt;option value=&quot;longdesc&quot;&gt;Comment&lt;/option&gt;
++            &lt;option value=&quot;alias&quot;&gt;Alias&lt;/option&gt;
++            &lt;option value=&quot;everconfirmed&quot;&gt;Ever Confirmed&lt;/option&gt;
++            &lt;option value=&quot;reporter_accessible&quot;&gt;Reporter Accessible&lt;/option&gt;
++            &lt;option value=&quot;cclist_accessible&quot;&gt;CC Accessible&lt;/option&gt;
++            &lt;option value=&quot;bug_group&quot;&gt;Group&lt;/option&gt;
++            &lt;option value=&quot;estimated_time&quot;&gt;Estimated Hours&lt;/option&gt;
++            &lt;option value=&quot;flagtypes.name&quot;&gt;Flag&lt;/option&gt;
++            &lt;option value=&quot;requesters.login_name&quot;&gt;Flag Requester&lt;/option&gt;
++            &lt;option value=&quot;setters.login_name&quot;&gt;Flag Setter&lt;/option&gt;
++            &lt;option value=&quot;content&quot;&gt;Content&lt;/option&gt;
++        &lt;/select&gt;
++
++        &lt;select name=&quot;type0-0-0&quot;&gt;
++            &lt;option value=&quot;noop&quot;&gt;---&lt;/option&gt;
++            &lt;option value=&quot;equals&quot;&gt;is equal to&lt;/option&gt;
++            &lt;option value=&quot;notequals&quot;&gt;is not equal to&lt;/option&gt;
++            &lt;option value=&quot;anyexact&quot;&gt;is equal to any of the strings&lt;/option&gt;
++            &lt;option value=&quot;substring&quot;&gt;contains the string&lt;/option&gt;
++            &lt;option value=&quot;casesubstring&quot;&gt;contains the string (exact case)&lt;/option&gt;
++            &lt;option value=&quot;notsubstring&quot;&gt;does not contain the string&lt;/option&gt;
++            &lt;option value=&quot;allwordssubstr&quot;&gt;contains all of the strings&lt;/option&gt;
++            &lt;option value=&quot;anywordssubstr&quot;&gt;contains any of the strings&lt;/option&gt;
++            &lt;option value=&quot;regexp&quot;&gt;contains regexp&lt;/option&gt;
++            &lt;option value=&quot;notregexp&quot;&gt;does not contain regexp&lt;/option&gt;
++            &lt;option value=&quot;lessthan&quot;&gt;is less than&lt;/option&gt;
++            &lt;option value=&quot;greaterthan&quot;&gt;is greater than&lt;/option&gt;
++            &lt;option value=&quot;anywords&quot;&gt;contains any of the words&lt;/option&gt;
++            &lt;option value=&quot;allwords&quot;&gt;contains all of the words&lt;/option&gt;
++            &lt;option value=&quot;nowords&quot;&gt;contains none of the words&lt;/option&gt;
++            &lt;option value=&quot;changedbefore&quot;&gt;changed before&lt;/option&gt;
++            &lt;option value=&quot;changedafter&quot;&gt;changed after&lt;/option&gt;
++            &lt;option value=&quot;changedfrom&quot;&gt;changed from&lt;/option&gt;
++            &lt;option value=&quot;changedto&quot;&gt;changed to&lt;/option&gt;
++            &lt;option value=&quot;changedby&quot;&gt;changed by&lt;/option&gt;
++        &lt;/select&gt;
++
++        &lt;input name=&quot;value0-0-0&quot; 
++               value=&quot;&quot;&gt; 
++      &lt;/td&gt;
++      
++        &lt;td&gt;
++          &lt;input type=&quot;submit&quot; value=&quot;Or&quot; 
++                 name=&quot;cmd-add0-0-1&quot; &gt;
++        &lt;/td&gt;
++      
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td&gt;
++        &lt;input type=&quot;submit&quot; value=&quot;And&quot; 
++               name=&quot;cmd-add0-1-0&quot;&gt; 
++        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++        &lt;input type=&quot;submit&quot; value=&quot;Add another boolean chart&quot; 
++               name=&quot;cmd-add1-0-0&quot; &gt;
++        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
++      &lt;/td&gt;
++    &lt;/tr&gt;   
++    
++  &lt;/table&gt;
++  &lt;hr&gt;
++
++&lt;p&gt;
++  Give me a &lt;a href=&quot;queryhelp.cgi&quot;&gt;clue&lt;/a&gt; about how to use this form.
++&lt;/p&gt;
++
++&lt;/form&gt;
++
++&lt;table border=&quot;0&quot;&gt;
++  &lt;tr&gt;
++    &lt;td bgcolor=&quot;#000000&quot; valign=&quot;top&quot;&gt;
++      &lt;table border=&quot;0&quot; cellpadding=&quot;10&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;
++             bgcolor=&quot;dddaec&quot;&gt;
++        &lt;tr&gt;
++          &lt;td&gt;
++          
++
++
++	&lt;p class=&quot;version&quot;&gt;&lt;a href=&quot;<A HREF="http://www.bugzilla.org/">http://www.bugzilla.org/</A>&quot;&gt;Bugzilla&lt;/a&gt; Version 2.18rc2&lt;/p&gt;
++
++	&lt;p&gt;For more information on Gentoo Linux, please visit our 
++	&lt;a href=&quot;<A HREF="http://www.gentoo.org">http://www.gentoo.org</A>&quot;&gt;homepage&lt;/a&gt;.
++	&lt;/p&gt;
++
++
++&lt;form method=&quot;get&quot; action=&quot;show_bug.cgi&quot;&gt;
++  &lt;table width=&quot;100%&quot;&gt;
++    &lt;tr&gt;
++      &lt;td&gt;
++        Actions:
++      &lt;/td&gt;
++      
++      &lt;td valign=&quot;middle&quot; nowrap=&quot;nowrap&quot;&gt;
++        &lt;a href=&quot;enter_bug.cgi?format=guided&quot;&gt;New&lt;/a&gt; |
++        &lt;a href=&quot;enter_bug.cgi&quot;&gt;New-Expert&lt;/a&gt; | 
++        &lt;a href=&quot;query.cgi&quot;&gt;Query&lt;/a&gt; |
++        
++        &lt;input type=&quot;submit&quot; value=&quot;Find&quot;&gt; bug # 
++        &lt;input name=&quot;id&quot; size=&quot;6&quot;&gt; | 
++        
++        &lt;a href=&quot;report.cgi&quot;&gt;Reports&lt;/a&gt; 
++        
++          | &lt;a href=&quot;request.cgi&quot;&gt;Requests&lt;/a&gt;
++              
++      &lt;/td&gt;
++
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++          
++      &lt;td valign=&quot;middle&quot; align=&quot;right&quot;&gt;
++          &lt;a href=&quot;createaccount.cgi&quot;&gt;New&nbsp;Account&lt;/a&gt; | 
++        &lt;a href=&quot;query.cgi?GoAheadAndLogIn=1&quot;&gt;Log&nbsp;In&lt;/a&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++    
++  &lt;/table&gt;                
++&lt;/form&gt;
++
++          &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/table&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/table&gt;
++
++&lt;/body&gt;
++&lt;/html&gt;
+\ No newline at end of file
+
+Added: trunk/examples/gentoo/show_activity.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/show_activity.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/show_activity.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,22 @@
++This is Bugzilla
++
++Home | Docs | Forums | Lists | Bugs | Planet | Store | GWN | Get Gentoo!
++
++Activity log
++
++Bug 77777
++
++
++&#9484;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9516;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9488;
++&#9474;       Who        &#9474;           When           &#9474;    What    &#9474; Removed &#9474;   Added   &#9474;
++&#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
++&#9474; <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">swift at gentoo.org</A> &#9474; 2005-01-13 12:15:14 PST  &#9474; Status     &#9474; NEW     &#9474; RESOLVED  &#9474;
++&#9474;                  &#9474;                          &#9500;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9532;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9508;
++&#9474;                  &#9474;                          &#9474; Resolution &#9474;         &#9474; DUPLICATE &#9474;
++&#9492;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9524;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9496;
++
++Back to bug 77777
++
++Bugzilla Version 2.20+
++Actions:
++Home | New | Search | bug # [      ] [Find] | Reports | Requests | New Account | Log In
+
+Added: trunk/examples/gentoo/show_bug.cgi.htm
+===================================================================
+--- trunk/examples/gentoo/show_bug.cgi.htm	2006-01-27 04:26:55 UTC (rev 28)
++++ trunk/examples/gentoo/show_bug.cgi.htm	2006-01-29 01:26:00 UTC (rev 29)
+@@ -0,0 +1,760 @@
++&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;&gt;
++&lt;html&gt;&lt;head&gt;&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;&gt;
++    &lt;link rel=&quot;shortcut icon&quot; href=&quot;<A HREF="http://bugs.gentoo.org/images/favicon.ico">http://bugs.gentoo.org/images/favicon.ico</A>&quot; type=&quot;image/x-icon&quot;&gt;
++    &lt;link title=&quot;new&quot; rel=&quot;stylesheet&quot; href=&quot;show_bug.cgi_files/main.css&quot; type=&quot;text/css&quot;&gt;
++    
++    
++
++&lt;title&gt;Bug 77777 - groff fails to build during &quot;bootstrap.sh&quot;&lt;/title&gt;&lt;link rel=&quot;Top&quot; href=&quot;<A HREF="http://bugs.gentoo.org/">http://bugs.gentoo.org/</A>&quot;&gt;
++
++  
++    &lt;link rel=&quot;Up&quot; href=&quot;<A HREF="http://bugs.gentoo.org/buglist.cgi?regetlastlist=1">http://bugs.gentoo.org/buglist.cgi?regetlastlist=1</A>&quot;&gt;
++
++
++
++      &lt;link rel=&quot;Next&quot; href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=44423">http://bugs.gentoo.org/show_bug.cgi?id=44423</A>&quot;&gt;
++      &lt;link rel=&quot;Last&quot; href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=87474">http://bugs.gentoo.org/show_bug.cgi?id=87474</A>&quot;&gt;
++
++
++  
++    &lt;link rel=&quot;Show&quot; title=&quot;Dependency Tree&quot; href=&quot;<A HREF="http://bugs.gentoo.org/showdependencytree.cgi?id=77777">http://bugs.gentoo.org/showdependencytree.cgi?id=77777</A>&quot;&gt;
++    &lt;link rel=&quot;Show&quot; title=&quot;Dependency Graph&quot; href=&quot;<A HREF="http://bugs.gentoo.org/showdependencygraph.cgi?id=77777">http://bugs.gentoo.org/showdependencygraph.cgi?id=77777</A>&quot;&gt; 
++
++
++      &lt;link rel=&quot;Show&quot; title=&quot;Bug Activity&quot; href=&quot;<A HREF="http://bugs.gentoo.org/show_activity.cgi?id=77777">http://bugs.gentoo.org/show_activity.cgi?id=77777</A>&quot;&gt;
++      &lt;link rel=&quot;Show&quot; title=&quot;Printer-Friendly Version&quot; href=&quot;<A HREF="http://bugs.gentoo.org/long_list.cgi?buglist=77777">http://bugs.gentoo.org/long_list.cgi?buglist=77777</A>&quot;&gt;
++    
++    
++    &lt;script type=&quot;text/javascript&quot;&gt;
++  &lt;!--
++  
++  function initHelp() {}
++  // --&gt;
++  &lt;/script&gt;        
++
++    
++        &lt;link href=&quot;show_bug.cgi_files/edit_bug.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;&lt;/head&gt;
++
++
++
++
++
++
++    &lt;body onload=&quot;&quot; bgcolor=&quot;#ffffff&quot;&gt;
++
++
++&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/">http://bugs.gentoo.org/</A>&quot;&gt;&lt;img src=&quot;show_bug.cgi_files/bugzilla.png&quot; alt=&quot;Gentoo Linux Bugzilla&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
++
++&lt;p class=&quot;menu&quot;&gt;
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/index.xml">http://www.gentoo.org/index.xml</A>&quot;&gt;Home&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/about.xml">http://www.gentoo.org/main/en/about.xml</A>&quot;&gt; About &lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/contract.xml">http://www.gentoo.org/main/en/contract.xml</A>&quot;&gt; Social Contract&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/doc/en/index.xml">http://www.gentoo.org/doc/en/index.xml</A>&quot;&gt;Docs&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://forums.gentoo.org/">http://forums.gentoo.org/</A>&quot;&gt;Forums&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/lists.xml">http://www.gentoo.org/main/en/lists.xml</A>&quot;&gt; Lists&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/shots.xml">http://www.gentoo.org/main/en/shots.xml</A>&quot;&gt;ScreenShots&lt;/a&gt; |
++&lt;a class=&quot;highlight&quot; href=&quot;<A HREF="http://bugs.gentoo.org/">http://bugs.gentoo.org/</A>&quot;&gt;Bugs&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://store.gentoo.org/">http://store.gentoo.org/</A>&quot;&gt;Store&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/news/en/gwn/gwn.xml">http://www.gentoo.org/news/en/gwn/gwn.xml</A>&quot;&gt; GWN&lt;/a&gt; |
++&lt;a class=&quot;menulink&quot; href=&quot;<A HREF="http://www.gentoo.org/main/en/where.xml">http://www.gentoo.org/main/en/where.xml</A>&quot;&gt; Get Gentoo!&lt;/a&gt;
++&lt;/p&gt;
++
++    &lt;table border=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
++      &lt;tbody&gt;&lt;tr&gt;
++        &lt;td align=&quot;left&quot; valign=&quot;top&quot;&gt;
++          &lt;table border=&quot;0&quot; cellpadding=&quot;0&quot; cellspacing=&quot;2&quot;&gt;
++            &lt;tbody&gt;&lt;tr&gt;
++              &lt;td align=&quot;left&quot; nowrap=&quot;nowrap&quot; valign=&quot;top&quot;&gt;
++                &lt;font size=&quot;+1&quot;&gt;&lt;b&gt;Bugzilla Bug 77777 &lt;br&gt; &lt;/b&gt;&lt;i&gt;groff fails to build during &quot;bootstrap.sh&quot;&lt;/i&gt;&lt;b&gt;&lt;/b&gt;&lt;/font&gt;
++              &lt;/td&gt;
++            &lt;/tr&gt;
++          &lt;/tbody&gt;&lt;/table&gt;
++        &lt;/td&gt;
++        &lt;td align=&quot;left&quot; valign=&quot;middle&quot;&gt;&nbsp;&lt;/td&gt;
++        &lt;td align=&quot;left&quot; valign=&quot;middle&quot;&gt;&lt;/td&gt;
++          &lt;td align=&quot;right&quot; valign=&quot;middle&quot;&gt;Last modified: 2005-01-13 12:15 PST&lt;/td&gt;
++      &lt;/tr&gt;
++    &lt;/tbody&gt;&lt;/table&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++
++  &lt;b&gt;Bug List:&lt;/b&gt;
++  
++  &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=44423">http://bugs.gentoo.org/show_bug.cgi?id=44423</A>&quot;&gt;First&lt;/a&gt;
++  &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=87474">http://bugs.gentoo.org/show_bug.cgi?id=87474</A>&quot;&gt;Last&lt;/a&gt;
++ 
++      (This bug is not in your list)
++  
++  &nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/buglist.cgi?regetlastlist=1">http://bugs.gentoo.org/buglist.cgi?regetlastlist=1</A>&quot;&gt;Show list&lt;/a&gt;
++
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/query.cgi">http://bugs.gentoo.org/query.cgi</A>&quot;&gt;Query page&lt;/a&gt;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/enter_bug.cgi?format=guided">http://bugs.gentoo.org/enter_bug.cgi?format=guided</A>&quot;&gt;Enter new bug&lt;/a&gt;
++
++&lt;hr&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++
++&lt;form name=&quot;changeform&quot; method=&quot;post&quot; action=&quot;process_bug.cgi&quot;&gt;
++
++  &lt;input name=&quot;delta_ts&quot; value=&quot;20050113121514&quot; type=&quot;hidden&quot;&gt;
++  &lt;input name=&quot;longdesclength&quot; value=&quot;4&quot; type=&quot;hidden&quot;&gt;
++  &lt;input name=&quot;id&quot; value=&quot;77777&quot; type=&quot;hidden&quot;&gt;
++
++
++
++  &lt;table border=&quot;0&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot;&gt;
++    &lt;tbody&gt;&lt;tr&gt;      
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;Bug#:&lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td&gt;
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=77777">http://bugs.gentoo.org/show_bug.cgi?id=77777</A>&quot;&gt;77777&lt;/a&gt;
++            &lt;label title=&quot;a name for the bug that can be used in place of its ID number, f.e. when adding it to a list of dependencies&quot;&gt;
++              &lt;b&gt;alias:&lt;/b&gt;
++              &lt;input name=&quot;alias&quot; value=&quot;&quot; size=&quot;20&quot; maxlength=&quot;20&quot;&gt;
++            &lt;/label&gt;
++      &lt;/td&gt;
++      
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;u&gt;H&lt;/u&gt;ardware:&lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;rep_platform&quot; accesskey=&quot;h&quot;&gt;
++      &lt;select name=&quot;rep_platform&quot; id=&quot;rep_platform&quot;&gt;&lt;option value=&quot;All&quot;&gt;All
++          &lt;/option&gt;&lt;option value=&quot;x86&quot; selected=&quot;selected&quot;&gt;x86
++          &lt;/option&gt;&lt;option value=&quot;PPC&quot;&gt;PPC
++          &lt;/option&gt;&lt;option value=&quot;PPC64&quot;&gt;PPC64
++          &lt;/option&gt;&lt;option value=&quot;Sparc&quot;&gt;Sparc
++          &lt;/option&gt;&lt;option value=&quot;MIPS&quot;&gt;MIPS
++          &lt;/option&gt;&lt;option value=&quot;Alpha&quot;&gt;Alpha
++          &lt;/option&gt;&lt;option value=&quot;ARM&quot;&gt;ARM
++          &lt;/option&gt;&lt;option value=&quot;HPPA&quot;&gt;HPPA
++          &lt;/option&gt;&lt;option value=&quot;amd64&quot;&gt;amd64
++          &lt;/option&gt;&lt;option value=&quot;ia64&quot;&gt;ia64
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++      
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;Reporter:&lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td&gt;Stan Behrens &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">stanbehrens at msn.com</A>&gt;
++      &lt;/td&gt;    
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;u&gt;P&lt;/u&gt;roduct:&lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;product&quot; accesskey=&quot;p&quot;&gt;
++      &lt;select name=&quot;product&quot; id=&quot;product&quot;&gt;&lt;option value=&quot;Admin&quot;&gt;Admin
++          &lt;/option&gt;&lt;option value=&quot;Developer Relations&quot;&gt;Developer Relations
++          &lt;/option&gt;&lt;option value=&quot;Docs-developer&quot;&gt;Docs-developer
++          &lt;/option&gt;&lt;option value=&quot;Docs-user&quot;&gt;Docs-user
++          &lt;/option&gt;&lt;option value=&quot;Gentoo BSD&quot;&gt;Gentoo BSD
++          &lt;/option&gt;&lt;option value=&quot;Gentoo Bugzilla&quot;&gt;Gentoo Bugzilla
++          &lt;/option&gt;&lt;option value=&quot;Gentoo for Mac OS X&quot;&gt;Gentoo for Mac OS X
++          &lt;/option&gt;&lt;option value=&quot;Gentoo Hosted Projects&quot;&gt;Gentoo Hosted Projects
++          &lt;/option&gt;&lt;option value=&quot;Gentoo Infrastructure&quot;&gt;Gentoo Infrastructure
++          &lt;/option&gt;&lt;option value=&quot;Gentoo Linux&quot; selected=&quot;selected&quot;&gt;Gentoo Linux
++          &lt;/option&gt;&lt;option value=&quot;Gentoo LiveCD (all flavors)&quot;&gt;Gentoo LiveCD (all flavors)
++          &lt;/option&gt;&lt;option value=&quot;Gentoo Security&quot;&gt;Gentoo Security
++          &lt;/option&gt;&lt;option value=&quot;GRP&quot;&gt;GRP
++          &lt;/option&gt;&lt;option value=&quot;Mirrors&quot;&gt;Mirrors
++          &lt;/option&gt;&lt;option value=&quot;Portage Development&quot;&gt;Portage Development
++          &lt;/option&gt;&lt;option value=&quot;Recruitment&quot;&gt;Recruitment
++          &lt;/option&gt;&lt;option value=&quot;Web-www.gentoo.org&quot;&gt;Web-www.gentoo.org
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++      
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;u&gt;O&lt;/u&gt;S:&lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;op_sys&quot; accesskey=&quot;o&quot;&gt;
++      &lt;select name=&quot;op_sys&quot; id=&quot;op_sys&quot;&gt;&lt;option value=&quot;All&quot;&gt;All
++          &lt;/option&gt;&lt;option value=&quot;Linux&quot; selected=&quot;selected&quot;&gt;Linux
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;u&gt;A&lt;/u&gt;dd&nbsp;CC:&lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td&gt;
++        &lt;input name=&quot;newcc&quot; size=&quot;30&quot; value=&quot;&quot; accesskey=&quot;a&quot;&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++
++    
++
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;
++          &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/describecomponents.cgi?product=Gentoo%20Linux">http://bugs.gentoo.org/describecomponents.cgi?product=Gentoo%20Linux</A>&quot;&gt;
++            Co&lt;u&gt;m&lt;/u&gt;ponent&lt;/a&gt;:
++        &lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;component&quot; accesskey=&quot;m&quot;&gt;
++      &lt;select name=&quot;component&quot; id=&quot;component&quot;&gt;&lt;option value=&quot;Applications&quot; selected=&quot;selected&quot;&gt;Applications
++          &lt;/option&gt;&lt;option value=&quot;baselayout&quot;&gt;baselayout
++          &lt;/option&gt;&lt;option value=&quot;Core system&quot;&gt;Core system
++          &lt;/option&gt;&lt;option value=&quot;Development&quot;&gt;Development
++          &lt;/option&gt;&lt;option value=&quot;Ebuilds&quot;&gt;Ebuilds
++          &lt;/option&gt;&lt;option value=&quot;Eclasses and Profiles&quot;&gt;Eclasses and Profiles
++          &lt;/option&gt;&lt;option value=&quot;Games&quot;&gt;Games
++          &lt;/option&gt;&lt;option value=&quot;GCC Porting&quot;&gt;GCC Porting
++          &lt;/option&gt;&lt;option value=&quot;GLI&quot;&gt;GLI
++          &lt;/option&gt;&lt;option value=&quot;GNOME&quot;&gt;GNOME
++          &lt;/option&gt;&lt;option value=&quot;Hardened&quot;&gt;Hardened
++          &lt;/option&gt;&lt;option value=&quot;KDE&quot;&gt;KDE
++          &lt;/option&gt;&lt;option value=&quot;Library&quot;&gt;Library
++          &lt;/option&gt;&lt;option value=&quot;Printing&quot;&gt;Printing
++          &lt;/option&gt;&lt;option value=&quot;Security&quot;&gt;Security
++          &lt;/option&gt;&lt;option value=&quot;Server&quot;&gt;Server
++          &lt;/option&gt;&lt;option value=&quot;Unspecified&quot;&gt;Unspecified
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++ 
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;u&gt;V&lt;/u&gt;ersion:&lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;version&quot; accesskey=&quot;v&quot;&gt;
++      &lt;select name=&quot;version&quot; id=&quot;version&quot;&gt;&lt;option value=&quot;1.0&quot;&gt;1.0
++          &lt;/option&gt;&lt;option value=&quot;1.0 RC6 r14&quot;&gt;1.0 RC6 r14
++          &lt;/option&gt;&lt;option value=&quot;1.1a&quot;&gt;1.1a
++          &lt;/option&gt;&lt;option value=&quot;1.2&quot;&gt;1.2
++          &lt;/option&gt;&lt;option value=&quot;1.3&quot;&gt;1.3
++          &lt;/option&gt;&lt;option value=&quot;1.4&quot;&gt;1.4
++          &lt;/option&gt;&lt;option value=&quot;1.4_rc1&quot;&gt;1.4_rc1
++          &lt;/option&gt;&lt;option value=&quot;1.4_rc2&quot;&gt;1.4_rc2
++          &lt;/option&gt;&lt;option value=&quot;1.4_rc3&quot;&gt;1.4_rc3
++          &lt;/option&gt;&lt;option value=&quot;1.4_rc4&quot;&gt;1.4_rc4
++          &lt;/option&gt;&lt;option value=&quot;2004.0&quot;&gt;2004.0
++          &lt;/option&gt;&lt;option value=&quot;2004.1&quot;&gt;2004.1
++          &lt;/option&gt;&lt;option value=&quot;2004.2&quot;&gt;2004.2
++          &lt;/option&gt;&lt;option value=&quot;2004.3&quot;&gt;2004.3
++          &lt;/option&gt;&lt;option value=&quot;2005.0&quot;&gt;2005.0
++          &lt;/option&gt;&lt;option value=&quot;unspecified&quot; selected=&quot;selected&quot;&gt;unspecified
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++      
++      &lt;td rowspan=&quot;4&quot; align=&quot;right&quot; valign=&quot;top&quot;&gt;
++        &lt;b&gt;CC:&lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td rowspan=&quot;4&quot; valign=&quot;top&quot;&gt; 
++        &lt;input name=&quot;cc&quot; value=&quot;&quot; type=&quot;hidden&quot;&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;
++          &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/bug_status.html">http://bugs.gentoo.org/bug_status.html</A>&quot;&gt;Status&lt;/a&gt;:
++        &lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td&gt;RESOLVED&lt;/td&gt;      
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++      
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/bug_status.html#priority">http://bugs.gentoo.org/bug_status.html#priority</A>&quot;&gt;Pr&lt;u&gt;i&lt;/u&gt;ority&lt;/a&gt;:&lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;priority&quot; accesskey=&quot;i&quot;&gt;
++      &lt;select name=&quot;priority&quot; id=&quot;priority&quot;&gt;&lt;option value=&quot;P1&quot;&gt;P1
++          &lt;/option&gt;&lt;option value=&quot;P2&quot; selected=&quot;selected&quot;&gt;P2
++          &lt;/option&gt;&lt;option value=&quot;P3&quot;&gt;P3
++          &lt;/option&gt;&lt;option value=&quot;P4&quot;&gt;P4
++          &lt;/option&gt;&lt;option value=&quot;P5&quot;&gt;P5
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;
++          &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/bug_status.html">http://bugs.gentoo.org/bug_status.html</A>&quot;&gt;Resolution&lt;/a&gt;:
++        &lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td&gt;DUPLICATE&lt;/td&gt;      
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++      
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/bug_status.html#severity">http://bugs.gentoo.org/bug_status.html#severity</A>&quot;&gt;S&lt;u&gt;e&lt;/u&gt;verity&lt;/a&gt;:&lt;/b&gt;
++      &lt;/td&gt;&lt;td&gt;
++    &lt;label for=&quot;bug_severity&quot; accesskey=&quot;e&quot;&gt;
++      &lt;select name=&quot;bug_severity&quot; id=&quot;bug_severity&quot;&gt;&lt;option value=&quot;blocker&quot; selected=&quot;selected&quot;&gt;blocker
++          &lt;/option&gt;&lt;option value=&quot;critical&quot;&gt;critical
++          &lt;/option&gt;&lt;option value=&quot;major&quot;&gt;major
++          &lt;/option&gt;&lt;option value=&quot;normal&quot;&gt;normal
++          &lt;/option&gt;&lt;option value=&quot;minor&quot;&gt;minor
++          &lt;/option&gt;&lt;option value=&quot;trivial&quot;&gt;trivial
++          &lt;/option&gt;&lt;option value=&quot;enhancement&quot;&gt;enhancement
++          &lt;/option&gt;&lt;/select&gt;
++    &lt;/label&gt;
++  &lt;/td&gt;
++  &lt;td&gt;&nbsp;&lt;/td&gt;
++      
++    &lt;/tr&gt;
++    
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;
++          &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/bug_status.html#assigned_to">http://bugs.gentoo.org/bug_status.html#assigned_to</A>&quot;&gt;Assigned&nbsp;To&lt;/a&gt;:
++        &lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td&gt;Gentoo Linux bug wranglers &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">bug-wranglers at gentoo.org</A>&gt;&lt;/td&gt;
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++ 
++        &lt;td colspan=&quot;3&quot;&gt;&nbsp;&lt;/td&gt;
++    &lt;/tr&gt;
++
++
++
++
++  &lt;tr&gt;
++    &lt;td align=&quot;right&quot;&gt;
++      &lt;b&gt;
++          &lt;u&gt;U&lt;/u&gt;RL:
++      &lt;/b&gt;
++    &lt;/td&gt;
++    &lt;td colspan=&quot;5&quot;&gt;
++      &lt;input name=&quot;bug_file_loc&quot; accesskey=&quot;u&quot; value=&quot;&quot; size=&quot;60&quot;&gt;
++    &lt;/td&gt;
++    &lt;td rowspan=&quot;4&quot; colspan=&quot;2&quot; valign=&quot;top&quot;&gt; 
++    &lt;/td&gt;
++  &lt;/tr&gt;
++  
++  &lt;tr&gt;
++    &lt;td align=&quot;right&quot;&gt;
++      &lt;b&gt;&lt;u&gt;S&lt;/u&gt;ummary:&lt;/b&gt;
++    &lt;/td&gt;
++    &lt;td colspan=&quot;5&quot;&gt;
++      &lt;input name=&quot;short_desc&quot; accesskey=&quot;s&quot; value=&quot;groff fails to build during &quot;bootstrap.sh&quot;&quot; size=&quot;60&quot;&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++ 
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;Status &lt;u&gt;W&lt;/u&gt;hiteboard:&lt;/b&gt;
++      &lt;/td&gt;
++      &lt;td colspan=&quot;5&quot;&gt;
++        &lt;input name=&quot;status_whiteboard&quot; accesskey=&quot;w&quot; value=&quot;&quot; size=&quot;60&quot;&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++
++    &lt;tr&gt;
++      &lt;td align=&quot;right&quot;&gt;
++        &lt;b&gt;
++          &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/describekeywords.cgi">http://bugs.gentoo.org/describekeywords.cgi</A>&quot;&gt;&lt;u&gt;K&lt;/u&gt;eywords&lt;/a&gt;:
++        &lt;/b&gt;
++      &lt;/td&gt;&lt;td colspan=&quot;5&quot;&gt;
++        &lt;input name=&quot;keywords&quot; accesskey=&quot;k&quot; value=&quot;&quot; size=&quot;60&quot;&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt; 
++  &lt;/tbody&gt;&lt;/table&gt;
++
++  
++
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++
++&lt;br&gt;
++&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; cellspacing=&quot;0&quot;&gt;
++  &lt;tbody&gt;&lt;tr&gt;
++    &lt;th align=&quot;left&quot; bgcolor=&quot;#cccccc&quot;&gt;Attachment&lt;/th&gt;
++    &lt;th align=&quot;left&quot; bgcolor=&quot;#cccccc&quot;&gt;Type&lt;/th&gt;
++    &lt;th align=&quot;left&quot; bgcolor=&quot;#cccccc&quot;&gt;Created&lt;/th&gt;
++    &lt;th align=&quot;left&quot; bgcolor=&quot;#cccccc&quot;&gt;Actions&lt;/th&gt;
++  &lt;/tr&gt;
++
++  &lt;tr&gt;
++    &lt;td colspan=&quot;3&quot;&gt;
++      &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/attachment.cgi?bugid=77777&amp;amp;action=enter">http://bugs.gentoo.org/attachment.cgi?bugid=77777&amp;action=enter</A>&quot;&gt;Create a New Attachment&lt;/a&gt; (proposed patch, testcase, etc.)
++    &lt;/td&gt;
++    &lt;td colspan=&quot;1&quot;&gt;
++      &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/attachment.cgi?bugid=77777&amp;amp;action=viewall">http://bugs.gentoo.org/attachment.cgi?bugid=77777&amp;action=viewall</A>&quot;&gt;View All&lt;/a&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/tbody&gt;&lt;/table&gt;
++&lt;br&gt;
++
++
++
++  &lt;table&gt;
++    &lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;right&quot;&gt;Bug 77777 &lt;u&gt;d&lt;/u&gt;epends on:&lt;/th&gt;
++  &lt;td&gt;
++  &lt;/td&gt;
++  &lt;td&gt;
++    &lt;input name=&quot;dependson&quot; accesskey=&quot;d&quot; value=&quot;&quot;&gt;
++  &lt;/td&gt;
++      &lt;td rowspan=&quot;2&quot;&gt;
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/showdependencytree.cgi?id=77777">http://bugs.gentoo.org/showdependencytree.cgi?id=77777</A>&quot;&gt;Show 
++        dependency tree&lt;/a&gt;  
++
++      &lt;/td&gt;
++    &lt;/tr&gt;
++
++    &lt;tr&gt;&lt;th align=&quot;right&quot;&gt;Bug 77777 &lt;u&gt;b&lt;/u&gt;locks:&lt;/th&gt;
++  &lt;td&gt;
++  &lt;/td&gt;
++  &lt;td&gt;
++    &lt;input name=&quot;blocked&quot; accesskey=&quot;b&quot; value=&quot;&quot;&gt;
++  &lt;/td&gt;
++    &lt;/tr&gt;
++  &lt;/tbody&gt;&lt;/table&gt;
++
++
++
++
++  &lt;br&gt;
++  &lt;b&gt;Additional &lt;u&gt;C&lt;/u&gt;omments:&lt;/b&gt;
++  &lt;br&gt;
++  &lt;textarea name=&quot;comment&quot; rows=&quot;10&quot; cols=&quot;80&quot; accesskey=&quot;c&quot;&gt;&lt;/textarea&gt;
++  &lt;br&gt;
++
++
++
++
++  &lt;br&gt;
++  &lt;input name=&quot;knob&quot; value=&quot;none&quot; checked=&quot;checked&quot; type=&quot;radio&quot;&gt;
++  Leave as &lt;b&gt;RESOLVED&nbsp;DUPLICATE&lt;/b&gt;
++  &lt;br&gt;
++
++
++  
++        &lt;input name=&quot;knob&quot; value=&quot;reopen&quot; type=&quot;radio&quot;&gt; Reopen bug
++        &lt;br&gt;
++        &lt;input name=&quot;knob&quot; value=&quot;verify&quot; type=&quot;radio&quot;&gt;
++        Mark bug as &lt;b&gt;VERIFIED&lt;/b&gt;&lt;br&gt;
++        &lt;input name=&quot;knob&quot; value=&quot;close&quot; type=&quot;radio&quot;&gt;
++        Mark bug as &lt;b&gt;CLOSED&lt;/b&gt;&lt;br&gt;  
++  
++  &lt;input value=&quot;Commit&quot; type=&quot;submit&quot;&gt;
++  &lt;input name=&quot;form_name&quot; value=&quot;process_bug&quot; type=&quot;hidden&quot;&gt;
++  &lt;p&gt;
++    &lt;font size=&quot;+1&quot;&gt;
++      &lt;b&gt;
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_activity.cgi?id=77777">http://bugs.gentoo.org/show_activity.cgi?id=77777</A>&quot;&gt;View Bug Activity&lt;/a&gt;
++        &nbsp; | &nbsp;
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/long_list.cgi?buglist=77777">http://bugs.gentoo.org/long_list.cgi?buglist=77777</A>&quot;&gt;Format For Printing&lt;/a&gt;
++      &lt;/b&gt;
++    &lt;/font&gt;
++
++  &lt;/p&gt;  
++
++
++
++&lt;table&gt;
++  &lt;tbody&gt;&lt;tr&gt;
++    &lt;td align=&quot;left&quot;&gt;
++      &lt;b&gt;
++        &lt;a name=&quot;c0&quot; href=&quot;#c0&quot;&gt;Description&lt;/a&gt;:
++      &lt;/b&gt;
++    &lt;/td&gt;
++    &lt;td align=&quot;right&quot; width=&quot;100%&quot;&gt;
++      Opened: 2005-01-12 21:54 PST
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/tbody&gt;&lt;/table&gt;
++&lt;hr&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++&lt;div&gt;
++        
++
++&lt;pre&gt;# cd /usr/portage; ./scripts/bootstrap.sh
++ [...]
++&gt;&gt;&gt; sys-devel/m4-1.4.1 merged.
++&gt;&gt;&gt; emerge (2 of 18) sys-apps/groff-1.19.1-r2 to /
++&gt;&gt;&gt; md5 src_uri ;-) groff-1.19.1.tar.gz
++&gt;&gt;&gt; Unpacking source...
++&gt;&gt;&gt; Unpacking groff-1.19.1.tar.gz to /var/tmp/portage/groff-1.19.1-r2/work
++ * Applying groff-1.18-infoext.patch ...                                  [ ok ]
++ * Applying groff-1.18-no-netpbm-depend.patch ...                         [ ok ]
++ * Applying groff-man-UTF-8.diff ...                                      [ ok ]
++ * Applying groff-1.19.1-stack.patch ...                                  [ ok ]
++ * Applying groff-1.19.1-tmpfile.patch ...                                [ ok ]
++ * Applying groff-1.19.1-parallel-make.patch ...                          [ ok ]
++&gt;&gt;&gt; Source unpacked.
++gcc
++g++
++configure: WARNING: If you wanted to set the --build type, don't use --host.
++    If a cross compiler is detected then cross compile mode will be used.
++checking for i686-pc-linux-gnu-gcc... gcc
++checking for C compiler default output file name... a.out
++checking whether the C compiler works... yes
++checking whether we are cross compiling... no
++checking for suffix of executables... 
++checking for suffix of object files... o
++checking whether we are using the GNU C compiler... yes
++checking whether gcc accepts -g... yes
++checking for gcc option to accept ANSI C... none needed
++checking for i686-pc-linux-gnu-g++... g++
++checking whether we are using the GNU C++ compiler... no
++checking whether g++ accepts -g... no
++checking that C++ compiler can compile simple program... no
++configure: error: a working C++ compiler is required
++
++!!! ERROR: sys-apps/groff-1.19.1-r2 failed.
++!!! Function src_compile, Line 85, Exitcode 1
++!!! (no error message)
++!!! If you need support, post the topmost build error, NOT this status message.
++
++=======================
++make.conf:
++-----------------------
++# grep -v ^# /etc/make.conf
++USE=&quot;-* x86&quot;
++CHOST=&quot;i686-pc-linux-gnu&quot;
++CFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++CXXFLAGS=&quot;${CFLAGS}&quot;
++ACCEPT_KEYWORDS=&quot;x86&quot;
++GENTOO_MIRRORS=&quot;&lt;a href=&quot;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</A>&quot;&gt;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a">http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a</A>&gt;&quot;
++SYNC=&quot;<A HREF="rsync://rsync.de.gentoo.org/gentoo-portage">rsync://rsync.de.gentoo.org/gentoo-portage</A>&quot;
++MAKEOPTS=&quot;-j2&quot;
++PORTAGE_NICENESS=3
++
++=======================
++config.log:
++-----------------------
++ [...]
++configure:2243: checking for i686-pc-linux-gnu-g++
++configure:2269: result: g++
++configure:2327: checking for C++ compiler version
++configure:2330: g++ --version &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2333: $? = 127
++configure:2335: g++ -v &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2338: $? = 127
++configure:2340: g++ -V &lt;/dev/null &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2343: $? = 127
++configure:2346: checking whether we are using the GNU C++ compiler
++configure:2370: g++ -c -march=pentium4 -O3 -fomit-frame-pointer -pipe  conftest.cc &gt;&amp;5
++./configure: line 1: g++: command not found
++configure:2376: $? = 127
++configure: failed program was:
++| /* confdefs.h.  */
++| 
++| #define PACKAGE_NAME &quot;&quot;
++| #define PACKAGE_TARNAME &quot;&quot;
++| #define PACKAGE_VERSION &quot;&quot;
++| #define PACKAGE_STRING &quot;&quot;
++| #define PACKAGE_BUGREPORT &quot;&quot;
++| /* end confdefs.h.  */
++| 
++| int
++| main ()
++| {
++| #ifndef __GNUC__
++|        choke me
++| #endif
++| 
++|   ;
++|   return 0;
++| }
++configure:2402: result: no
++ [...]
++
++=======================
++environment:
++-----------------------
++# printenv 
++INFODIR=/usr/share/info
++MANPATH=/usr/share/man:/usr/local/share/man:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/man
++HOSTNAME=rescue
++SHELL=/bin/bash
++TERM=xterm
++SSH_CLIENT=212.202.12.236 56408 22
++SSH_TTY=/dev/pts/0
++USER=root
++PAGER=/usr/bin/less
++CONFIG_PROTECT_MASK=/etc/terminfo
++PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/opt/bin:/usr/i386-pc-linux-gnu/gcc-bin/3.3
++MAIL=/var/mail/root
++GLIBC_SSP_CHECKED=1
++PWD=/usr/portage
++INPUTRC=/etc/inputrc
++EDITOR=/bin/nano
++PS1=\[\033[01;31m\]\h \[\033[01;34m\]\W \$ \[\033[00m\]
++CXX=g++
++HOME=/root
++SHLVL=2
++LOGNAME=root
++LESS=-R
++CVS_RSH=ssh
++SSH_CONNECTION=212.202.12.236 56408 82.96.68.77 22
++LESSOPEN=|lesspipe.sh %s
++INFOPATH=/usr/share/info:/usr/share/gcc-data/i386-pc-linux-gnu/3.3/info
++CC=gcc
++_=/bin/printenv
++OLDPWD=/
++
++=======================
++emerge --info:
++-----------------------
++# emerge --info
++Portage 2.0.51-r3 (default-linux/x86/2004.3, gcc-3.3.4, unavailable, 2.6.9-gentoo-r13 i686)
++=================================================================
++System uname: 2.6.9-gentoo-r13 i686 Intel(R) Pentium(R) 4 CPU 2.40GHz
++Gentoo Base System version 1.4.16
++Autoconf: 
++Automake: 
++Binutils: sys-devel/binutils-2.14.90.0.8-r1
++Headers:  
++Libtools: 
++ACCEPT_KEYWORDS=&quot;x86&quot;
++AUTOCLEAN=&quot;yes&quot;
++CFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++CHOST=&quot;i686-pc-linux-gnu&quot;
++COMPILER=&quot;&quot;
++CONFIG_PROTECT=&quot;/etc /usr/kde/2/share/config /usr/kde/3/share/config /usr/share/config /var/qmail/control&quot;
++CONFIG_PROTECT_MASK=&quot;/etc/gconf /etc/terminfo /etc/env.d&quot;
++CXXFLAGS=&quot;-march=pentium4 -O3 -fomit-frame-pointer -pipe&quot;
++DISTDIR=&quot;/usr/portage/distfiles&quot;
++FEATURES=&quot;autoaddcvs autoconfig ccache distlocks sandbox sfperms&quot;
++GENTOO_MIRRORS=&quot;&lt;a href=&quot;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo">http://ftp.uni-erlangen.de/pub/mirrors/gentoo</A>&quot;&gt;<A HREF="http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a">http://ftp.uni-erlangen.de/pub/mirrors/gentoo&lt;/a</A>&gt;&quot;
++MAKEOPTS=&quot;-j2&quot;
++PKGDIR=&quot;/usr/portage/packages&quot;
++PORTAGE_TMPDIR=&quot;/var/tmp&quot;
++PORTDIR=&quot;/usr/portage&quot;
++PORTDIR_OVERLAY=&quot;&quot;
++SYNC=&quot;<A HREF="rsync://rsync.de.gentoo.org/gentoo-portage">rsync://rsync.de.gentoo.org/gentoo-portage</A>&quot;
++USE=&quot;x86&quot;
++
++
++Reproducible: Always
++Steps to Reproduce:
++1. follow &lt;a href=&quot;<A HREF="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml">http://www.gentoo.org/doc/en/handbook/handbook-x86.xml</A>&quot;&gt;<A HREF="http://www.gentoo.org/doc/en/handbook/handbook-x86.xml&lt;/a">http://www.gentoo.org/doc/en/handbook/handbook-x86.xml&lt;/a</A>&gt;&lt;/pre&gt;
++&lt;/div&gt;
++  &lt;div&gt;
++        &lt;br&gt;
++        &lt;i&gt;------- Additional Comment
++        &lt;a name=&quot;c1&quot; href=&quot;#c1&quot;&gt;#1&lt;/a&gt; From 
++        &lt;a href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">douglas.hoffman at gmail.com</A>&quot;&gt;Douglas R. Hoffman&lt;/a&gt;
++        2005-01-13 11:42 PST 
++        -------
++        &lt;/i&gt;
++        
++
++&lt;pre&gt;I believe this a duplicate of :
++&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=77718">http://bugs.gentoo.org/show_bug.cgi?id=77718</A>&quot;&gt;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=77718&lt;/a">http://bugs.gentoo.org/show_bug.cgi?id=77718&lt;/a</A>&gt;&lt;/pre&gt;
++&lt;/div&gt;
++  &lt;div&gt;
++        &lt;br&gt;
++        &lt;i&gt;------- Additional Comment
++        &lt;a name=&quot;c2&quot; href=&quot;#c2&quot;&gt;#2&lt;/a&gt; From 
++        &lt;a href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">bss03 at volumehost.com</A>&quot;&gt;Boyd Stephen Smith Jr.&lt;/a&gt;
++        2005-01-13 11:55 PST 
++        -------
++        &lt;/i&gt;
++        
++
++&lt;pre&gt;I agree, looks very much like 77718.&lt;/pre&gt;
++&lt;/div&gt;
++  &lt;div&gt;
++        &lt;br&gt;
++        &lt;i&gt;------- Additional Comment
++        &lt;a name=&quot;c3&quot; href=&quot;#c3&quot;&gt;#3&lt;/a&gt; From 
++        &lt;a href=&quot;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">swift at gentoo.org</A>&quot;&gt;Sven Vermeulen&lt;/a&gt;
++        2005-01-13 12:15 PST 
++        -------
++        &lt;/i&gt;
++        
++
++&lt;pre&gt;
++*** This bug has been marked as a duplicate of &lt;span class=&quot;bz_closed&quot;&gt;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=77718">http://bugs.gentoo.org/show_bug.cgi?id=77718</A>&quot; title=&quot;RESOLVED FIXED - Missing g++ program when bootstraping&quot;&gt;77718&lt;/a&gt;&lt;/span&gt; ***&lt;/pre&gt;
++&lt;/div&gt;
++  
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++  
++&lt;/form&gt;
++
++&lt;hr&gt;
++&lt;!-- <A HREF="https://lists.berlios.de/mailman/listinfo/qute-checkins">1.0 at bugzilla.org</A> --&gt;
++
++
++  &lt;b&gt;Bug List:&lt;/b&gt;
++  
++  &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=44423">http://bugs.gentoo.org/show_bug.cgi?id=44423</A>&quot;&gt;First&lt;/a&gt;
++  &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=87474">http://bugs.gentoo.org/show_bug.cgi?id=87474</A>&quot;&gt;Last&lt;/a&gt;
++ 
++      (This bug is not in your list)
++  
++  &nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/buglist.cgi?regetlastlist=1">http://bugs.gentoo.org/buglist.cgi?regetlastlist=1</A>&quot;&gt;Show list&lt;/a&gt;
++
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/query.cgi">http://bugs.gentoo.org/query.cgi</A>&quot;&gt;Query page&lt;/a&gt;
++&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;<A HREF="http://bugs.gentoo.org/enter_bug.cgi?format=guided">http://bugs.gentoo.org/enter_bug.cgi?format=guided</A>&quot;&gt;Enter new bug&lt;/a&gt;
++
++&lt;br&gt;
++&lt;table border=&quot;0&quot;&gt;
++  &lt;tbody&gt;&lt;tr&gt;
++    &lt;td bgcolor=&quot;#000000&quot; valign=&quot;top&quot;&gt;
++      &lt;table bgcolor=&quot;#dddaec&quot; border=&quot;0&quot; cellpadding=&quot;10&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
++        &lt;tbody&gt;&lt;tr&gt;
++          &lt;td&gt;
++          
++
++
++	&lt;p class=&quot;version&quot;&gt;&lt;a href=&quot;<A HREF="http://www.bugzilla.org/">http://www.bugzilla.org/</A>&quot;&gt;Bugzilla&lt;/a&gt; Version 2.18rc2&lt;/p&gt;
++
++	&lt;p&gt;For more information on Gentoo Linux, please visit our 
++	&lt;a href=&quot;<A HREF="http://www.gentoo.org/">http://www.gentoo.org/</A>&quot;&gt;homepage&lt;/a&gt;.
++	&lt;/p&gt;
++
++
++&lt;form method=&quot;get&quot; action=&quot;show_bug.cgi&quot;&gt;
++  &lt;table width=&quot;100%&quot;&gt;
++    &lt;tbody&gt;&lt;tr&gt;
++      &lt;td&gt;
++        Actions:
++      &lt;/td&gt;
++      
++      &lt;td nowrap=&quot;nowrap&quot; valign=&quot;middle&quot;&gt;
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/enter_bug.cgi?format=guided">http://bugs.gentoo.org/enter_bug.cgi?format=guided</A>&quot;&gt;New&lt;/a&gt; |
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/enter_bug.cgi">http://bugs.gentoo.org/enter_bug.cgi</A>&quot;&gt;New-Expert&lt;/a&gt; | 
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/query.cgi">http://bugs.gentoo.org/query.cgi</A>&quot;&gt;Query&lt;/a&gt; |
++        
++        &lt;input value=&quot;Find&quot; type=&quot;submit&quot;&gt; bug # 
++        &lt;input name=&quot;id&quot; size=&quot;6&quot;&gt; | 
++        
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/report.cgi">http://bugs.gentoo.org/report.cgi</A>&quot;&gt;Reports&lt;/a&gt; 
++        
++          | &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/request.cgi">http://bugs.gentoo.org/request.cgi</A>&quot;&gt;Requests&lt;/a&gt;
++              
++      &lt;/td&gt;
++
++      &lt;td&gt;&nbsp;&lt;/td&gt;
++          
++      &lt;td align=&quot;right&quot; valign=&quot;middle&quot;&gt;
++          &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/createaccount.cgi">http://bugs.gentoo.org/createaccount.cgi</A>&quot;&gt;New&nbsp;Account&lt;/a&gt; | 
++        &lt;a href=&quot;<A HREF="http://bugs.gentoo.org/query.cgi?GoAheadAndLogIn=1">http://bugs.gentoo.org/query.cgi?GoAheadAndLogIn=1</A>&quot;&gt;Log&nbsp;In&lt;/a&gt;
++      &lt;/td&gt;
++    &lt;/tr&gt;
++    
++  &lt;/tbody&gt;&lt;/table&gt;                
++&lt;/form&gt;
++
++          &lt;/td&gt;
++        &lt;/tr&gt;
++      &lt;/tbody&gt;&lt;/table&gt;
++    &lt;/td&gt;
++  &lt;/tr&gt;
++&lt;/tbody&gt;&lt;/table&gt;
++
++&lt;/body&gt;&lt;/html&gt;
+\ No newline at end of file
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000001.html">[qute] r30 - trunk/examples/gentoo
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#0">[ date ]</a>
+              <a href="thread.html#0">[ thread ]</a>
+              <a href="subject.html#0">[ subject ]</a>
+              <a href="author.html#0">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

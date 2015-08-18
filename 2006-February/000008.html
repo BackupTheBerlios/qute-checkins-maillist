@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r37 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r37%20-%20trunk&In-Reply-To=%3C200602010044.k110iVCR010250%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000009.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r37 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r37%20-%20trunk&In-Reply-To=%3C200602010044.k110iVCR010250%40sheep.berlios.de%3E"
+       TITLE="[qute] r37 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Wed Feb  1 01:44:31 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[qute] r36 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000009.html">[qute] r38 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-02-01 01:44:26 +0100 (Wed, 01 Feb 2006)
+New Revision: 37
+
+Modified:
+   trunk/bugz.rb
+Log:
+Add BugList, BugDataList, BugDataParser and OptsBugId
+
+BugDataParser doesn't deal with parsing bug comments yet.  The current
+implementation of BugzCommands#read is only a skeleton that generates debugging
+output.
+
+
+
+Modified: trunk/bugz.rb
+===================================================================
+--- trunk/bugz.rb	2006-02-01 00:00:30 UTC (rev 36)
++++ trunk/bugz.rb	2006-02-01 00:44:26 UTC (rev 37)
+@@ -6,6 +6,7 @@
+ 
+ require 'qute'
+ require 'qutecmd'
++require 'pp'
+ 
+ $ZERO = 'bugz'
+ $QUTEDEBUG = true
+@@ -48,6 +49,8 @@
+ end
+ 
+ class BugList
++  include Enumerable
++
+   def initialize( queryform )
+     @bugtable = queryform.post( Qute::TableParser.new )
+   end
+@@ -76,19 +79,46 @@
+   end
+ end
+ 
+-class BugText
+-  def initialize( queryform )
+-    table = Qute::TableParser.new
+-    form  = Qute::FormParser.new
+-    @bugtext = queryform.post( MultiParser.new( table, form ) )
++class BugData &lt; Hash
++  attr_accessor :sourceurl, :cookie
++end
+ 
+-    p form.dataobj
+-    p table.dataobj
++class BugDataList &lt; Array
++  attr_reader :sourceurl, :cookie
++
++  def sourceurl=(url)
++    @sourceurl = url
++    self.each do |form|
++      form.sourceurl = url
++    end
+   end
+ 
+-  # XXX this definitely isn't complete
++  def cookie=(c)
++    @cookie = c
++    self.each do |form|
++      form.cookie = c
++    end
++  end
+ end
+ 
++class BugDataParser &lt; Qute::SGMLParser
++  include Qute::DataObjGen
++
++  def initialize
++    super
++    @bugdatalist = @dataobj = BugDataList.new
++    @bugdata = BugData.new
++  end
++
++  def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
++
++  def start_td(token) startcapture; end
++  def end_td(token)
++    # check for colon-delimited data
++    @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
++  end
++end
++
+ class BugzCommands
+   def directory( cmdobj )
+     cmdobj.syngrid = BugGrid.new( cmdobj )
+@@ -110,10 +140,24 @@
+   end
+ 
+   def read( cmdobj )
+-    # XXX need a new grid probably
+     cmdobj.parseargs!
+-    bugtext = BugText.new( cmdobj.queryform )
+-    # XXX need to finish BugText then can do something with it here
++    if cmdobj.queryform
++      buglist = BugList.new( cmdobj.queryform )
++      ids = buglist.map { |i| i['ID'].strip }
++    else
++      ids = cmdobj.ids
++    end
++    url = '<A HREF="http://bugs.gentoo.org/long_list.cgi?buglist=">http://bugs.gentoo.org/long_list.cgi?buglist=</A>' + ids.join(',')
++    bugs = Qute::Form.new( url ).post( BugDataParser.new )
++
++    QuteCmd.pkgoutput( cmdobj ) do
++      bugs.each do |bugdata|
++        longkey = 0
++        # really need something better than pp ;-)
++        pp bugdata
++      end
++      puts
++    end
+   end
+ 
+   def version( cmdobj )
+@@ -121,16 +165,49 @@
+   end
+ end
+ 
++# Simple options class to use when avoiding query.cgi, only handles bug_id
++class OptsBugId
++  def validopts(cmdobj)
++    return [ 'bug_id', QuteCmd::ArgRequired ]
++  end
++
++  def applyopts(cmdobj)
++    cmdobj.each(self) do |opt, arg, flags|
++      case opt
++      when 'bug_id'
++        cmdobj.ids &lt;&lt; arg
++      end
++    end
++  end
++end
++
++# BugzCmdObj subclasses QuteCmdObj to handle specifics of bugzilla
+ class BugzCmdObj &lt; QuteCmd::QuteCmdObj
++  # when query.cgi is required, holds the parsed form for use in OptsFormFields
+   attr_reader :queryform
+ 
++  # when query.cgi is bypassed, contains the list of bug ids, appended to by
++  # OptsBugId#applyopts
++  attr_accessor :ids
++
++  def initialize(*args)
++    @ids = []
++    super(*args)
++  end
++
+   def numberOptStr
+     'bug_id'
+   end
+ 
+   def parseargs!
+-    @queryform = getmainform
+-    @optobjlist &lt;&lt; QuteCmd::OptsFormFields.new( @queryform )
++    # If this general heuristic isn't good enough, fetching the query form could
++    # be moved to the individual methods of BugzCommands
++    if @args.detect { |a| a=~/\D/ }
++      @queryform = getmainform
++      @optobjlist &lt;&lt; QuteCmd::OptsFormFields.new( @queryform )
++    else
++      @optobjlist &lt;&lt; OptsBugId.new
++    end
+     super
+   end
+ end
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[qute] r36 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000009.html">[qute] r38 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

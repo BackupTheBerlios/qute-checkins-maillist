@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r38 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r38%20-%20trunk&In-Reply-To=%3C200602020330.k123UMlw013380%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000008.html">
+   <LINK REL="Next"  HREF="000010.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r38 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r38%20-%20trunk&In-Reply-To=%3C200602020330.k123UMlw013380%40sheep.berlios.de%3E"
+       TITLE="[qute] r38 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Thu Feb  2 04:30:22 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000008.html">[qute] r37 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000010.html">[qute] r39 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-02-02 04:30:04 +0100 (Thu, 02 Feb 2006)
+New Revision: 38
+
+Modified:
+   trunk/qute.rb
+Log:
+When matching entities, enforce the trailing semicolon so that entities can't be
+split between parser invocations by Net::HTTP#get or post.  This bug was
+resulting in spurious &gt; appearing in the output because &amp;g would be at the
+end of one parsed block and t; would be at the start of the next.
+
+Add default no-op SGMLParser#do_token so that method_missing isn't called
+looking for it.
+
+Treat entities as text when capturing.
+
+Explicitly unescape &nbsp; since CGI.unescapeHTML doesn't handle it.
+
+
+
+Modified: trunk/qute.rb
+===================================================================
+--- trunk/qute.rb	2006-02-01 00:44:26 UTC (rev 37)
++++ trunk/qute.rb	2006-02-02 03:30:04 UTC (rev 38)
+@@ -35,6 +35,8 @@
+ require 'uri'
+ require 'tempfile'
+ 
++$KCODE = 'u'    # instruct CGI to convert from HTML Unicode to internal UTF-8
++
+ module Qute
+ VERSIONMSG = &quot;qute version #{%Q$Rev$.gsub(/(^.*: | $)/, '')}&quot;
+ 
+@@ -49,11 +51,31 @@
+   OPTVALRE = %r{ (?:=\s*&quot;([^&quot;]*)&quot; | =\s*'([^']*)' | =\s*([^\s&gt;]*)) }x
+   OPTSRE = %r{ (?:([^\s&gt;=]+) #{OPTVALRE.source}? | #{OPTVALRE.source}) }x
+ 
++  # MatchData = [
++  #     0       complete match,
++  #     1       text
++  #     2       broken text
++  #     3       entity
++  #     4       comment
++  #     5       close tag
++  #     6       declaration tag
++  #     7       (open) tag
++  #         8   leading question mark
++  #         9   tag name
++  #        10   attribute name
++  #        11   attribute value (double-quoted)
++  #        12   attribute value (single-quoted)
++  #        13   attribute value (unquoted)
++  #        14   bogus attribute value (double-quoted)
++  #        15   bogus attribute value (single-quoted)
++  #        16   bogus attribute value (unquoted)
++  #        17   trailing question mark or slash
++  # ]
+   SGMLRE = %r{
+     (\A[^&amp;&lt;]+) |                                # text
+    # this next line breaks ruby on Tru64:
+     (\A&lt;\W*[^&lt;&gt;=]*(?=&lt;)) |                      # broken text
+-    (\A&amp;\#?\w*(?=\W);?) |                       # entity
++    (\A&amp;\#?\w+;) |                              # entity
+     (\A&lt;!--(?:.|\s)*?--&gt;) |                     # comment
+     (\A&lt;/[-:\w]+&gt;) |                            # close tag
+     (\A&lt;!\w+ (?:\s*(?:[^\s&gt;]*|&quot;[^&quot;]*&quot;))*\s*&gt;) | # declaration tag
+@@ -92,7 +114,7 @@
+         elsif @matchdata[i+=1] then ['text', '']
+         elsif @matchdata[i+=1] then ['entity', '']
+         elsif @matchdata[i+=1] then ['comment', '']
+-        elsif @matchdata[i+=1] then ['end',%r{\A&lt;/(.*)&gt;\Z}.match(to_s)[1].downcase]
++        elsif @matchdata[i+=1] then ['end',%r{\A&lt;/(.*)&gt;\Z}.match(self.to_s)[1].downcase]
+         elsif @matchdata[i+=1] then ['other', '']
+         elsif @matchdata[i+=1] then ['start', @matchdata[i+2].downcase]
+         else raise &quot;Parse failure:\n(%s)&quot; % matchdata
+@@ -103,16 +125,18 @@
+       return @s if @s
+ 
+       # if pre is false, collapse whitespace and unescape entities
+-      @s = if pre then
+-        @matchdata.to_s
++      if pre and @object != 'entity'
++        @s = @matchdata.to_s
+       else
+         # XXX: by not stripping this string, we could see multiple
+         # spaces in a row, but I think this is better than the
+         # possibility of completely eliminating spaces under other
+         # circumstances.  Perhaps the collapsing should be done by
+         # CaptureObj instead of the Token?
+-        CGI.unescapeHTML(@matchdata.to_s.tr_s(&quot; \t\n&quot;, ' '))
++        @s = CGI.unescapeHTML(@matchdata.to_s).gsub('&nbsp;', ' ')
++        @s.tr_s!(&quot; \t\n&quot;, ' ')
+       end
++
+       @s
+     end
+ 
+@@ -164,6 +188,10 @@
+     return tmp
+   end
+ 
++  # default general token handler does nothing
++  def do_token(token)
++  end
++
+   # catch calls to start_foo, end_foo, and foo_tag methods that are made from
+   # &lt;&lt; and not defined by any sub-class
+   def method_missing(mid, *args)
+@@ -222,7 +250,7 @@
+ 
+       if @capture
+         case token.object
+-        when 'text'
++        when 'text', 'entity'
+           # text tokens are thrown away unless capture is true, in which
+           # case we append the text to our capture buffer
+           #XXX: add support for entities
+@@ -977,6 +1005,8 @@
+       @text.gsub!(/setTimeout\(.*?\);/m, '')
+ 
+       @text.gsub!(/(.{0,70})(\s|$)/, &quot;\\1\n&quot;)  # wrap text at 70 chars
++    elsif token.object == 'entity' then
++      @text &lt;&lt; token.to_s
+     end
+   end
+ 
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000008.html">[qute] r37 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000010.html">[qute] r39 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

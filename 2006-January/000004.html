@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r33 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-January/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r33%20-%20trunk&In-Reply-To=%3C200601302305.k0UN5HPZ021841%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   <LINK REL="Next"  HREF="000005.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r33 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r33%20-%20trunk&In-Reply-To=%3C200601302305.k0UN5HPZ021841%40sheep.berlios.de%3E"
+       TITLE="[qute] r33 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Tue Jan 31 00:05:17 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[qute] r32 - trunk
+</A></li>
+        <LI>Next message: <A HREF="000005.html">[qute] r34 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-01-31 00:05:15 +0100 (Tue, 31 Jan 2006)
+New Revision: 33
+
+Modified:
+   trunk/qute.rb
+Log:
+Add attribute documentation for Form class.
+Use rdoc-style definitions for &quot;Classes related to...&quot;
+
+Modified: trunk/qute.rb
+===================================================================
+--- trunk/qute.rb	2006-01-30 18:08:10 UTC (rev 32)
++++ trunk/qute.rb	2006-01-30 23:05:15 UTC (rev 33)
+@@ -361,14 +361,30 @@
+ end
+ 
+ # Classes related to forms:
+-#       FormField - one field in a form
+-#       Form      - one form in a page, handles posting and marshalling
+-#       FormList  - list of forms in a page
++# FormField:: one field in a form
++# Form::      one form in a page, handles posting and marshalling
++# FormList::  list of forms in a page
+ # 
+ # The Form class represents a list of FormFields (via OrderedHash), along with
+-# the methods necessary to post the itself to a CGI.
++# the methods necessary to post itself to a CGI.
+ class Form &lt; OrderedHash
+-  attr_accessor :sourceurl, :targeturl, :cookie, :method
++  # used in the Referer: header when posting the Form.  The initial Form
++  # generally does not have sourceurl set.  Parsed forms inherit their sourceurl
++  # from the parent's targeturl.
++  attr_accessor :sourceurl
++
++  # specifies the target for posting the Form.  For the initial Form, the
++  # targeturl specifies where the form can be fetched (for example
++  # <A HREF="http://bugs.gentoo.org/query.cgi">http://bugs.gentoo.org/query.cgi</A>)
++  attr_accessor :targeturl
++
++  # set by the set-cookie header when parsing, then posted back by any child
++  # Forms
++  attr_accessor :cookie
++  
++  # 'get' or 'post', defaults to the method of the parent form or 'get'
++  attr_accessor :method
++
+   @@http = nil
+ 
+   def initialize(targeturl = nil, prevobj = nil)
+@@ -387,7 +403,7 @@
+ 
+   # convert self into a URL-escaped string for posting
+   def querystring
+-    map { |field| field.to_s }.join('&amp;')
++    self.map { |field| field.to_s }.join('&amp;')
+   end
+ 
+   # parse a URL-escaped string and load the resulting values
+@@ -686,9 +702,9 @@
+ end
+ 
+ # Classes related to table management:
+-#       TableRow    - one row of a table
+-#       TableRecord - one record, comprising N rows
+-#       Table       - entire web page
++# TableRow::    one row of a table
++# TableRecord:: one record, comprising N rows
++# Table::       entire web page
+ #
+ # A Table is an array of TableRows.  It keeps track of a sourceurl and cookie
+ # for the entire table, plus provides easy access to all the header rows.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[qute] r32 - trunk
+</A></li>
+	<LI>Next message: <A HREF="000005.html">[qute] r34 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r35 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r35%20-%20trunk&In-Reply-To=%3C200601312354.k0VNseU2028716%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r35 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r35%20-%20trunk&In-Reply-To=%3C200601312354.k0VNseU2028716%40sheep.berlios.de%3E"
+       TITLE="[qute] r35 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Wed Feb  1 00:54:40 CET 2006</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000007.html">[qute] r36 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-02-01 00:54:38 +0100 (Wed, 01 Feb 2006)
+New Revision: 35
+
+Modified:
+   trunk/qutecmd.rb
+Log:
+Change OptsFormFields#fieldalias to an instance variable with a private
+accessor, purely so it's not instantiating a new hash every time it's called
+
+
+Modified: trunk/qutecmd.rb
+===================================================================
+--- trunk/qutecmd.rb	2006-01-31 17:36:24 UTC (rev 34)
++++ trunk/qutecmd.rb	2006-01-31 23:54:38 UTC (rev 35)
+@@ -709,14 +709,14 @@
+ # including the Not, Match (aka exact), and Case checkboxes, as well as simple
+ # aliases.
+ class OptsFormFields
++  attr_accessor :fieldalias
++  private :fieldalias
++
+   def initialize(queryform)
++    @fieldalias = {}
+     @queryform = queryform
+   end
+ 
+-  def fieldalias
+-    { }
+-  end
+-
+   def validopts(cmdobj)
+     opts = @queryform.map { |field| 
+       if field.choices.length &gt; 0 and not field.multiple
+@@ -785,7 +785,7 @@
+   # usually the first argument, such as &quot;read&quot;, &quot;query&quot;, &quot;update&quot;, etc.
+   attr_reader :command
+   
+-  # hash of option/argument pairs from the cmdline
++  # hash of option/argument pairs from the cmdline, see OptsSettings
+   attr_reader :settings
+ 
+   # default arguments for when none are given, if wanted should be set by the
+@@ -883,6 +883,8 @@
+         when ArgNone;     param = nil
+         when ArgRequired; @args[i+=1]
+         when ArgOptional; @args[i+1] =~ %r(^[/-]) ? nil : @args[i+=1]
++          # XXX What is this else really catching?  It appears that ArgOptional is
++          # implemented above...
+         else
+           p optstr, optobj, argreq
+           raise %Q(Optional parameters are not yet implemented)
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000007.html">[qute] r36 - trunk
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>

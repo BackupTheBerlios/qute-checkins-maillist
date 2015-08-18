@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [qute] r42 - trunk
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/qute-checkins/2006-February/index.html" >
+   <LINK REL="made" HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r42%20-%20trunk&In-Reply-To=%3C200602040128.k141SS4l021521%40sheep.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[qute] r42 - trunk</H1>
+    <B>agriffis at BerliOS</B> 
+    <A HREF="mailto:qute-checkins%40lists.berlios.de?Subject=Re%3A%20%5Bqute%5D%20r42%20-%20trunk&In-Reply-To=%3C200602040128.k141SS4l021521%40sheep.berlios.de%3E"
+       TITLE="[qute] r42 - trunk">agriffis at berlios.de
+       </A><BR>
+    <I>Sat Feb  4 02:28:28 CET 2006</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[qute] r41 - trunk
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Author: agriffis
+Date: 2006-02-04 02:28:17 +0100 (Sat, 04 Feb 2006)
+New Revision: 42
+
+Modified:
+   trunk/bugz.rb
+Log:
+Start along the path of using show_bug.cgi instead of
+show_bug.cgi?format=multiple since the former includes more information.
+However ultimately it's probable that we'll want to use MultiParser along with
+a custom parser to get all the data, or even subclass FormParser to handle the
+bugzilla oddities.
+
+
+Modified: trunk/bugz.rb
+===================================================================
+--- trunk/bugz.rb	2006-02-04 01:26:25 UTC (rev 41)
++++ trunk/bugz.rb	2006-02-04 01:28:17 UTC (rev 42)
+@@ -113,8 +113,9 @@
+   end
+ end
+ 
+-# Parser for the output of show_bug.cgi?format=multiple
+-class BugDataParser &lt; Qute::SGMLParser
++# Abstract parser for the output of show_bug.cgi or show_bug.cgi?format=multiple
++# (aka long_list.cgi), subclassed by BugDataParser and BugDataParserMulti
++class BugDataParserA &lt; Qute::SGMLParser
+   include Qute::DataObjGen
+ 
+   def initialize
+@@ -124,14 +125,8 @@
+     @comment = nil
+   end
+ 
+-  def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
++  def end_html(token) @bugdatalist.push(@bugdata); end
+ 
+-  def start_td(token) startcapture; end
+-  def end_td(token)
+-    # check for colon-delimited data
+-    @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
+-  end
+-
+   def start_span(token)
+     if token['class'] == 'bz_comment'
+       @comment = BugComment.new
+@@ -174,6 +169,74 @@
+   end
+ end
+ 
++# Parser for the output of show_bug.cgi?format=multiple (aka long_list.cgi)
++class BugDataParserMulti &lt; BugDataParserA
++  def hr_tag(token)   @bugdatalist.push(@bugdata); @bugdata = BugData.new; end
++
++  def start_td(token) startcapture; end
++  def end_td(token)
++    # check for colon-delimited data
++    @bugdata[$1] = $2 if endcapture =~ /(\S.*?)\s*:\s*(.*\S)\s*/
++  end
++end
++
++# Parser for the output of show_bug.cgi?format=multiple (aka long_list.cgi)
++class BugDataParser &lt; BugDataParserA
++  
++  class SelectList &lt; Array
++    attr_reader :multi
++    def initialize(multi) 
++      @multi = !!multi
++      super()
++    end
++    def to_s
++      self.join(', ')
++    end
++  end
++
++  def initialize
++    @label = nil
++    @select = nil
++    super
++  end
++
++  def start_td(token) startcapture; end
++  def end_td(token)
++    if @label
++      s = endcapture.strip
++      # handle some labels specially
++      case @label
++      when 'Bug#'
++        s.sub!(/\s.*/, '')
++      end
++      @bugdata[@label] = s
++      @label = nil
++    else
++      @label = $1 if endcapture =~ /(\S.*?):/
++    end
++  end
++
++  def start_select(token)
++    return unless @label
++    @select = SelectList.new(token['multiple'])
++    endcapture  # don't start until &lt;option&gt; tag
++  end
++  def start_option(token)
++    return unless @select
++    startcapture if @select.multi or token['selected']
++  end
++  def end_option(token)
++    return unless @select and @capture
++    @select &lt;&lt; endcapture.strip
++  end
++  def end_select(token)
++    return unless @select
++    @bugdata[@label] = @select.multi ? @select : @select[0]
++    @select = nil
++    @label = nil
++  end
++end
++
+ class BugComment
+   attr_accessor :num, :author, :author_email, :date, :text
+ 
+@@ -205,29 +268,40 @@
+ 
+   def read( cmdobj )
+     cmdobj.parseargs!
++
++    # We can get our ids from query results or direct from the cmdline
+     if cmdobj.queryform
+       buglist = BugList.new( cmdobj.queryform )
+       ids = buglist.map { |i| i['ID'].strip }
+     else
+       ids = cmdobj.ids
+     end
+-    url = '<A HREF="http://bugs.gentoo.org/show_bug.cgi?format=multiple&amp;id=">http://bugs.gentoo.org/show_bug.cgi?format=multiple&amp;id=</A>' + ids.join('&amp;id=')
+-    bugs = Qute::Form.new( url ).post( BugDataParser.new )
+ 
+-    QuteCmd.pkgoutput( cmdobj ) do
++    # show_bug.cgi without format=multiple requires multiple calls to get all
++    # the bug data, but format=multiple unfortunately doesn't provide all the
++    # data :-(
++    bugs = []
++    ids.each do |id|
++      url = '<A HREF="http://bugs.gentoo.org/show_bug.cgi?id=">http://bugs.gentoo.org/show_bug.cgi?id=</A>' + id
++      bugs += Qute::Form.new( url ).post( BugDataParser.new )
++    end
++
++    QuteCmd.pkgoutput( cmdobj, true ) do
+       first = true
+       bugs.each do |bugdata|
+-        if not first
+-          puts
+-          puts &quot;========================================================&quot;
+-          puts
+-        else
+-          first = false
+-        end
+-        bugdata.each do |k,v|
+-          puts &quot;%14s : %s&quot; % [ k, v ]
+-        end
+-        puts
++        puts '', QuteCmd::hr('='), '' unless first
++        first = false
++#       puts &quot;%14s : %s&quot; % [ &quot;Bug# #{bugdata['Bug#']}&quot;, bugdata['Summary'] ], ''
++#       column1 = %w( Assigned\ To Reporter Status Resolution Status\ Whiteboard Keywords URL )
++#       column2 = %w( Product Component Hardware OS Version Priority Severity )
++#       column3 = %w( CC )
++#       column1.each_index do |x|
++#         # XXX
++#         puts &quot;%14s : %s&quot; % [ k, bugdata[k] ]
++#         end
++#         puts
++#       end
++        pp bugdata
+         puts &quot;------- Description -------&quot;
+         puts
+         puts bugdata.description
+@@ -273,7 +347,7 @@
+ 
+   def initialize(*args)
+     @ids = []
+-    super(*args)
++    super
+   end
+ 
+   def numberOptStr
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[qute] r41 - trunk
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#13">[ date ]</a>
+              <a href="thread.html#13">[ thread ]</a>
+              <a href="subject.html#13">[ subject ]</a>
+              <a href="author.html#13">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/qute-checkins">More information about the Qute-checkins
+mailing list</a><br>
+</body></html>
